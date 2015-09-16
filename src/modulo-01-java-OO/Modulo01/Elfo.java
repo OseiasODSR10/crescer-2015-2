@@ -14,7 +14,7 @@ public class Elfo {
     }
    
     public boolean acertar(){
-		int x = (int) Math.random() * 100; 
+		int x = (int) (Math.random() * 100); 
 		return x<50;
 	}
 
