@@ -55,4 +55,10 @@ public class Elfo {
         }
         flechas--;
     }
+    
+    public void caçarDwarf(Dwarf anao){
+        this.atirarFlecha();
+        anao.perderVida();
+    }
+    
 }
