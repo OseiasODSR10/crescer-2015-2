@@ -10,4 +10,8 @@ public class Dwarf
     public void perderVida(){
             this.vida -= 10;
     }
+    
+    public int getVida(){
+        return this.vida;
+    }
 }
