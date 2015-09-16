@@ -56,7 +56,3 @@ public class Elfo {
         flechas--;
     }
 }
-
-    Status API Training Shop Blog About Pricing 
-
-    © 2015 GitHub, Inc. Terms Privacy Security Contact Help 
