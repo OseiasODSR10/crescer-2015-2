@@ -80,14 +80,14 @@ public class ElfoTest
     @Test
     public void elfoPerdeUmaFlechaAoCaçaeDwarf(){
         Elfo elfinho = new Elfo("Elfinho");
-        elfinho.caçarDwarf(new Dwarf());
+        elfinho.caçarDwarf(new Dwarf("Anão"));
         assertEquals(41, elfinho.getFlechas());
     }
     
     @Test
     public void elfoAtiraFlechaEmDwarf(){
         Elfo elfo = new Elfo("Elfinho");
-        Dwarf anao = new Dwarf();
+        Dwarf anao = new Dwarf("Anão");
         elfo.caçarDwarf(anao);
         assertEquals(41, elfo.getFlechas());
         assertEquals(1,elfo.getExperiencia());
