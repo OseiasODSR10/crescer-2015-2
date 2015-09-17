@@ -39,4 +39,13 @@ public class ElfoTest
         Elfo elfinho = new Elfo("Elfinho");
         assertEquals("Elfinho possui 42 flechas e 0 níveis de experiência.", elfinho.toString());
     }
+    
+    @Test
+    public void elfoPerdeFlechaEDwarfPerdeVida(){
+        Elfo elfinho = new Elfo("Elfinho");
+        Dwarf anao = new Dwarf();
+        elfinho.caçarDwarf(anao);
+        assertEquals(41, elfinho.getFlechas());
+        assertEquals(100, anao.getVida());
+    }
 }
