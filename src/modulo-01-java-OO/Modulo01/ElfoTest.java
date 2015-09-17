@@ -113,5 +113,11 @@ public class ElfoTest
         assertEquals("MonoFlecha possui 9 flechas e 1 nível de experiência.", elfo.toString());
     }
     
+    @Test
+    public void elfoNasceComStatusVIVO(){
+        Elfo elfinho = new Elfo("Elfinho");
+        assertEquals(Status.VIVO, elfinho.getStatus());
+    }
+    
     
 }

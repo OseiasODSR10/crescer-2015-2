@@ -4,6 +4,7 @@
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
+    private Status status;
     
     /* Type initializer
      * Executa antes de cada construtor
@@ -14,6 +15,7 @@ public class Elfo {
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
+        this.status = Status.VIVO;
     }
     
    /* public Elfo(String nome, Integer flechas) {
@@ -26,6 +28,7 @@ public class Elfo {
     
     public Elfo(String nome){
         this(nome,42);
+        this.status = Status.VIVO;
     }
    
    
@@ -78,6 +81,10 @@ public class Elfo {
     
     public int getExperiencia(){
         return this.experiencia;
+    }
+    
+    public Status getStatus(){
+        return this.status;
     }
     
     /* 
