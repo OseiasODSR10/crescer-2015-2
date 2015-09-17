@@ -94,5 +94,24 @@ public class ElfoTest
         assertEquals(100, anao.getVida());
     }
     
+    @Test
+    public void elfoComNomeEFlechasInformadosToString(){
+        Elfo elfo = new Elfo("Elfinho", 1000);
+        assertEquals("Elfinho possui 1000 flechas e 0 níveis de experiência.", elfo.toString());
+    }
+    
+    @Test
+    public void elfoComNomeE1FlechasInformadosToString(){
+        Elfo elfo = new Elfo("MonoFlecha", 1);
+        assertEquals("MonoFlecha possui 1 flecha e 0 níveis de experiência.", elfo.toString());
+    }
+    
+    @Test
+    public void elfoComNomeEFlechasInformadosToStringDepoisDeAtirarFlecha(){
+        Elfo elfo = new Elfo("MonoFlecha", 10);
+        elfo.atirarFlecha();
+        assertEquals("MonoFlecha possui 9 flechas e 1 nível de experiência.", elfo.toString());
+    }
+    
     
 }

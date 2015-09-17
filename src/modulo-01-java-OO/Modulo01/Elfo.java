@@ -89,12 +89,13 @@ public class Elfo {
    
    @Override
    public String toString(){
-       return this.getNome()
-       +" possui "
-       +this.getFlechas()
-       +" flechas e "
-       +this.experiencia
-       +" níveis de experiência.";
+       boolean flechaÉNoSingular = Math.abs(this.flechas) == 1;
+       String textoFlecha = flechaÉNoSingular? "flecha" : "flechas";
+       
+       boolean nivelÉNoSingular = Math.abs(this.experiencia) == 1;
+       String textoNivel = nivelÉNoSingular? "nível" : "níveis";
+              
+       String textoCompleto = String.format("%s possui %d %s e %d %s de experiência.", this.nome, this.flechas, textoFlecha, this.experiencia, textoNivel);
+       return textoCompleto;
     }
-
 }
