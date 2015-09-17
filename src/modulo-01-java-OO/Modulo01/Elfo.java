@@ -76,6 +76,10 @@ public class Elfo {
         return this.flechas;
     }
     
+    public int getExperiencia(){
+        return this.experiencia;
+    }
+    
     /* 
     public void setFlechas(int flechas) {
         if (flechas > this.flechas)
