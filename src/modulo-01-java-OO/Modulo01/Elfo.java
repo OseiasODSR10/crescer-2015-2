@@ -1,3 +1,6 @@
+/**
+ * Representa objetos do tipo Elfo.
+ */
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
@@ -15,14 +18,17 @@ public class Elfo {
     
     public Elfo(String nome, Integer flechas) {
         this(nome);
+
         if (flechas == null) {
             this.flechas = 89;
         }
     }
     
-    public Elfo(String nome) {
-        this(nome, 42);
+    public Elfo(String nome){
+        this(nome,42);
     }
+   
+   
 
     /* PascalCase (C#, VB.NET)
      *      public void AtirarFlechaDeFogo
@@ -30,13 +36,12 @@ public class Elfo {
      *      public void atirarFlechaDeFogo
     */
    
+
     public void atirarFlecha() {
         flechas--;
         experiencia++;
-        //experiencia += 1;
-        //experiencia = experiencia + 1;
     }
-    
+
     /*
      * 
      * public atirarFlechaRefactory(this.flechas, this.experiencia){
@@ -56,9 +61,36 @@ public class Elfo {
         flechas--;
     }
     
+
     public void caçarDwarf(Dwarf anao){
         this.atirarFlecha();
         anao.perderVida();
     }
     
+
+    public String getNome() {
+        return nome;
+    }
+    
+    public int getFlechas() {
+        return this.flechas;
+    }
+    
+    /* 
+    public void setFlechas(int flechas) {
+        if (flechas > this.flechas)
+            this.flechas = flechas;
+    }
+    */
+   
+   @Override
+   public String toString(){
+       return this.getNome()
+       +" possui "
+       +this.getFlechas()
+       +" flechas e "
+       +this.experiencia
+       +" níveis de experiência.";
+    }
+
 }
