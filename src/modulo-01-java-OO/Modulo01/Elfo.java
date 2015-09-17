@@ -16,13 +16,13 @@ public class Elfo {
         this.flechas = flechas;
     }
     
-    public Elfo(String nome, Integer flechas) {
+   /* public Elfo(String nome, Integer flechas) {
         this(nome);
 
         if (flechas == null) {
             this.flechas = 89;
         }
-    }
+    }*/
     
     public Elfo(String nome){
         this(nome,42);
