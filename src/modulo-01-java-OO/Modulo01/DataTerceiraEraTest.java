@@ -9,10 +9,9 @@ public class DataTerceiraEraTest
 {
    @Test 
    public void dataRecebeOsValoresInformadosComoDiaMêsEAno(){
-       DataTerceiraEra dataT = new DataTerceiraEra(1, 1, 2015);
-       assertEquals(1, dataT.getDia());
-       assertEquals(1, dataT.getMês());
-       assertEquals(2015, dataT.getAno());
+       DataTerceiraEra dataTerceiraEra = new DataTerceiraEra(1, 1, 2015);
+       DataTerceiraEra dataEsperada = new DataTerceiraEra(1, 1, 2015);
+       assertEquals(dataEsperada, dataTerceiraEra);
     }
     
     @Test
@@ -37,5 +36,12 @@ public class DataTerceiraEraTest
     public void outroAnoQueNãoÉBissextoNãoÉReconhecidoNoMétodoEhBissextoDaClasseDataTerceiraEra(){
         DataTerceiraEra data = new DataTerceiraEra(1, 1, 2015);
         assertEquals(false, data.ehBissexto());
+    }
+    
+    @Test
+    public void dataTerceiraEraRetornaTrueComDuasDatasIguais(){
+        DataTerceiraEra dataEsperada = new DataTerceiraEra(2,2,2);
+        DataTerceiraEra dataObtida = new DataTerceiraEra(2,2,2);
+        assertEquals(dataEsperada, dataObtida);
     }
 }

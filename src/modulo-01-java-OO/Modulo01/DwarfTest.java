@@ -99,17 +99,15 @@ public class DwarfTest
     @Test
     public void dwarfNasceComDataNascimentoPadrão(){
         Dwarf anao = new Dwarf("Anão");
-        assertEquals(1, anao.getDataNascimento().getDia());
-        assertEquals(1, anao.getDataNascimento().getMês());
-        assertEquals(1, anao.getDataNascimento().getAno());
+        DataTerceiraEra dataEsperada = new DataTerceiraEra(1,1,1);
+        assertEquals(dataEsperada, anao.getDataNascimento());
     }
     
     @Test
     public void dwarfNasceComDataNascimentoInformada(){
         Dwarf anao = new Dwarf("Anão", new DataTerceiraEra(1,7,1999));
-        assertEquals(1, anao.getDataNascimento().getDia());
-        assertEquals(7, anao.getDataNascimento().getMês());
-        assertEquals(1999, anao.getDataNascimento().getAno());
+        DataTerceiraEra dataEsperada = new DataTerceiraEra(1,7,1999);
+        assertEquals(dataEsperada, anao.getDataNascimento());
     }
     
     @Test
