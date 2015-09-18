@@ -2,10 +2,10 @@
 public class DataTerceiraEra
 {
     private int dia;
-    private Meses mês;
+    private int mês;
     private int ano;
     
-    public DataTerceiraEra(int dia, Meses mês, int ano){
+    public DataTerceiraEra(int dia, int mês, int ano){
         this.ano = ano;
         this.mês = mês;
         this.dia = dia;
@@ -15,7 +15,7 @@ public class DataTerceiraEra
         return this.dia;
     }
     
-    public Meses getMês(){
+    public int getMês(){
         return this.mês;
     }
     
