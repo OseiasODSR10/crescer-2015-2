@@ -35,4 +35,11 @@ public class DataTerceiraEra
         }
         return ehBissexto; 
     }
+    
+    public boolean equals(Object obj){
+        DataTerceiraEra outraData = (DataTerceiraEra) obj;
+        return this.dia == outraData.getDia() &&
+        this.mês == outraData.getMês() &&
+        this.ano == outraData.getAno();
+    }
 }
