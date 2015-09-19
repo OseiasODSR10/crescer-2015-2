@@ -168,5 +168,50 @@ public class DwarfTest
         anao.perderVida();
         assertEquals(100, anao.getVida());
     }
+    
+    @Test
+    public void dwarfGanha1000ItensComOmétodoTentarSorte(){
+        DataTerceiraEra dataBissexto = new DataTerceiraEra(01, 01, 2012);
+		Dwarf dwarf = new Dwarf("Anão", dataBissexto);
+		Item faca = new Item("Faca", 2);
+		Item anel = new Item("Anel", 2);
+		dwarf.adicionarItemAoInventário(faca);
+		dwarf.adicionarItemAoInventário(anel);
+		dwarf.perderVida();
+		dwarf.perderVida();
+		dwarf.perderVida();
+		dwarf.tentarSorte();
+		assertEquals(1002, dwarf.getItens().getItens().get(0).getQuantidade());
+		assertEquals(1002, dwarf.getItens().getItens().get(1).getQuantidade());
+    }
+    
+    @Test
+    public void dwarfNãoGanha1000ItensComOmétodoTentarSorte(){
+        DataTerceiraEra dataNãoBissexto = new DataTerceiraEra(01, 01, 2013);
+		Dwarf dwarf = new Dwarf("Anão", dataNãoBissexto);
+		Item faca = new Item("Faca", 2);
+		Item anel = new Item("Anel", 2);
+		dwarf.adicionarItemAoInventário(faca);
+		dwarf.adicionarItemAoInventário(anel);
+		dwarf.perderVida();
+		dwarf.perderVida();
+		dwarf.perderVida();
+		dwarf.tentarSorte();
+		assertEquals(2, dwarf.getItens().getItens().get(0).getQuantidade());
+		assertEquals(2, dwarf.getItens().getItens().get(1).getQuantidade());
+    }
+    
+    @Test
+    public void dwarfRemoveItemDoInventário(){
+		Dwarf dwarf = new Dwarf("Anão");
+		Item faca = new Item("Faca", 2);
+		Item anel = new Item("Anel", 2);
+		dwarf.adicionarItemAoInventário(faca);
+		dwarf.adicionarItemAoInventário(anel);
+		dwarf.removerItemDoInventário(anel);
+		assertEquals("Faca", dwarf.getItens().getDescricoesItens());
+    }
+    
+
 }
     

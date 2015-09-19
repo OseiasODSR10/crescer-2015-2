@@ -1,18 +1,12 @@
 
 public class Item
 {
-    private String tipo;
     private String descrição;
     private int quantidade;
     
-    public Item (String tipo, String descrição, int quantidade){
-        this.tipo = tipo;
+    public Item (String descrição, int quantidade){
         this.descrição = descrição;
         this.quantidade = quantidade;
-    }
-    
-    public String getTipo(){
-        return this.tipo;
     }
     
     public void adicionarItem(int quantidade){

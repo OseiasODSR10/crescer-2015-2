@@ -6,6 +6,7 @@ public class Dwarf
     private int vida, experiencia;
     private Status status = Status.VIVO;
     private DataTerceiraEra dataNascimento;
+    private Inventário inventário = new Inventário();
     
     public Dwarf (String nome){
         this(nome, new DataTerceiraEra(1,1,1));        
@@ -35,8 +36,32 @@ public class Dwarf
         
     }
     
+    public void adicionarItemAoInventário(Item item){
+        this.inventário.adicionarItem(item);
+    }
+    
+    public void removerItemDoInventário(Item item){
+        this.inventário.removerItem(item);
+    }
+    
+    public void ganharUmItem(Item item, int quantidade){
+        this.inventário.ganharUmItem(item, quantidade);
+    }
+    
+    public void tentarSorte(){
+        if(-3333.0 == this.getNúmeroSorte()){
+            for(int i = 0; i < this.inventário.getItens().size(); i++){
+               this.inventário.getItens().get(i).adicionarItem(1000);
+            }
+        }
+    }
+    
     public int getVida(){
         return this.vida;
+    }
+    
+    public Inventário getItens(){
+    	return this.inventário;
     }
     
     public Status getStatus(){
