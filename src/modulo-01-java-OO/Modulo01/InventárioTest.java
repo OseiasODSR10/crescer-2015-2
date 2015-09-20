@@ -23,7 +23,7 @@ public class InventárioTest
         Inventário inventário = new Inventário();
         inventário.adicionarItem(faca);
         inventário.adicionarItem(anel);
-        assertEquals("Faca, Anel", inventário.getDescricoesItens());
+        assertEquals("Faca,Anel", inventário.getDescricoesItens());
     }
     
     @Test
@@ -54,6 +54,19 @@ public class InventárioTest
         inventário.adicionarItem(faca);
         inventário.adicionarItem(anel);
         inventário.ordenarItens();
-        assertEquals("Anel, Faca, Bota, Espada", inventário.getDescricoesItens());
+        assertEquals("Anel,Faca,Bota,Espada", inventário.getDescricoesItens());
+    }
+    
+    @Test
+    public void inventárioOrdenaItensCorretamenteDeAcordoComOTamanhaEmOrdemAscendenteCom10Itens(){
+        Inventário inventário = new Inventário();
+        Item item[] = new Item[10];
+        for(int i=0; i<10; i++){
+            String nomeDoItem = "item"+i;
+            item[i] = new Item(nomeDoItem, i);
+            inventário.adicionarItem(item[i]);
+        }
+        inventário.ordenarItens();
+        assertEquals("item0,item1,item2,item3,item4,item5,item6,item7,item8,item9", inventário.getDescricoesItens());
     }
 }

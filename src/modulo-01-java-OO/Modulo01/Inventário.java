@@ -65,9 +65,9 @@ public class Inventário
     public String getDescricoesItens(){
         String descricaoItens = "";
         for (int i = 0; i < inventário.size(); i++){
-            descricaoItens = descricaoItens+ ", " +inventário.get(i).getDescrição();
+            descricaoItens = descricaoItens+ "," +inventário.get(i).getDescrição();
         }
-        return descricaoItens.substring(2);
+        return descricaoItens.substring(1);
     }
     
     public Item getItemComMaiorQuantidade(){

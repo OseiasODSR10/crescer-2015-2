@@ -172,46 +172,56 @@ public class DwarfTest
     @Test
     public void dwarfGanha1000ItensComOmétodoTentarSorte(){
         DataTerceiraEra dataBissexto = new DataTerceiraEra(01, 01, 2012);
-		Dwarf dwarf = new Dwarf("Anão", dataBissexto);
-		Item faca = new Item("Faca", 2);
-		Item anel = new Item("Anel", 2);
-		dwarf.adicionarItemAoInventário(faca);
-		dwarf.adicionarItemAoInventário(anel);
-		dwarf.perderVida();
-		dwarf.perderVida();
-		dwarf.perderVida();
-		dwarf.tentarSorte();
-
-		assertEquals(1002, dwarf.getQuantidadeDeItemDoInventário(1));
+        Dwarf dwarf = new Dwarf("Anão", dataBissexto);
+        Item faca = new Item("Faca", 2);
+        Item anel = new Item("Anel", 2);
+        dwarf.adicionarItemAoInventário(faca);
+        dwarf.adicionarItemAoInventário(anel);
+        dwarf.perderVida();
+        dwarf.perderVida();
+        dwarf.perderVida();
+        dwarf.tentarSorte();
+        assertEquals(1002, dwarf.getQuantidadeDeItemDoInventário(1));
     }
     
     @Test
     public void dwarfNãoGanha1000ItensComOmétodoTentarSorte(){
         DataTerceiraEra dataNãoBissexto = new DataTerceiraEra(01, 01, 2013);
-		Dwarf dwarf = new Dwarf("Anão", dataNãoBissexto);
-		Item faca = new Item("Faca", 2);
-		Item anel = new Item("Anel", 2);
-		dwarf.adicionarItemAoInventário(faca);
-		dwarf.adicionarItemAoInventário(anel);
-		dwarf.perderVida();
-		dwarf.perderVida();
-		dwarf.perderVida();
-		dwarf.tentarSorte();
-		assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(0));
-		assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(1));
+        Dwarf dwarf = new Dwarf("Anão", dataNãoBissexto);
+        Item faca = new Item("Faca", 2);
+        Item anel = new Item("Anel", 2);
+        dwarf.adicionarItemAoInventário(faca);
+        dwarf.adicionarItemAoInventário(anel);
+        dwarf.perderVida();
+        dwarf.perderVida();
+        dwarf.perderVida();
+        dwarf.tentarSorte();
+        assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(0));
+        assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(1));
     }
     
     @Test
     public void dwarfRemoveItemDoInventário(){
-		Dwarf dwarf = new Dwarf("Anão");
-		Item faca = new Item("Faca", 2);
-		Item anel = new Item("Anel", 2);
-		dwarf.adicionarItemAoInventário(faca);
-		dwarf.adicionarItemAoInventário(anel);
-		dwarf.removerItemDoInventário(anel);
-		assertEquals("Faca", dwarf.getDescriçãoItens());
+        Dwarf dwarf = new Dwarf("Anão");
+        Item faca = new Item("Faca", 2);
+        Item anel = new Item("Anel", 2);
+        dwarf.adicionarItemAoInventário (faca);
+        dwarf.adicionarItemAoInventário(anel);
+        dwarf.removerItemDoInventário(anel);
+        assertEquals("Faca", dwarf.getDescriçãoItens());
     }
     
-
+    @Test 
+    public void dwarfPerdeCertaQuantidadeDeUmDeterminadoItemDoInventário(){
+        Dwarf dwarf = new Dwarf("Anão");
+        Item faca = new Item("Faca", 200);
+        Item anel = new Item("Anel", 150);
+        dwarf.adicionarItemAoInventário (faca);
+        dwarf.adicionarItemAoInventário(anel);
+        dwarf.perderUmItem(faca, 50);
+        dwarf.perderUmItem(anel, 30);
+        assertEquals(120, dwarf.getQuantidadeDeItemDoInventário(1));
+        assertEquals(150, dwarf.getQuantidadeDeItemDoInventário(0));
+    }
 }
     
