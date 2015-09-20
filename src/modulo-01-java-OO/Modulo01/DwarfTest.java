@@ -181,8 +181,8 @@ public class DwarfTest
 		dwarf.perderVida();
 		dwarf.perderVida();
 		dwarf.tentarSorte();
-		assertEquals(1002, dwarf.getItens().getItens().get(0).getQuantidade());
-		assertEquals(1002, dwarf.getItens().getItens().get(1).getQuantidade());
+
+		assertEquals(1002, dwarf.getQuantidadeDeItemDoInventário(1));
     }
     
     @Test
@@ -197,8 +197,8 @@ public class DwarfTest
 		dwarf.perderVida();
 		dwarf.perderVida();
 		dwarf.tentarSorte();
-		assertEquals(2, dwarf.getItens().getItens().get(0).getQuantidade());
-		assertEquals(2, dwarf.getItens().getItens().get(1).getQuantidade());
+		assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(0));
+		assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(1));
     }
     
     @Test
@@ -209,7 +209,7 @@ public class DwarfTest
 		dwarf.adicionarItemAoInventário(faca);
 		dwarf.adicionarItemAoInventário(anel);
 		dwarf.removerItemDoInventário(anel);
-		assertEquals("Faca", dwarf.getItens().getDescricoesItens());
+		assertEquals("Faca", dwarf.getDescriçãoItens());
     }
     
 

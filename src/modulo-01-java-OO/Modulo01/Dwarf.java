@@ -48,12 +48,28 @@ public class Dwarf
         this.inventário.ganharUmItem(item, quantidade);
     }
     
+    public void perderUmItem(Item item, int quantidade){
+        this.inventário.perderUmItem(item, quantidade);
+    }
+    
+    public void ganharUmItem(int index, int quantidade){
+        this.inventário.ganharUmItem(index, quantidade);
+    }
+    
+    public void perderUmItem(int index, int quantidade){
+        this.inventário.perderUmItem(index, quantidade);
+    }
+    
     public void tentarSorte(){
         if(-3333.0 == this.getNúmeroSorte()){
             for(int i = 0; i < this.inventário.getItens().size(); i++){
-               this.inventário.getItens().get(i).adicionarItem(1000);
+               this.ganharUmItem(i, 1000);
             }
         }
+    }
+    
+    public void OrdenarItensDoInventário(){
+        this.inventário.ordenarItens();
     }
     
     public int getVida(){
@@ -62,6 +78,30 @@ public class Dwarf
     
     public Inventário getItens(){
     	return this.inventário;
+    }
+    
+    public Item getItem(Item item){
+        return this.inventário.getItem(item);
+    }
+    
+    public Item getItem(int itemIndex){
+        return this.inventário.getItem(itemIndex);
+    }
+    
+    public String getDescriçãoItens(){
+        return this.inventário.getDescricoesItens();
+    }
+    
+    public Item getItemComMaiorQuantidade(){
+        return this.inventário.getItemComMaiorQuantidade();
+    }
+    
+    public String getDescriçãoDeItemDoInventário(int index){
+        return this.inventário.getDescriçãoDeItem(index);
+    }
+    
+    public int getQuantidadeDeItemDoInventário(int index){
+        return this.inventário.getQuantidadeDeItem(index);
     }
     
     public Status getStatus(){

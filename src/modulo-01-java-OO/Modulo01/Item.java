@@ -13,6 +13,10 @@ public class Item
         this.quantidade += quantidade;
     }
     
+    public void perderItem(int quantidade){
+        this.quantidade -= quantidade;
+    }
+    
     public String getDescrição(){
         return this.descrição;
     }

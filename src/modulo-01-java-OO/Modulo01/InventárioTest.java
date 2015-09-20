@@ -13,7 +13,7 @@ public class InventárioTest
         Item faca = new Item ("Faca", 2);
         Inventário inventário = new Inventário();
         inventário.adicionarItem(faca);
-        assertEquals(inventário.getItens().get(0), faca);
+        assertEquals(inventário.getItem(0), faca);
     }
     
     @Test
