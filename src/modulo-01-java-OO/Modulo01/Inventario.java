@@ -7,6 +7,10 @@ public class Inventario
         inventario.add(item);
     }
     
+    public void adicionarNVezes1000Itens(int index){
+        inventario.get(index).adicionarNVezes1000Itens();
+    }
+    
     public void removerItem(Item item){
         inventario.remove(item);
     }
@@ -51,7 +55,7 @@ public class Inventario
     }
     
     public ArrayList<Item> getItens(){
-           return inventario;
+           return this.inventario;
     }
     
     public Item getItem(Item item){

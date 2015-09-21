@@ -13,6 +13,11 @@ public class Item
         this.quantidade += 1000;
     }
     
+    public void adicionarNVezes1000Itens(){
+        int pa = (this.quantidade * (this.quantidade + 1)) / 2;
+        this.quantidade += 1000 * pa;
+    }
+    
     public void perderItem(int quantidade){
         this.quantidade -= quantidade;
     }
@@ -23,5 +28,10 @@ public class Item
     
     public int getQuantidade(){
         return this.quantidade;
+    }
+    
+    public boolean equals(Object obj){
+        Item item = (Item) obj;
+        return this.descricao == item.getDescricao() && this.quantidade == item.getQuantidade();
     }
 }
