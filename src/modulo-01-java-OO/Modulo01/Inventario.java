@@ -12,11 +12,11 @@ public class Inventario
     }
     
     public void ganharUmItem(Item item, int quantidade){
-        inventario.get(inventario.indexOf(item)).adicionarItem(quantidade);
+        inventario.get(inventario.indexOf(item)).adicionar1000Itens();
     }
     
     public void ganharUmItem(int index, int quantidade){
-        inventario.get(index).adicionarItem(quantidade);
+        inventario.get(index).adicionar1000Itens();
     }
     
     public void perderUmItem(Item item, int quantidade){

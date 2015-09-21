@@ -9,8 +9,8 @@ public class Item
         this.quantidade = quantidade;
     }
     
-    public void adicionarItem(int quantidade){
-        this.quantidade += quantidade;
+    public void adicionar1000Itens(){
+        this.quantidade += 1000;
     }
     
     public void perderItem(int quantidade){
