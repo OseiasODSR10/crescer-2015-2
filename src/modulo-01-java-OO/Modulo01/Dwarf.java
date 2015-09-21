@@ -2,11 +2,11 @@
 
 public class Dwarf
 {
-    private String nome;
-    private int vida, experiencia;
-    private Status status = Status.VIVO;
-    private DataTerceiraEra dataNascimento;
-    private Inventario inventario = new Inventario();
+    protected String nome;
+    protected int vida, experiencia;
+    protected Status status = Status.VIVO;
+    protected DataTerceiraEra dataNascimento;
+    protected Inventario inventario = new Inventario();
     
     public Dwarf (String nome){
         this(nome, new DataTerceiraEra(1,1,1));        
