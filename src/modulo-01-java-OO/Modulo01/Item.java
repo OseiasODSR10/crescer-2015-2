@@ -1,11 +1,11 @@
 
 public class Item
 {
-    private String descrição;
+    private String descricao;
     private int quantidade;
     
-    public Item (String descrição, int quantidade){
-        this.descrição = descrição;
+    public Item (String descricao, int quantidade){
+        this.descricao = descricao;
         this.quantidade = quantidade;
     }
     
@@ -17,8 +17,8 @@ public class Item
         this.quantidade -= quantidade;
     }
     
-    public String getDescrição(){
-        return this.descrição;
+    public String getDescricao(){
+        return this.descricao;
     }
     
     public int getQuantidade(){

@@ -12,7 +12,7 @@ public class ItemTest
    public void itemÉCriadoInformandoAQuantidadeEADescrição(){
        Item item = new Item("Faca", 1);
        assertEquals(1, item.getQuantidade());
-       assertEquals("Faca", item.getDescrição());
+       assertEquals("Faca", item.getDescricao());
     }
     
     @Test
@@ -24,6 +24,6 @@ public class ItemTest
     @Test
     public void itemPossuiONomeInformado(){
         Item anel = new Item ("Anel", 1);
-        assertEquals("Anel", anel.getDescrição());
+        assertEquals("Anel", anel.getDescricao());
     }
 }

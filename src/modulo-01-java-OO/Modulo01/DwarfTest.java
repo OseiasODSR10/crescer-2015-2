@@ -116,25 +116,25 @@ public class DwarfTest
         anao.perderVida();
         anao.perderVida();
         anao.perderVida();
-        assertEquals(-3333, anao.getNúmeroSorte(), 0.5);
+        assertEquals(-3333, anao.getNumeroSorte(), 0.5);
     }
     
     @Test
     public void dwarfNãoNasceuEmAnoBissextoESeChamaSeixasPortantoNúmeroDaSorteRetorna33(){
         Dwarf anao = new Dwarf ("Seixas",new DataTerceiraEra(1,1,2013));
-        assertEquals(33.0, anao.getNúmeroSorte(), 0.5);
+        assertEquals(33.0, anao.getNumeroSorte(), 0.5);
     }
     
     @Test
     public void dwarfNãoNasceuEmAnoBissextoESeChamaMeirelesPortantoNúmeroDaSorteRetorna33(){
         Dwarf anao = new Dwarf ("Meireles",new DataTerceiraEra(1,1,2013));
-        assertEquals(33.0, anao.getNúmeroSorte(), 0.5);
+        assertEquals(33.0, anao.getNumeroSorte(), 0.5);
     }
     
     @Test
     public void dwarfNãoNasceuEmAnoBissextoESeuNomeNãoÉSeixasNemMeirelesPortantoMétodoNúmeroDaSorteRetornaValorPadrão101(){
         Dwarf anao = new Dwarf ("Anão",new DataTerceiraEra(1,1,2013));
-        assertEquals(101.0, anao.getNúmeroSorte(), 0.5);
+        assertEquals(101.0, anao.getNumeroSorte(), 0.5);
     }
     
     @Test
@@ -151,14 +151,14 @@ public class DwarfTest
         //Ele deve continuar com 90 de vida...
         assertEquals(90, anao.getVida());
         //E ainda ganhar 2 de experiência!
-        assertEquals(2, anao.getExperiência());
+        assertEquals(2, anao.getExperiencia());
     }
     
     @Test
     public void dwarfNãoRecebeFlechadaPorqueEleTemNúmeroDeSorteEntreZeroECem(){
         Dwarf anao = new Dwarf ("Meireles",new DataTerceiraEra(1,1,2013));
         anao.perderVida();
-        assertEquals(0, anao.getExperiência());
+        assertEquals(0, anao.getExperiencia());
         assertEquals(110, anao.getVida());
     }
     
