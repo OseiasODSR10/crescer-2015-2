@@ -8,6 +8,10 @@ public class Dwarf
     protected DataTerceiraEra dataNascimento;
     protected Inventario inventario = new Inventario();
     
+    public Dwarf(){
+        
+    }
+    
     public Dwarf (String nome){
         this(nome, new DataTerceiraEra(1,1,1));        
     }
