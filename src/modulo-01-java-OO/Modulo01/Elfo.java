@@ -1,10 +1,8 @@
 /**
  * Representa objetos do tipo Elfo.
  */
-public class Elfo {
-    private String nome;
-    private int flechas, experiencia;
-    private Status status;
+public class Elfo extends Personagem {
+    protected int flechas;
     
     /* Type initializer
      * Executa antes de cada construtor
@@ -41,8 +39,8 @@ public class Elfo {
    
 
     public void atirarFlecha() {
-        flechas--;
-        experiencia++;
+        this.flechas--;
+        this.experiencia++;
     }
 
     /*
@@ -56,6 +54,7 @@ public class Elfo {
      *      }
      *  }
      */
+    /*
     public void atirarFlechaRefactory(){
         boolean acertar = true;
         if (acertar) {
@@ -63,28 +62,15 @@ public class Elfo {
         }
         flechas--;
     }
-    
+    */
 
     public void caçarDwarf(Dwarf anao){
         this.atirarFlecha();
         anao.perderVida();
     }
     
-
-    public String getNome() {
-        return nome;
-    }
-    
     public int getFlechas() {
         return this.flechas;
-    }
-    
-    public int getExperiencia(){
-        return this.experiencia;
-    }
-    
-    public Status getStatus(){
-        return this.status;
     }
     
     /* 
