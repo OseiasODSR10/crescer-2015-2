@@ -2,10 +2,6 @@
 public class IrishDwarf extends Dwarf
 {
     
-    public IrishDwarf (){
-        
-    }
-    
     public IrishDwarf (String nome){
         super(nome, new DataTerceiraEra(1,1,1));
     }

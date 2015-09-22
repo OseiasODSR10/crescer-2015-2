@@ -24,6 +24,15 @@ public class ElfoVerdeTest
     }
     
     @Test
+    public void elfoVerdeGanhaBastanteExperienciaCaçandoDwarves(){
+        ElfoVerde elfoVerde = new ElfoVerde("Elfo V");
+        for(int i=0; i<10;i++){
+            elfoVerde.caçarDwarf(new Dwarf("Anao"));
+        }
+        assertEquals(20, elfoVerde.getExperiencia());
+    }
+    
+    @Test
     public void elfoVerdeAdicionaItemAoInventarioEspadaAçoValiriano(){
         ElfoVerde elfoVerde = new ElfoVerde("Elfo V"); 
         elfoVerde.adicionarItemAoInventário(new Item("Espada de aço valiriano", 1));

@@ -3,11 +3,7 @@
 public class Dwarf extends Personagem
 {
     protected DataTerceiraEra dataNascimento;
-    
-    public Dwarf(){
         
-    }
-    
     public Dwarf (String nome){
         this(nome, new DataTerceiraEra(1,1,1));        
     }
