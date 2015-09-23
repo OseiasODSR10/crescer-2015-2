@@ -181,7 +181,7 @@ public class DwarfTest
         dwarf.perderVida();
         dwarf.perderVida();
         dwarf.tentarSorte();
-        assertEquals(1002, dwarf.getQuantidadeDeItemDoInventário(1));
+        assertEquals(1002, dwarf.getQuantidadeDeItemDoInventario(0));
     }
     
     @Test
@@ -196,8 +196,8 @@ public class DwarfTest
         dwarf.perderVida();
         dwarf.perderVida();
         dwarf.tentarSorte();
-        assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(0));
-        assertEquals(2, dwarf.getQuantidadeDeItemDoInventário(1));
+        assertEquals(2, dwarf.getQuantidadeDeItemDoInventario(0));
+        assertEquals(2, dwarf.getQuantidadeDeItemDoInventario(1));
     }
     
     @Test
@@ -208,7 +208,7 @@ public class DwarfTest
         dwarf.adicionarItemAoInventário (faca);
         dwarf.adicionarItemAoInventário(anel);
         dwarf.removerItemDoInventário(anel);
-        assertEquals("Faca", dwarf.getDescriçãoItens());
+        assertEquals("Faca", dwarf.getDescricoesDeItensDoInventario());
     }
     
     @Test 
@@ -218,10 +218,10 @@ public class DwarfTest
         Item anel = new Item("Anel", 150);
         dwarf.adicionarItemAoInventário (faca);
         dwarf.adicionarItemAoInventário(anel);
-        dwarf.perderUmItem(faca, 50);
-        dwarf.perderUmItem(anel, 30);
-        assertEquals(120, dwarf.getQuantidadeDeItemDoInventário(1));
-        assertEquals(150, dwarf.getQuantidadeDeItemDoInventário(0));
+        dwarf.perderItem(faca);
+        dwarf.perderItem(anel);
+        assertEquals(149, dwarf.getQuantidadeDeItemDoInventario(1));
+        assertEquals(199, dwarf.getQuantidadeDeItemDoInventario(0));
     }
 }
     

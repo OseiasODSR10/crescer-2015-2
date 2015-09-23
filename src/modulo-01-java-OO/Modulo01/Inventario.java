@@ -1,37 +1,41 @@
 import java.util.ArrayList;
-public class Inventario
-{
-    private ArrayList<Item> inventario = new ArrayList<Item>();
-    
-    public void adicionarItem(Item item){
-        inventario.add(item);
+
+public class Inventario {
+	private ArrayList<Item> inventario = new ArrayList<Item>();
+	
+	public void adicionarItem(Item item){
+		if(this.inventarioPossuiItem(item)){
+			this.adicionarQuantidadeDeItem(item);
+		}
+		else{
+			inventario.add(item);
+		}
     }
-    
-    public void adicionarNVezes1000Itens(int index){
+	
+	private void adicionarQuantidadeDeItem(Item item){
+		this.inventario.get(inventario.indexOf(item)).adicionarUnidadesDeItem(item.getQuantidade());
+	}
+	
+	public void adicionarNVezes1000Itens(int index){
         inventario.get(index).adicionarNVezes1000Itens();
     }
-    
-    public void removerItem(Item item){
+	
+	public void adicionar1000UnidadesDeUmItem(int index){
+        inventario.get(index).adicionar1000UnidadesDeItem();
+    }
+	
+	public void perderItem(Item item){
+        this.inventario.get(inventario.indexOf(item)).perderItem();
+        if(this.inventario.get(inventario.indexOf(item)).getQuantidade()<=0){
+        	this.inventario.remove(item);
+        }
+    }
+	
+	public void removerItem(Item item){
         inventario.remove(item);
     }
-    
-    public void ganharUmItem(Item item, int quantidade){
-        inventario.get(inventario.indexOf(item)).adicionar1000Itens();
-    }
-    
-    public void ganharUmItem(int index, int quantidade){
-        inventario.get(index).adicionar1000Itens();
-    }
-    
-    public void perderUmItem(Item item, int quantidade){
-        inventario.get(inventario.indexOf(item)).perderItem(quantidade);
-    }
-    
-    public void perderUmItem(int index, int quantidade){
-        inventario.get(index).perderItem(quantidade);
-    }
-        
-    public void ordenarItens(){
+	
+	public void ordenarItens(){
         ArrayList<Item> listaOrganizada = new ArrayList<Item>();
         while(!this.inventario.isEmpty()){
             Item itemComMenorQuantidade = this.inventario.get(0);
@@ -45,36 +49,40 @@ public class Inventario
         }
         this.inventario = listaOrganizada;
     }
-    
-    public String getDescricaoDeItem(int index){
-        return this.inventario.get(index).getDescricao();
-    }
-    
+	
     public int getQuantidadeDeItem(int index){
         return this.inventario.get(index).getQuantidade();
     }
     
-    public ArrayList<Item> getItens(){
-           return this.inventario;
+    public boolean inventarioPossuiItem(Item item){
+    	return this.inventario.contains(item);
+    }
+    
+	public String getDescricaoDeItem(int index){
+        return this.inventario.get(index).getDescricao();
+    }
+	
+	public ArrayList<Item> getInventario(){
+        return this.inventario;
+	}
+	
+	public Item getItem(int index){
+        return inventario.get(index);
     }
     
     public Item getItem(Item item){
         return inventario.get(inventario.indexOf(item));
     }
-    
-    public Item getItem(int index){
-        return inventario.get(index);
-    }
-    
-    public String getDescricoesItens(){
+	
+	public String getDescricoesItens(){
         String descricaoItens = "";
         for (int i = 0; i < inventario.size(); i++){
             descricaoItens = descricaoItens+ "," +inventario.get(i).getDescricao();
         }
         return descricaoItens.substring(1);
     }
-    
-    public Item getItemComMaiorQuantidade(){
+	
+	public Item getItemComMaiorQuantidade(){
         Item itemComMaiorQuantidade = new Item("",0);
         for(int i = 0; i < this.inventario.size(); i++){
             if (this.inventario.get(i).getQuantidade() > itemComMaiorQuantidade.getQuantidade()){
@@ -83,6 +91,4 @@ public class Inventario
         }
         return this.inventario.isEmpty()? null : itemComMaiorQuantidade;
     }
-    
-    
 }

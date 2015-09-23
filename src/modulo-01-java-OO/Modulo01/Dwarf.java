@@ -1,5 +1,3 @@
-
-
 public class Dwarf extends Personagem
 {
     protected DataTerceiraEra dataNascimento;
@@ -34,8 +32,8 @@ public class Dwarf extends Personagem
     
     public void tentarSorte(){
         if(-3333.0 == this.getNumeroSorte()){
-            for(int i = 0; i < this.inventario.getItens().size(); i++){
-               this.ganharUmItem(i, 1000);
+            for(int i = 0; i < this.inventario.getInventario().size(); i++){
+               this.adicionar1000UnidadesDeUmItem(i);
             }
         }
     }

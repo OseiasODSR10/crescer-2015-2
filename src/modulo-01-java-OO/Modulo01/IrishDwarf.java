@@ -1,4 +1,3 @@
-
 public class IrishDwarf extends Dwarf
 {
     
@@ -12,7 +11,7 @@ public class IrishDwarf extends Dwarf
     
     public void tentarSorte(){
         if(-3333 == this.getNumeroSorte()){
-            for(int i=0; i<inventario.getItens().size();i++){
+            for(int i=0; i<inventario.getInventario().size();i++){
                 inventario.adicionarNVezes1000Itens(i);
             }
        }

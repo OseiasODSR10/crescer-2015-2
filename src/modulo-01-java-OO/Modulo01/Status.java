@@ -1,12 +1,6 @@
 
-public enum Status
-{
-    VIVO,
-    MORTO,
-    FERIDO,
-    CAÇANDO,
-    FUGINDO,
-    UPANDO,
-    TREINANDO,
-    STEALTH
+public enum Status {
+	VIVO,
+	MORTO,
+	FUGINDO
 }

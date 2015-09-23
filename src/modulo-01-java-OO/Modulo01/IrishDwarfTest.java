@@ -19,7 +19,7 @@ public class IrishDwarfTest
        irish.perderVida();
        irish.perderVida();
        irish.tentarSorte();
-       assertEquals(itemEsperado.getQuantidade(), irish.getItem(0).getQuantidade());
+       assertEquals(itemEsperado.getQuantidade(), irish.getQuantidadeDeItemDoInventario(0));
     }
     
     
@@ -38,8 +38,8 @@ public class IrishDwarfTest
        irish.perderVida();
        irish.perderVida();
        irish.tentarSorte();
-       assertEquals(itemEsperado.getQuantidade(), irish.getItem(0).getQuantidade());
-       assertEquals(820040, irish.getItem(1).getQuantidade());
-       assertEquals(45150300, irish.getItem(2).getQuantidade());
+       assertEquals(itemEsperado.getQuantidade(), irish.getQuantidadeDeItemDoInventario(0));
+       assertEquals(820040, irish.getQuantidadeDeItemDoInventario(1));
+       assertEquals(45150300, irish.getQuantidadeDeItemDoInventario(2));
     }
 }

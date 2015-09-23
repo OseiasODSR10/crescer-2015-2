@@ -14,6 +14,7 @@ public class Elfo extends Personagem {
         this.nome = nome;
         this.flechas = flechas;
         this.status = Status.VIVO;
+        this.vida = 80;
     }
     
    /* public Elfo(String nome, Integer flechas) {
@@ -26,7 +27,6 @@ public class Elfo extends Personagem {
     
     public Elfo(String nome){
         this(nome,42);
-        this.status = Status.VIVO;
     }
    
    
