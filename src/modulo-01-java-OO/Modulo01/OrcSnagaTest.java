@@ -34,6 +34,6 @@ public class OrcSnagaTest
     @Test
     public void orcNasceCom70DeVida(){
         OrcSnaga orcSnaga = new OrcSnaga();
-        assertEquals(70, orcSnaga.getVida());
+        assertEquals(70, orcSnaga.getVida(), 0.0);
     }
 }

@@ -10,7 +10,7 @@ public class DwarfTest
     @Test 
     public void dwarfNasceCom110DeVida(){
         Dwarf dwarf = new Dwarf("Anão");
-        assertEquals(110, dwarf.getVida());
+        assertEquals(110, dwarf.getVida(),0.0);
     }
     
     @Test 
@@ -22,7 +22,7 @@ public class DwarfTest
         //Act
         anao.perderVida();
         //Assert
-        assertEquals(vidaEsperada, anao.getVida());
+        assertEquals(vidaEsperada, anao.getVida(),0.0);
     }
     
     @Test
@@ -39,7 +39,7 @@ public class DwarfTest
         anao.perderVida();
         anao.perderVida();
         anao.perderVida();
-        assertEquals(0, anao.getVida());
+        assertEquals(0, anao.getVida(),0.0);
     }
     
     @Test
@@ -52,7 +52,7 @@ public class DwarfTest
         anao.perderVida();
         anao.perderVida();
         anao.perderVida();
-        assertEquals(40, anao.getVida());
+        assertEquals(40, anao.getVida(),0.0);
     }
     
     @Test
@@ -142,14 +142,14 @@ public class DwarfTest
         Dwarf anao = new Dwarf("Anão", new DataTerceiraEra(1,1,2012));
         //Desta vez ele perderá vida
         anao.perderVida();
-        assertEquals(100, anao.getVida());
+        assertEquals(100, anao.getVida(),0.0);
         //Desta vez ele perderá vida
         anao.perderVida();
-        assertEquals(90, anao.getVida());
+        assertEquals(90, anao.getVida(),0.0);
         //Agora seu número da sorte o salvará!!
         anao.perderVida();
         //Ele deve continuar com 90 de vida...
-        assertEquals(90, anao.getVida());
+        assertEquals(90, anao.getVida(),0.0);
         //E ainda ganhar 2 de experiência!
         assertEquals(2, anao.getExperiencia());
     }
@@ -159,14 +159,14 @@ public class DwarfTest
         Dwarf anao = new Dwarf ("Meireles",new DataTerceiraEra(1,1,2013));
         anao.perderVida();
         assertEquals(0, anao.getExperiencia());
-        assertEquals(110, anao.getVida());
+        assertEquals(110, anao.getVida(),0.0);
     }
     
      @Test
     public void dwarfRecebeFlechadaPorqueEleTemNúmeroDeSorteMaiorQueCem(){
         Dwarf anao = new Dwarf ("Anão",new DataTerceiraEra(1,1,2013));
         anao.perderVida();
-        assertEquals(100, anao.getVida());
+        assertEquals(100, anao.getVida(),0.0);
     }
     
     @Test

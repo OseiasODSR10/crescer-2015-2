@@ -28,6 +28,6 @@ public class OrcUrukHaiTest
     @Test
     public void orcNasceCom150DeVida(){
         OrcUrukHai orcUrukHai = new OrcUrukHai();
-        assertEquals(150, orcUrukHai.getVida());
+        assertEquals(150, orcUrukHai.getVida(),0.0);
     }
 }

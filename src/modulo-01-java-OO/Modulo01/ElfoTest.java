@@ -91,7 +91,7 @@ public class ElfoTest
         elfo.caçarDwarf(anao);
         assertEquals(41, elfo.getFlechas());
         assertEquals(1,elfo.getExperiencia());
-        assertEquals(100, anao.getVida());
+        assertEquals(100, anao.getVida(),0.0);
     }
     
     @Test
@@ -123,6 +123,6 @@ public class ElfoTest
     public void elfoNasceRecebeDano(){
         Elfo elfinho = new Elfo("Elfinho");
         elfinho.perderVida(10);
-        assertEquals(70, elfinho.getVida());
+        assertEquals(90, elfinho.getVida(),0.0);
     }
 }
