@@ -99,6 +99,17 @@ public class OrcTest
    }
    
    @Test
+   public void orcAtacaOutroOrcEEsteRecebeDano(){
+       Orc orc = new Orc();
+       orc.adicionarItemAoInventário(new Item("Arco",1));
+       orc.adicionarItemAoInventário(new Item("Flecha",1));
+       OrcUrukHai alvo = new OrcUrukHai();
+       orc.atacarOutroPersonagem(alvo);
+       //orc.atacarOutroPersonagem(elfo);
+       assertEquals(144, alvo.getVida());
+   }
+   
+   @Test
    public void orcNaoRealizaSegundoAtaquePorFaltaDeFlechas(){
        Orc orc = new Orc();
        orc.adicionarItemAoInventário(new Item("Arco",1));

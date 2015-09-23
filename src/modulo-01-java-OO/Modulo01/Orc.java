@@ -1,5 +1,10 @@
 
 public class Orc extends Personagem{
+
+	@Override
+	public void perderVida(int dano){
+		this.perderVida();
+	}
 	
 	public void perderVida(){
         if(this.inventarioPossuiItem(new Item("Escudo Uruk Hai",1))){
