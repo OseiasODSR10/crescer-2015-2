@@ -4,7 +4,7 @@ public class Personagem {
 	 protected int vida;
 	 protected int experiencia;
 	 protected Status status = Status.VIVO;
-	 protected Inventario inventario = new Inventario();
+	 protected final Inventario inventario = new Inventario();
 	 
 	 public void perderVida(int dano){
 		 this.vida -= dano;
@@ -73,4 +73,8 @@ public class Personagem {
 	 public String getDescricoesDeItensDoInventario(){
 		 return this.inventario.getDescricoesItens();
 	 }
+	 
+	 public int hashCode(){
+	     return this.nome.hashCode();
+	 } 
 }
