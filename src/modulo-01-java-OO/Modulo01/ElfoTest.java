@@ -119,5 +119,10 @@ public class ElfoTest
         assertEquals(Status.VIVO, elfinho.getStatus());
     }
     
-    
+    @Test
+    public void elfoNasceRecebeDano(){
+        Elfo elfinho = new Elfo("Elfinho");
+        elfinho.perderVida(10);
+        assertEquals(70, elfinho.getVida());
+    }
 }

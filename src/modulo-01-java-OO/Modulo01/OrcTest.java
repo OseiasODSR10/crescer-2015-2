@@ -77,7 +77,7 @@ public class OrcTest
    }
    
    @Test
-   public void orcAtacaOutroPersonagemPorqueTemArcoEFlechasECausa8DeDano(){
+   public void orcAtacaOutroPersonagemElfoPorqueTemArcoEFlechasECausa8DeDano(){
        Orc orc = new Orc();
        orc.adicionarItemAoInventário(new Item("Arco",1));
        orc.adicionarItemAoInventário(new Item("Flecha",1));
@@ -85,6 +85,17 @@ public class OrcTest
        orc.atacarOutroPersonagem(elfo);
        //orc.atacarOutroPersonagem(elfo);
        assertEquals(72, elfo.getVida());
+   }
+   
+   @Test
+   public void orcAtacaOutroPersonagemDwarfPorqueTemArcoEFlechasECausa8DeDano(){
+       Orc orc = new Orc();
+       orc.adicionarItemAoInventário(new Item("Arco",1));
+       orc.adicionarItemAoInventário(new Item("Flecha",1));
+       Dwarf dwarf = new Dwarf("Anao");
+       orc.atacarOutroPersonagem(dwarf);
+       //orc.atacarOutroPersonagem(elfo);
+       assertEquals(102, dwarf.getVida());
    }
    
    @Test
