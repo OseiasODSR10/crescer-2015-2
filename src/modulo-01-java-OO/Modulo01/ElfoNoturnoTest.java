@@ -12,7 +12,6 @@ public class ElfoNoturnoTest
         ElfoNoturno night = new ElfoNoturno("Night");
         for(int i=0; i<1000; i++){
             night.atirarFlecha();
-            System.out.println(night.getVida());
         }
         assertEquals(Status.MORTO, night.getStatus());
     }
