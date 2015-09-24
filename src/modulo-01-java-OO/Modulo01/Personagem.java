@@ -8,9 +8,7 @@ public class Personagem {
 	 
 	 public void perderVida(int dano){
 		 this.vida -= dano;
-		 if(this.vida<=0){
-		     this.status = Status.MORTO;
-		  }
+		 this.status = this.vida <= 0? Status.MORTO : this.status;
 	 }
 	 
 	 public void adicionarItemAoInventário(Item item){

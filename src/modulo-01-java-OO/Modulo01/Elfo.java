@@ -3,7 +3,7 @@
  */
 public class Elfo extends Personagem {
     protected int flechas;
-    
+    private static int contadorDeElfos = 0;
     /* Type initializer
      * Executa antes de cada construtor
     {
@@ -15,6 +15,7 @@ public class Elfo extends Personagem {
         this.flechas = flechas;
         this.status = Status.VIVO;
         this.vida = 100;
+        this.contadorDeElfos++;
     }
     
    /* public Elfo(String nome, Integer flechas) {
@@ -71,6 +72,10 @@ public class Elfo extends Personagem {
     
     public int getFlechas() {
         return this.flechas;
+    }
+    
+    public static int getContadorDeElfos(){
+        return contadorDeElfos;
     }
     
     /* 
