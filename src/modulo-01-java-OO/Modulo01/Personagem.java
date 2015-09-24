@@ -1,4 +1,4 @@
-public class Personagem {
+public abstract class Personagem {
 	
 	 protected String nome;
 	 protected double vida;
@@ -77,5 +77,5 @@ public class Personagem {
 	 
 	 public int hashCode(){
 	     return this.nome.hashCode();
-	 } 
+	 }
 }

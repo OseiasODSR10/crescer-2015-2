@@ -125,4 +125,30 @@ public class ElfoTest
         elfinho.perderVida(10);
         assertEquals(90, elfinho.getVida(),0.0);
     }
+    
+    @Test
+    public void elfoAcrescentaUmAposCriarNovoElfo(){
+        int contAtual = Elfo.getContadorDeElfos();
+        Elfo elfinho = new Elfo("Elfinho");
+        int esperado = contAtual+1;
+        assertEquals(esperado, Elfo.getContadorDeElfos());
+    }
+    
+    @Test
+    public void contadorDeEldosAcrescentaDoisAoCriarDoisElfosNovos(){
+        int contAtual = Elfo.getContadorDeElfos();
+        Elfo elfinho = new Elfo("Elfinho");
+        Elfo elfinho2 = new Elfo("Elfinho");
+        int esperado = contAtual+2;
+        assertEquals(esperado, Elfo.getContadorDeElfos());     
+    }
+    
+    @Test
+    public void contadorDeEldosAcrescentaDoisAoCriarDoisElfosVerdesENoturnosNovos(){
+        int contAtual = Elfo.getContadorDeElfos();
+        Elfo elfinho = new ElfoVerde("Elfinho");
+        Elfo elfinho2 = new ElfoNoturno("Nome");
+        int esperado = contAtual+2;
+        assertEquals(esperado, Elfo.getContadorDeElfos());     
+    }
 }
