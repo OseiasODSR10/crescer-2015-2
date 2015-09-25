@@ -137,5 +137,13 @@ public class ExercitoDeElfosTest
             }
             assertEquals(80.0, dwarves.get(i).getVida(), .0);
         }
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<10; i++){
+            if(i==9){
+                assertEquals(70.0, dwarves.get(i).getVida(), .0);
+                break;
+            }
+            assertEquals(60.0, dwarves.get(i).getVida(), .0);
+        }
     }
 }
