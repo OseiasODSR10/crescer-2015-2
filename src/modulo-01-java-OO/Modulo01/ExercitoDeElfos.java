@@ -3,6 +3,7 @@ public class ExercitoDeElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<>();
     private HashMap<Status, ArrayList<Elfo>> exercitoAgrupadoPorStatus = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaFFA();
     
     public void alistarElfo(Elfo umElfo){
         boolean podeAlistar = umElfo instanceof ElfoVerde
@@ -32,5 +33,10 @@ public class ExercitoDeElfos
     public ArrayList<Elfo> buscarElfosPorStatus(Status status) {
         agruparElfosPorStatus();
         return exercitoAgrupadoPorStatus.get(status);
+    }
+    
+    public void reunirElfosVivoEAtacarDwarves(ArrayList<Dwarf> dwarves){
+        ArrayList<Elfo> elfosAptosAAtacar = new ArrayList<Elfo>(this.buscarElfosPorStatus(Status.VIVO));
+        this.estrategia.atacar(elfosAptosAAtacar, dwarves);
     }
 }

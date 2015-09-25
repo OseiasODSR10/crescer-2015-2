@@ -92,4 +92,50 @@ public class ExercitoDeElfosTest
         boolean teste2 = exercito.buscarElfosPorStatus(Status.MORTO).contains(elfinho2) && exercito.buscarElfosPorStatus(Status.VIVO).contains(elfinho);
         assertEquals(true, teste2);
     }
+    
+    @Test 
+    public void ataqueDe5ElfosACincoAnoes(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Dwarf> dwarves = new ArrayList<Dwarf> ();
+        for(int i=0; i<5; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoVerde(""+i));
+        }
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<5; i++){
+            assertEquals(60.0, dwarves.get(i).getVida(), .0);
+        }
+    }
+    
+    @Test 
+    public void ataqueDe10ElfosA10Anoes(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Dwarf> dwarves = new ArrayList<Dwarf> ();
+        for(int i=0; i<10; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoVerde(""+i));
+        }
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<10; i++){
+            assertEquals(10.0, dwarves.get(i).getVida(), .0);
+        }
+    }
+    
+    @Test 
+    public void ataqueDe10ElfosNoturnosA10AnosSo3AtacamE29AnoesRecebemAtaques(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Dwarf> dwarves = new ArrayList<Dwarf> ();
+        for(int i=0; i<10; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoNoturno(""+i));
+        }
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<10; i++){
+            if(i==9){
+                assertEquals(90.0, dwarves.get(i).getVida(), .0);
+                break;
+            }
+            assertEquals(80.0, dwarves.get(i).getVida(), .0);
+        }
+    }
 }
