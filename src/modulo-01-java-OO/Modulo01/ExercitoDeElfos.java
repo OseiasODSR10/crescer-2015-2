@@ -35,8 +35,16 @@ public class ExercitoDeElfos
         return exercitoAgrupadoPorStatus.get(status);
     }
     
+    public void alterarEstrategiaDeAtaque(EstrategiaDeAtaque estrategia){
+        this.estrategia = estrategia;
+    }
+    
     public void reunirElfosVivoEAtacarDwarves(ArrayList<Dwarf> dwarves){
-        ArrayList<Elfo> elfosAptosAAtacar = new ArrayList<Elfo>(this.buscarElfosPorStatus(Status.VIVO));
-        this.estrategia.atacar(elfosAptosAAtacar, dwarves);
+        ArrayList<Elfo> elfos = new ArrayList<Elfo>(this.exercito.values());
+        this.estrategia.atacar(elfos, dwarves);
+    }
+    
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque (){
+        return this.estrategia.getOrdemDoUltimoAtaque();
     }
 }

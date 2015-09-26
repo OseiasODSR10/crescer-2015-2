@@ -146,4 +146,40 @@ public class ExercitoDeElfosTest
             assertEquals(60.0, dwarves.get(i).getVida(), .0);
         }
     }
+    
+    @Test 
+    public void ataqueDe6ElfosACincoAnoesMasUmElfoEstaMortoENaoAtaca(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Dwarf> dwarves = new ArrayList<Dwarf> ();
+        for(int i=0; i<5; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoVerde(""+i));
+        }
+        Elfo elfinhoSpec = new Elfo("Elfinho");
+        elfinhoSpec.perderVida(200); // E Morreu...
+        exercito.alistarElfo(elfinhoSpec);
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<5; i++){
+            assertEquals(60.0, dwarves.get(i).getVida(), .0);
+        }
+    }
+    
+    @Test
+    public void ataqueDe4ElfosA4AnosResultaEm8PrimeirosAtaquesDeElfosVerdesE8UltimosEmAtaquesDeElfosNoturnos(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ArrayList<Dwarf> dwarves = new ArrayList<Dwarf> ();
+        for(int i=2; i<4; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoNoturno(""+i));
+        }
+        for(int i=0; i<2; i++){
+            dwarves.add(new Dwarf(""+i));
+            exercito.alistarElfo(new ElfoVerde(""+i));
+        }
+        exercito.alterarEstrategiaDeAtaque(new EstrategiaGreenFirst());
+        exercito.reunirElfosVivoEAtacarDwarves(dwarves);
+        for(int i=0; i<16; i++){
+            assertEquals(true, i<8 ? exercito.getOrdemDoUltimoAtaque().get(i) instanceof ElfoVerde : exercito.getOrdemDoUltimoAtaque().get(i) instanceof ElfoNoturno);
+        }
+    }
 }
