@@ -21,7 +21,7 @@ public class EstrategiaFFA implements EstrategiaDeAtaque{
                         continue;
                     }
                 }
-                elfo.caçarDwarf(dwarf);
+                elfo.cacarDwarf(dwarf);
                 this.ordemDoUltimoAtaque.add(elfo);
             }
         }

@@ -18,7 +18,7 @@ public class EstrategiaGreenFirst implements EstrategiaDeAtaque {
         }
         for(Elfo elfo : elfosAptosAAtacar){
             for(Dwarf dwarf : dwarves){
-                elfo.caçarDwarf(dwarf);
+                elfo.cacarDwarf(dwarf);
                 this.ordemDoUltimoAtaque.add(elfo);
             }
         }

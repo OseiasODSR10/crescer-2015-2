@@ -56,7 +56,7 @@ public class ExercitoDeElfosTest
     }
     
     @Test 
-    public void elfosSãoAgrupadosPorStatusEApenasUmEstáNoStatusVivo(){
+    public void elfosSãoAgrupadosPorStatusEApenasUmEstaNoStatusVivo(){
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         ElfoNoturno elfinho = new ElfoNoturno("Legolas");
         ElfoNoturno elfinho2 = new ElfoNoturno("Legolas2");

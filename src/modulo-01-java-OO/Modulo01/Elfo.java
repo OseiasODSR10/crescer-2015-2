@@ -65,7 +65,7 @@ public class Elfo extends Personagem {
     }
     */
 
-    public void caçarDwarf(Dwarf anao){
+    public void cacarDwarf(Dwarf anao){
         this.atirarFlecha();
         anao.perderVida();
     }

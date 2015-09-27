@@ -36,13 +36,13 @@ public class EstrategiaIntercalada implements EstrategiaDeAtaque{
         }
         for(int i=0; i<menor; i++){
         	if(i%2!=0){
-        		Collections.swap(elfosAptosAAtacar, i, (elfosAptosAAtacar.size()-1)-i); //organiza os elfos: Verdes em posições pares, Noturnos nas ímpares
+        		Collections.swap(elfosAptosAAtacar, i, (elfosAptosAAtacar.size()-1)-i); //organiza os elfos: Verdes em posicões pares, Noturnos nas ímpares
         	}
         }
         //agora o dwarf é selecionado e atacado por toda a lista de uma vez de forma intercalada
         for(Dwarf dwarf : dwarves){
             for(Elfo elfo: elfosAptosAAtacar){
-                elfo.caçarDwarf(dwarf);
+                elfo.cacarDwarf(dwarf);
                 this.ordemDoUltimoAtaque.add(elfo);
             }
         }

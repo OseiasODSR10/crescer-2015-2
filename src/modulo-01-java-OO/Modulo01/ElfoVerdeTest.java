@@ -27,7 +27,7 @@ public class ElfoVerdeTest
     public void elfoVerdeGanhaBastanteExperienciaCaçandoDwarves(){
         ElfoVerde elfoVerde = new ElfoVerde("Elfo V");
         for(int i=0; i<10;i++){
-            elfoVerde.caçarDwarf(new Dwarf("Anao"));
+            elfoVerde.cacarDwarf(new Dwarf("Anao"));
         }
         assertEquals(20, elfoVerde.getExperiencia());
     }
@@ -35,7 +35,7 @@ public class ElfoVerdeTest
     @Test
     public void elfoVerdeAdicionaItemAoInventarioEspadaAçoValiriano(){
         ElfoVerde elfoVerde = new ElfoVerde("Elfo V"); 
-        elfoVerde.adicionarItemAoInventário(new Item("Espada de aço valiriano", 1));
+        elfoVerde.adicionarItemAoInventario(new Item("Espada de aço valiriano", 1));
         Item itemEsperado = new Item("Espada de aço valiriano", 1);
         assertEquals(itemEsperado, elfoVerde.getItem(new Item("Espada de aço valiriano", 1)));
     }
@@ -43,7 +43,7 @@ public class ElfoVerdeTest
     @Test
     public void elfoVerdeAdicionaItemAoInventarioArcoEFlechaDeVidro(){
         ElfoVerde elfoVerde = new ElfoVerde("Elfo V"); 
-        elfoVerde.adicionarItemAoInventário(new Item("Arco e Flecha de Vidro", 1));
+        elfoVerde.adicionarItemAoInventario(new Item("Arco e Flecha de Vidro", 1));
         Item itemEsperado = new Item("Arco e Flecha de Vidro", 1);
         assertEquals(itemEsperado, elfoVerde.getItem(new Item("Arco e Flecha de Vidro", 1)));
     }
@@ -51,7 +51,7 @@ public class ElfoVerdeTest
     @Test
     public void elfoVerdeNaoAdicionaItemAoInventario(){
         ElfoVerde elfoVerde = new ElfoVerde("Elfo V"); 
-        elfoVerde.adicionarItemAoInventário(new Item("Arco não Valiriano", 1));
+        elfoVerde.adicionarItemAoInventario(new Item("Arco não Valiriano", 1));
         assertEquals(0, elfoVerde.inventario.getInventario().size());
     }
 }

@@ -14,7 +14,7 @@ public class IrishDwarfTest
        Item item = new Item ("Item", 3);
        Item itemEsperado = new Item("Item", 6003);
        
-       irish.adicionarItemAoInventário(item);
+       irish.adicionarItemAoInventario(item);
        
        irish.perderVida();
        irish.perderVida();
@@ -31,9 +31,9 @@ public class IrishDwarfTest
        Item item3 = new Item ("Item3", 300);
        Item itemEsperado = new Item("Item", 6003);
        
-       irish.adicionarItemAoInventário(item);
-       irish.adicionarItemAoInventário(item2);
-       irish.adicionarItemAoInventário(item3);
+       irish.adicionarItemAoInventario(item);
+       irish.adicionarItemAoInventario(item2);
+       irish.adicionarItemAoInventario(item3);
        
        irish.perderVida();
        irish.perderVida();

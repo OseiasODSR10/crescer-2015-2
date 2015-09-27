@@ -175,8 +175,8 @@ public class DwarfTest
         Dwarf dwarf = new Dwarf("Anão", dataBissexto);
         Item faca = new Item("Faca", 2);
         Item anel = new Item("Anel", 2);
-        dwarf.adicionarItemAoInventário(faca);
-        dwarf.adicionarItemAoInventário(anel);
+        dwarf.adicionarItemAoInventario(faca);
+        dwarf.adicionarItemAoInventario(anel);
         dwarf.perderVida();
         dwarf.perderVida();
         dwarf.perderVida();
@@ -190,8 +190,8 @@ public class DwarfTest
         Dwarf dwarf = new Dwarf("Anão", dataNãoBissexto);
         Item faca = new Item("Faca", 2);
         Item anel = new Item("Anel", 2);
-        dwarf.adicionarItemAoInventário(faca);
-        dwarf.adicionarItemAoInventário(anel);
+        dwarf.adicionarItemAoInventario(faca);
+        dwarf.adicionarItemAoInventario(anel);
         dwarf.perderVida();
         dwarf.perderVida();
         dwarf.perderVida();
@@ -201,23 +201,23 @@ public class DwarfTest
     }
     
     @Test
-    public void dwarfRemoveItemDoInventário(){
+    public void dwarfRemoveItemDoInventario(){
         Dwarf dwarf = new Dwarf("Anão");
         Item faca = new Item("Faca", 2);
         Item anel = new Item("Anel", 2);
-        dwarf.adicionarItemAoInventário (faca);
-        dwarf.adicionarItemAoInventário(anel);
-        dwarf.removerItemDoInventário(anel);
+        dwarf.adicionarItemAoInventario (faca);
+        dwarf.adicionarItemAoInventario(anel);
+        dwarf.removerItemDoInventario(anel);
         assertEquals("Faca", dwarf.getDescricoesDeItensDoInventario());
     }
     
     @Test 
-    public void dwarfPerdeCertaQuantidadeDeUmDeterminadoItemDoInventário(){
+    public void dwarfPerdeCertaQuantidadeDeUmDeterminadoItemDoInventario(){
         Dwarf dwarf = new Dwarf("Anão");
         Item faca = new Item("Faca", 200);
         Item anel = new Item("Anel", 150);
-        dwarf.adicionarItemAoInventário (faca);
-        dwarf.adicionarItemAoInventário(anel);
+        dwarf.adicionarItemAoInventario (faca);
+        dwarf.adicionarItemAoInventario(anel);
         dwarf.perderItem(faca);
         dwarf.perderItem(anel);
         assertEquals(149, dwarf.getQuantidadeDeItemDoInventario(1));

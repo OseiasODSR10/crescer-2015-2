@@ -11,7 +11,7 @@ public abstract class Personagem {
 		 this.status = this.vida <= 0? Status.MORTO : this.status;
 	 }
 	 
-	 public void adicionarItemAoInventário(Item item){
+	 public void adicionarItemAoInventario(Item item){
 		 this.inventario.adicionarItem(item);
 	 }
 	 
@@ -19,7 +19,7 @@ public abstract class Personagem {
 		 this.inventario.perderItem(item);
 	 }
 	    
-	 public void removerItemDoInventário(Item item){
+	 public void removerItemDoInventario(Item item){
 		 this.inventario.removerItem(item);
 	 }
 	 

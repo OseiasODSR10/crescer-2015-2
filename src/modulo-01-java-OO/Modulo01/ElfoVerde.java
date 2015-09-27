@@ -11,9 +11,9 @@ public class ElfoVerde extends Elfo
     }
     
     @Override
-    public void adicionarItemAoInventário(Item item){
+    public void adicionarItemAoInventario(Item item){
         if(item.getDescricao().equals("Espada de aço valiriano") || item.getDescricao().equals("Arco e Flecha de Vidro")){
-            super.adicionarItemAoInventário(item);
+            super.adicionarItemAoInventario(item);
         }
     }
 }

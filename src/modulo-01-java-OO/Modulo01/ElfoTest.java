@@ -72,15 +72,15 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoRetornaInformaçõesCorretamente(){
+    public void elfoRetornaInformacõesCorretamente(){
         Elfo elfinho = new Elfo("Elfinho");
         assertEquals("Elfinho possui 42 flechas e 0 níveis de experiência.", elfinho.toString());
     }
     
     @Test
-    public void elfoPerdeUmaFlechaAoCaçaeDwarf(){
+    public void elfoPerdeUmaFlechaAoCacaeDwarf(){
         Elfo elfinho = new Elfo("Elfinho");
-        elfinho.caçarDwarf(new Dwarf("Anão"));
+        elfinho.cacarDwarf(new Dwarf("Anão"));
         assertEquals(41, elfinho.getFlechas());
     }
     
@@ -88,7 +88,7 @@ public class ElfoTest
     public void elfoAtiraFlechaEmDwarf(){
         Elfo elfo = new Elfo("Elfinho");
         Dwarf anao = new Dwarf("Anão");
-        elfo.caçarDwarf(anao);
+        elfo.cacarDwarf(anao);
         assertEquals(41, elfo.getFlechas());
         assertEquals(1,elfo.getExperiencia());
         assertEquals(100, anao.getVida(),0.0);
