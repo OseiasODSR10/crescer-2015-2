@@ -61,6 +61,7 @@ function excelis(ref){
 //Exercício 6
 function queroCafe(mascada, listaDePrecos){
   var listaPr = "";
+  //usar filter() e sort()
   listaDePrecos.sort(sortNumber);
   for(var i=0; i<listaDePrecos.length; i++){
     if(listaDePrecos[i] <= mascada){
@@ -68,6 +69,7 @@ function queroCafe(mascada, listaDePrecos){
     }
   }
   return listaPr;
+  //Arrumar: usar join.
 }
 
 function sortNumber(a,b) {
