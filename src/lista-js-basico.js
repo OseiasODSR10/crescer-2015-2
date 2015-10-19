@@ -1,6 +1,6 @@
 //Exercicio 1
  function daisyGame (numero) {
-   if(numero%2 === 0){
+    if(numero%2 === 0){
      console.log("Love me not");
    }else{
      console.log("Love me");
@@ -57,4 +57,19 @@ function excelis(ref){
     pos = "Não é uma posição válida."
   }
   return pos;
+}
+//Exercício 6
+function queroCafe(mascada, listaDePrecos){
+  var listaPr = "";
+  listaDePrecos.sort(sortNumber);
+  for(var i=0; i<listaDePrecos.length; i++){
+    if(listaDePrecos[i] <= mascada){
+      listaPr = listaPr===""? listaPr + listaDePrecos[i] : listaPr + "," +listaDePrecos[i];
+    }
+  }
+  return listaPr;
+}
+
+function sortNumber(a,b) {
+    return a - b;
 }
