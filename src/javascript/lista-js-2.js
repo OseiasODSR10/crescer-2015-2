@@ -1,6 +1,7 @@
 var clubes = [
   {
     nome: 'Arsenal',
+    fundacao: new Date(1886, 0, 1),
     titulos: [
       { desc: 'Nacionais', qtd: 13 },
       { desc: 'Continentais', qtd: 0 },
@@ -9,6 +10,7 @@ var clubes = [
   },
   {
     nome: 'Manchester United',
+    fundacao: new Date(1878, 0, 1),
     titulos: [
       { desc: 'Nacionais', qtd: 20 },
       { desc: 'Continentais', qtd: 3 },
@@ -17,6 +19,7 @@ var clubes = [
   },
   {
     nome: 'Liverpool',
+    fundacao: new Date(1892, 2, 15),
     titulos: [
       { desc: 'Nacionais', qtd: 18 },
       { desc: 'Continentais', qtd: 5 },
@@ -25,6 +28,7 @@ var clubes = [
   },
   {
     nome: 'Chelsea Football Club',
+    fundacao: new Date(1905, 2, 10),
     titulos: [
       { desc: 'Nacionais', qtd: 5 },
       { desc: 'Continentais', qtd: 1 },
@@ -32,7 +36,6 @@ var clubes = [
     ]
   }
 ];
-
 
 function ordenaPorNacionais(clubesArray){
   return clubesArray.sort(ordenarPorIndice(clubesArray, 0));
@@ -113,12 +116,12 @@ var soma=0;
   return soma;
 };
 
-function ordenarPorIndice(clubes, indice){
+function ordenarPorIndice(clubesArray, indice){
   return clubes.sort(function(elem1, elem2){
     return elem1.titulos[indice].qtd < elem2.titulos[indice].qtd;
   });
 }
-function somarPorTitulos(clubes, indice){
+function somarPorTitulos(clubesArray, indice){
     return clubes.reduce(function(acumulador, elemAtual){
       return acumulador + elemAtual.titulos[indice].qtd;
     }, 0);
@@ -130,3 +133,45 @@ function somaPorNacionais(clubesArray){
 function somaPorContinentais(clubesArray){
   return somarPorTitulos(clubesArray, 1);
 }
+
+
+
+// ======== Exemplos aula 3 ==========
+
+//Modifica o clube também, depois retorna
+var teams = clubes.map(function (clube){
+  // clube.nome += ' FC' --> Uma das formas
+  return clube.nome += ' FC', clube;
+});
+
+//Este retorna um novo objeto
+var teams2 = clubes.map(function (clube){
+  // clube.nome += ' FC' --> Uma das formas
+  return {
+    nome: clube.nome += ' FC',
+    titulos: clube.titulos
+  }
+});
+
+function mediaDeIdadeDosClubes(clubesArray){
+  // Também pode-se usar map() junto com o reduce()
+  var soma = clubesArray.reduce(function(acumulador, elem){
+    var idade = new Date().getFullYear() - elem.fundacao.getFullYear();
+    return acumulador + idade;
+  },0);
+  return soma/clubesArray.length;
+};
+
+function Elfo(nome, flechas) {
+
+  this.nome = nome;
+  this.flechas = flechas || 42;
+
+  Object.defineProperty(this, 'flechas', {
+    writable: false
+  });
+};
+
+Elfo.prototype.atirarFlecha = function() {
+  console.log('atirando flecha...');
+};
