@@ -43,6 +43,8 @@ function fiboSum(n){
   return somaF;
 }
 //Exercicio 5
+
+/* Funciona, mas é mais complicado
 function excelis(ref){
   if(ref.charCodeAt(i) >= 65 && ref.charCodeAt(i) <= 90){
     ref = ref.split('').reverse().join('');
@@ -57,7 +59,16 @@ function excelis(ref){
     pos = "Não é uma posição válida."
   }
   return pos;
-}
+}*/
+
+// ==== JEITO CERTO ===
+function excelis(referencia){
+    for(var i=0, soma=0, len = referencia.length; i<len;i++){
+      soma = soma * 26 + (referencia.charCodeAt(i)-64);
+    }
+    return soma;
+};
+
 //Exercício 6
 function queroCafe(mascada, listaDePrecos){
   var listaPr = "";

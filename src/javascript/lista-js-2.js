@@ -35,17 +35,24 @@ var clubes = [
 
 
 function ordenaPorNacionais(clubesArray){
-  return clubesArray.sort(nacionaisDescendente);
+  return clubesArray.sort(ordenarPorIndice(clubesArray, 0));
+
+  /*
+  return clubes.sort(
+     (x,y) => x.titulos[0].qtd < y.titulos[0].qtd
+  );
+  */
 };
 
 function ordenaPorContinentais(clubesArray){
-  return clubesArray.sort(continentaisDescendente);
+  return clubesArray.sort(ordenarPorIndice(clubesArray, 1));
 };
 
 function ordenaPorMundiais(clubesArray){
-  return clubesArray.sort(mundiaisDescendente);
+  return clubesArray.sort(ordenarPorIndice(clubesArray, 2));
 };
 
+/*
 function somarPorNacionais(clubesArray){
   return somarTitulos(clubesArray, 0);
 };
@@ -57,13 +64,19 @@ function somarPorContinentais(clubesArray){
 function somarPorMundiais(clubesArray){
   return somarTitulos(clubesArray, 2);
 };
+*/
 
-function somarPorTodosTitulos(clubesArray){
-var soma=0;
-  for (var j=0; j<clubesArray[0].titulos.length; j++){
-    soma = soma + somarTitulos(clubesArray, j);
-  }
-  return soma;
+/* Duplicação do código
+function nacionaisDescendente (a,b){
+  return a.titulos[0].qtd<b.titulos[0].qtd;
+};
+
+function continentaisDescendente (a,b){
+  return a.titulos[1].qtd<b.titulos[1].qtd;
+};
+
+function mundiaisDescendente (a,b){
+  return a.titulos[2].qtd<b.titulos[2].qtd;
 };
 
 function apenasOsMelhores(clubesArray){
@@ -76,6 +89,13 @@ function apenasOsMelhores(clubesArray){
     });
     return osMelhores;
 };
+*/
+
+function apenasOsMelhores(clubesArray){
+  return clubesArray.filter(function (elem){
+    return elem.titulos[0].qtd > 18;
+  });
+}
 
 function somarTitulos(clubesArray, j){
   var soma = 0;
@@ -85,14 +105,28 @@ function somarTitulos(clubesArray, j){
   return soma;
 };
 
-function nacionaisDescendente (a,b){
-  return a.titulos[0].qtd<b.titulos[0].qtd;
+function somarPorTodosTitulos(clubesArray){
+var soma=0;
+  for (var j=0; j<clubesArray[0].titulos.length; j++){
+    soma = soma + somarTitulos(clubesArray, j);
+  }
+  return soma;
 };
 
-function continentaisDescendente (a,b){
-  return a.titulos[1].qtd<b.titulos[1].qtd;
-};
+function ordenarPorIndice(clubes, indice){
+  return clubes.sort(function(elem1, elem2){
+    return elem1.titulos[indice].qtd < elem2.titulos[indice].qtd;
+  });
+}
+function somarPorTitulos(clubes, indice){
+    return clubes.reduce(function(acumulador, elemAtual){
+      return acumulador + elemAtual.titulos[indice].qtd;
+    }, 0);
+}
 
-function mundiaisDescendente (a,b){
-  return a.titulos[2].qtd<b.titulos[2].qtd;
-};
+function somaPorNacionais(clubesArray){
+  return somarPorTitulos(clubesArray, 0);
+}
+function somaPorContinentais(clubesArray){
+  return somarPorTitulos(clubesArray, 1);
+}
