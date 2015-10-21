@@ -59,20 +59,3 @@ CarrinhoDeCompras.prototype.sortearDesconto = function(){
 CarrinhoDeCompras.prototype.aplicarDesconto = function(){
   this.precoTotal = (this.precoTotal*0.9);
 };
-
-CarrinhoDeCompras.prototype.forcarCompra = function() {
-  if (!this.intervalo) {
-    // var self = this;
-    this.intervalo = setInterval(function() {
-      this.itensNoCarrinho.forEach(function(elem) {
-        elem.valorUnitario += elem.valorUnitario * .1;
-      });
-    }.bind(this), 5000);
-  }
-};
-
-CarrinhoDeCompras.prototype.concluirPedido = function() {
-  clearInterval(this.intervalo);
-  // remover propriedade intervalo do objeto
-  delete this.intervalo;
-};
