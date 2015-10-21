@@ -175,3 +175,23 @@ function Elfo(nome, flechas) {
 Elfo.prototype.atirarFlecha = function() {
   console.log('atirando flecha...');
 };
+
+function ElfoNoturno(nome, flechas){
+  // Elfo.call(this, nome, flechas);
+  Elfo.apply(this, arguments);
+}
+
+//Elfo noturno extends Elfo
+ElfoNoturno.prototype = Object.create(Elfo.prototype);
+
+//override
+// ElfoNoturno.prototype.atirarFlecha = function(dawrf){ console.log('novo atirar flechas')} ;
+
+// static
+ElfoNoturno.mediaDeAlturaDosElfosNoturno = function(){
+  return 2.15
+};
+
+String.prototype.comecaComB = function() {
+  return this.toUpperCase()[0] === 'B';
+};
