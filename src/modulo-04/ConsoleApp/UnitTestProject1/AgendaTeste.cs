@@ -10,9 +10,10 @@ namespace ConsoleAppTeste
         public void agendaTemUmContato()
         {
             var agenda = new Agenda();
-            agenda.AdicionarContato(new Contato() { Nome = "Julio César", Numero = 97879867 });
-            agenda.AdicionarContato(new Contato() { Nome = "Oseias", Numero = 08907896});
+            agenda.AdicionarContato(new Contato("Julio César", 97879867 ));
+            agenda.AdicionarContato(new Contato("Oseias", 08907896));
             Assert.AreEqual(agenda.QuantidadeContatos, 2);
         }
+        
     }
 }

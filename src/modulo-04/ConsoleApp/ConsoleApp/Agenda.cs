@@ -33,7 +33,7 @@ namespace ConsoleApp
         //        }
         //    }
         //}
-        public void RemoverContato(string nomeContato)
+        public void RemoverContatoPorNome(string nomeContato)
         {
             var contatosASeremRemovidos = new List<Contato>();
             for (int i = 0; i < contatos.Count; i++){
@@ -47,12 +47,41 @@ namespace ConsoleApp
             }
         }
 
-        public void ListarContatos()
+        public void RemoverContatoPorNumero(string numeroContato)
         {
+            var contatosASeremRemovidos = new List<Contato>();
+            for (int i = 0; i < contatos.Count; i++)
+            {
+
+                if (contatos[i].Numero.Equals(numeroContato))
+                    contatosASeremRemovidos.Add(contatos[i]);
+            }
+            foreach (var contato in contatosASeremRemovidos)
+            {
+                contatos.Remove(contato);
+            }
+        }
+
+        public string ListarContatosO()
+        {
+            string listaContatos = "";
             foreach (var contato in contatos)
             {
-                System.Console.WriteLine(contato.Nome + " - " + contato.Numero);
+                listaContatos += contato.Nome + " - " + contato.Numero +"\n";
             }
+            return listaContatos;
+        }
+        public string listarContatosOrdenadosPorNome()
+        {
+            List<Contato> listaOrganizada = new List<Contato>();
+            contatos.Sort(delegate (Contato contatoA, Contato y)
+            {
+                if (contatoA.Nome == null && y.Nome == null) return 0;
+                else if (contatoA.Nome == null) return -1;
+                else if (y.Nome == null) return 1;
+                else return contatoA.Nome.CompareTo(y.Nome);
+            });
+            return ListarContatosO();
         }
     }
 }
