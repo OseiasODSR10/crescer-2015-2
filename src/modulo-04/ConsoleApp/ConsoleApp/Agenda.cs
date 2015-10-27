@@ -36,9 +36,10 @@ namespace ConsoleApp
         public void RemoverContatoPorNome(string nomeContato)
         {
             var contatosASeremRemovidos = new List<Contato>();
-            for (int i = 0; i < contatos.Count; i++){
+            for (int i = 0; i < contatos.Count; i++)
+            {
 
-                if(contatos[i].Nome == nomeContato)
+                if (contatos[i].Nome == nomeContato)
                     contatosASeremRemovidos.Add(contatos[i]);
             }
             foreach (var contato in contatosASeremRemovidos)
@@ -67,7 +68,7 @@ namespace ConsoleApp
             string listaContatos = "";
             foreach (var contato in contatos)
             {
-                listaContatos += contato.Nome + " - " + contato.Numero +"\n";
+                listaContatos += contato.Nome + " - " + contato.Numero + "\n";
             }
             return listaContatos;
         }
