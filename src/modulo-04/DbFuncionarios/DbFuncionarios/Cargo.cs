@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace DbFuncionarios
 {
-    class Cargo
+    public class Cargo
     {
+        public string Titulo { get; private set; }
+        public double Salario { get; private set; }
+
+        public Cargo(string titulo, double salario)
+        {
+            this.Titulo = titulo;
+            this.Salario = salario;
+        }
+
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DbFuncionarios
 {
-    class TurnoTrabalho
+    public enum TurnoTrabalho
     {
+        Manha,
+        Tarde,
+        Noite
     }
 }
