@@ -19,7 +19,5 @@ namespace Locadora.Dominio
             Preco = preco;
             Categoria = categoria;
         }
-
-        
     }
 }

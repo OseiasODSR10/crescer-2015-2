@@ -42,11 +42,13 @@ namespace Locadora.Dominio
         public void CadastrarJogo (Jogo jogo)
         {
             caminhoArquivo2Teste = @"C:\Users\Usuario\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store2.xml";
+            var baseDeJogos = XDocument.Load(caminhoArquivo2Teste);
             XElement nome = new XElement("nome", jogo.Nome);
             XElement preco = new XElement("preco", jogo.Preco);
             XElement categoria = new XElement("categoria", jogo.Categoria);
             XElement jogoParaSalvar = new XElement("jogo", nome, preco, categoria);
-            jogoParaSalvar.Save(caminhoArquivo2Teste);
+            baseDeJogos.Root.Add(jogoParaSalvar);
+            baseDeJogos.Save(caminhoArquivo2Teste);
         }
 
 

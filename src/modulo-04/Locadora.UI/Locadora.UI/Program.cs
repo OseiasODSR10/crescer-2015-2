@@ -15,10 +15,10 @@ namespace Locadora.UI
             Console.WriteLine(jogos[0].Nome);
             Console.ReadKey();
 
-            Jogo jogo = new Jogo("Jogos Test", 333, Categoria.ESPORTE);
+            Jogo jogo = new Jogo("O Jogo", 333, Categoria.ESPORTE);
             loc.CadastrarJogo(jogo);
 
-            jogos = loc.BuscarJogoPorNome("Jogo Test");
+            jogos = loc.BuscarJogoPorNome("O Jogo");
             Console.WriteLine(jogos.Count);
 
             Console.ReadKey();
