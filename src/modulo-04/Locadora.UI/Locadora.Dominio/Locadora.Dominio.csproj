@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Categoria.cs" />
     <Compile Include="Jogo.cs" />
-    <Compile Include="Locadora.cs" />
+    <Compile Include="LocadoraNunes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

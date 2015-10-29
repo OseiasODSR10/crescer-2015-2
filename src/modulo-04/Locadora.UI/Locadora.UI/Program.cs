@@ -1,9 +1,6 @@
 ﻿using Locadora.Dominio;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Locadora.UI
 {
@@ -11,11 +8,19 @@ namespace Locadora.UI
     {
         static void Main(string[] args)
         {
-            LocadoraOR loc = new LocadoraOR();
-            var jogos = loc.buscarJogoPorNome("Top Gear");
+            LocadoraNunes loc = new LocadoraNunes();
+            var jogos = loc.BuscarJogoPorNome("Top Gear");
 
             Console.WriteLine(jogos.Count());
             Console.WriteLine(jogos[0].Nome);
+            Console.ReadKey();
+
+            Jogo jogo = new Jogo("Jogos Test", 333, Categoria.ESPORTE);
+            loc.CadastrarJogo(jogo);
+
+            jogos = loc.BuscarJogoPorNome("Jogo Test");
+            Console.WriteLine(jogos.Count);
+
             Console.ReadKey();
         }
     }

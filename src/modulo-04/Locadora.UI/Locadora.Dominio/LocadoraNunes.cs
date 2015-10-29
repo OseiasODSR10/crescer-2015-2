@@ -8,17 +8,18 @@ using System.Xml.Linq;
 
 namespace Locadora.Dominio
 {
-    public class LocadoraOR
+    public class LocadoraNunes
     {
         public string caminhoArquivo { get; private set; }
+        public string caminhoArquivo2Teste { get; private set; }
 
-        public LocadoraOR()
+        public LocadoraNunes()
         {
-            caminhoArquivo = @"C:\Users\oseias.rodrigues\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store.xml";
+            caminhoArquivo = @"C:\Users\Usuario\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store.xml";
 
         }
 
-        public IList<Jogo> buscarJogoPorNome(string nome)
+        public IList<Jogo> BuscarJogoPorNome(string nome)
         {
             XElement xmlJogos = XElement.Load(caminhoArquivo);
             List<Jogo> jogos = new List<Jogo>();
@@ -38,7 +39,17 @@ namespace Locadora.Dominio
             return jogos;
         }
 
-        
+        public void CadastrarJogo (Jogo jogo)
+        {
+            caminhoArquivo2Teste = @"C:\Users\Usuario\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store2.xml";
+            XElement nome = new XElement("nome", jogo.Nome);
+            XElement preco = new XElement("preco", jogo.Preco);
+            XElement categoria = new XElement("categoria", jogo.Categoria);
+            XElement jogoParaSalvar = new XElement("jogo", nome, preco, categoria);
+            jogoParaSalvar.Save(caminhoArquivo2Teste);
+        }
+
+
 
     }
 }
