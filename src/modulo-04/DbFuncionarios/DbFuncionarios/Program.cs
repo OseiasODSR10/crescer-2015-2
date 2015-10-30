@@ -18,7 +18,14 @@ namespace DbFuncionarios
             //    Console.WriteLine(item.TituloCargo);
             //    Console.WriteLine();
             //}
-
+            BaseDeDados funcionarios = new BaseDeDados();
+            var ordenadosPorCargo = funcionarios.BuscaOrdenadosPorCargo();
+            var x = funcionarios.BuscarPorNome("Lucas");
+            var funcDynamic = funcionarios.BuscaRapida();
+            var funcT = funcionarios.BuscarPorTurno(TurnoTrabalho.Manha, TurnoTrabalho.Noite, TurnoTrabalho.Tarde);
+            var turnosT = funcionarios.QtdFuncionariosPorTurno();
+            var funcInCargo = funcionarios.BuscarPorCargo(new Cargo("Desenvolvedor", 190));
+            funcInCargo = funcionarios.BuscarPorCargo(new Cargo("Não existe", 190));
             Console.Read();
         }
 

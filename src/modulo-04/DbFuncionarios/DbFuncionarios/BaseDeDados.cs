@@ -81,5 +81,70 @@ namespace DbFuncionarios
             margareteRicardo.TurnoTrabalho = TurnoTrabalho.Manha;
             Funcionarios.Add(margareteRicardo);
         }
+
+        public IList<Funcionario> BuscaOrdenadosPorCargo()
+        {
+            var ordenadosPorNome = Funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo).ToList();
+            return ordenadosPorNome;
+        }
+
+        public IList<Funcionario> BuscarPorNome(string nome)
+        {
+            var funcionariosComEssaPalavra = Funcionarios.FindAll(funcionario => funcionario.Nome.Contains(nome)).OrderBy(funcionario => funcionario.Nome).ToList();
+            return funcionariosComEssaPalavra;
+        }
+
+        public IList<dynamic> BuscaRapida()
+        {
+            List<dynamic> funcionariosD = new List<dynamic>();
+
+            funcionariosD.AddRange(
+                from f in Funcionarios
+                select new
+                {
+                    Nome = f.Nome,
+                    TituloCargo = f.Cargo.Titulo
+                }
+                );
+            return funcionariosD;
+        }
+
+        public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
+        {
+            List<Funcionario> funcionarios = new List<Funcionario>();
+            funcionarios.AddRange(
+                from f in Funcionarios
+                where turnos.Contains(f.TurnoTrabalho)
+                select f
+                );
+            return funcionarios;
+        }
+
+        public IList<dynamic> QtdFuncionariosPorTurno()
+        {
+            List<dynamic> turnosDeTrabalho = new List<dynamic>();
+
+            turnosDeTrabalho.AddRange(
+                from f in Funcionarios
+                group f by f.TurnoTrabalho into turno
+                select new {
+                    Turno = turno.Key,
+                    Quantidade = turno.Count()
+                }
+                );
+
+            return turnosDeTrabalho;
+        }
+
+        public IList<Funcionario> BuscarPorCargo(Cargo cargo)
+        {
+            List<Funcionario> funcionariosNesseCargo = new List<Funcionario>();
+            funcionariosNesseCargo.AddRange(
+                Funcionarios.FindAll(funcionario => funcionario.Cargo.Equals(cargo))
+                );
+            return funcionariosNesseCargo;
+        }
+
+
     }
 }

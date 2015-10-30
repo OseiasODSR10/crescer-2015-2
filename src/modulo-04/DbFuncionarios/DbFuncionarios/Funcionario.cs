@@ -21,5 +21,14 @@ namespace DbFuncionarios
             this.DataNascimento = dataNascimento;
         }
 
+        public override bool Equals(object obj)
+        {
+            var funcionario2 = (Funcionario)obj;
+            return Nome.Equals(funcionario2.Nome)
+                && DataNascimento.Equals(funcionario2.DataNascimento)
+                && TurnoTrabalho.Equals(funcionario2.TurnoTrabalho)
+                && Cargo.Equals(funcionario2.Cargo)
+                && Id.Equals(funcionario2.Id);
+        }
     }
 }
