@@ -145,6 +145,34 @@ namespace DbFuncionarios
             return funcionariosNesseCargo;
         }
 
+        public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
+        {
+            List<Funcionario> funcionariosComIdadeAproximada = new List<Funcionario>();
+            var data = DateTime.Now.AddYears(-idade);
+            funcionariosComIdadeAproximada.AddRange(
+                from f in Funcionarios
+                where (f.DataNascimento.AddYears(-5).Year <= data.Year) 
+                && (data.Year <= f.DataNascimento.AddYears(5).Year)
+                select f          
+                );
+            return funcionariosComIdadeAproximada;
+        }
 
+        public double SalarioMedio(TurnoTrabalho? turno = null)
+        {
+            double mediaSalarial = 0;
+            if (turno.HasValue)
+            {
+                mediaSalarial = Funcionarios.FindAll(
+                    funcionario => funcionario.TurnoTrabalho.Equals(turno))
+                    .Average(funcionario => funcionario.Cargo.Salario);
+            }
+            else
+            {
+                mediaSalarial = Funcionarios.Average(
+                    funcionario => funcionario.Cargo.Salario);
+            }
+            return mediaSalarial;
+        }
     }
 }

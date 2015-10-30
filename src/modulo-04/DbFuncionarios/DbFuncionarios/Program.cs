@@ -26,6 +26,10 @@ namespace DbFuncionarios
             var turnosT = funcionarios.QtdFuncionariosPorTurno();
             var funcInCargo = funcionarios.BuscarPorCargo(new Cargo("Desenvolvedor", 190));
             funcInCargo = funcionarios.BuscarPorCargo(new Cargo("Não existe", 190));
+            var funInIdade = funcionarios.FiltrarPorIdadeAproximada(15);
+            var mediaSManha = funcionarios.SalarioMedio(TurnoTrabalho.Manha);
+            var mediaSTarde = funcionarios.SalarioMedio(TurnoTrabalho.Tarde);
+            var mediaSTotal = funcionarios.SalarioMedio();
             Console.Read();
         }
 

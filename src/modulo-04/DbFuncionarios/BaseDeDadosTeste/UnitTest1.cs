@@ -83,6 +83,11 @@ namespace BaseDeDadosTeste
             Assert.AreEqual(funcionarios.BuscarPorCargo(gerente).Count, 1);
         }
 
-
+        [TestMethod]
+        public void FiltrarPorIdadeRetorna3FuncionariosComIdadeProximaA15Anos()
+        {
+            BaseDeDados funcionarios = new BaseDeDados();
+            Assert.AreEqual(funcionarios.FiltrarPorIdadeAproximada(15).Count, 3);
+        }
     }
 }
