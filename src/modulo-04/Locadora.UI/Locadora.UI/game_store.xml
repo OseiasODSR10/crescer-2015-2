@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <jogos>
   <jogo id="1">
-    <nome>Chrono Trigger</nome>
-    <preco>60</preco>
+    <nome>Jogo 1 Editado</nome>
+    <preco>1</preco>
     <categoria>RPG</categoria>
   </jogo>
   <jogo id="2">
@@ -99,5 +99,25 @@
     <nome>Mickey to Donald: Magical Adventure 3</nome>
     <preco>32.9</preco>
     <categoria>AVENTURA</categoria>
+  </jogo>
+  <jogo id="21">
+    <nome>Jogo Novo</nome>
+    <preco>2000</preco>
+    <categoria>AVENTURA</categoria>
+  </jogo>
+  <jogo id="22">
+    <nome>Jogão</nome>
+    <preco>20</preco>
+    <categoria>ESPORTE</categoria>
+  </jogo>
+  <jogo id="23">
+    <nome>Jogo Oseias</nome>
+    <preco>20000000</preco>
+    <categoria>ESPORTE</categoria>
+  </jogo>
+  <jogo id="24">
+    <nome>Jogo Novo2</nome>
+    <preco>33</preco>
+    <categoria>LUTA</categoria>
   </jogo>
 </jogos>
