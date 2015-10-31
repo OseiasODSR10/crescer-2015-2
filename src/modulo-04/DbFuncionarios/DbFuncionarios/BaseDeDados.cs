@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DbFuncionarios
@@ -163,9 +164,7 @@ namespace DbFuncionarios
             double mediaSalarial = 0;
             if (turno.HasValue)
             {
-                mediaSalarial = Funcionarios.FindAll(
-                    funcionario => funcionario.TurnoTrabalho.Equals(turno))
-                    .Average(funcionario => funcionario.Cargo.Salario);
+                mediaSalarial = BuscarPorTurno(turno.Value).Average(funcionario => funcionario.Cargo.Salario);
             }
             else
             {
@@ -174,5 +173,37 @@ namespace DbFuncionarios
             }
             return mediaSalarial;
         }
+
+        public IList<Funcionario> AniversariantesDoMes()
+        {
+            var mesAtual = DateTime.Now.Month;
+
+            return Funcionarios.FindAll(
+                funcionario => funcionario.DataNascimento.Month.Equals(mesAtual))
+                .ToList();
+        }
+
+        public dynamic FuncionarioMaisComplexo()
+        {
+            string consoantes = "[b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z]";
+
+            int maiorNumeroDeConsoantes = Funcionarios.Max(f => Regex.Matches(f.Nome, consoantes).Count);
+
+            var funcionarioMaisComplexo = Funcionarios.First(f2 => Regex.Matches(f2.Nome, consoantes).Count == maiorNumeroDeConsoantes);
+
+            double salario = funcionarioMaisComplexo.Cargo.Salario;
+
+            var salarioRS = string.Format("R$ {0:0.00}", salario);
+            var salarioUS = string.Format("U$ {0:0.00}", salario);
+
+            return new
+            {
+                Nome = funcionarioMaisComplexo.Nome,
+                SalarioRS = salarioRS,
+                SalarioUS = salarioUS
+            };
+        }
+
+        
     }
 }

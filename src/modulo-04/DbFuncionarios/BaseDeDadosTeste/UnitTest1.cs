@@ -89,5 +89,22 @@ namespace BaseDeDadosTeste
             BaseDeDados funcionarios = new BaseDeDados();
             Assert.AreEqual(funcionarios.FiltrarPorIdadeAproximada(15).Count, 3);
         }
+
+        [TestMethod]
+        public void MetodoBuscaAniversarianteDoMes10()
+        {
+            BaseDeDados funcionarios = new BaseDeDados();
+
+            Cargo gerente = new Cargo("Gerente", 550.5);
+            Funcionario margareteRicardo = new Funcionario(11, "Margarete Ricardo", new DateTime(1980, 10, 10));
+            margareteRicardo.Cargo = gerente;
+            margareteRicardo.TurnoTrabalho = TurnoTrabalho.Manha;
+            if (DateTime.Now.Month.Equals(10))
+            {
+                Assert.AreEqual(funcionarios.AniversariantesDoMes()[0], margareteRicardo);
+                Assert.AreEqual(funcionarios.AniversariantesDoMes().Count, 1);
+            }
+           
+        }
     }
 }

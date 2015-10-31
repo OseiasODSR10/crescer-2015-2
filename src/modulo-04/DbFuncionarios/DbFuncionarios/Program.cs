@@ -30,6 +30,9 @@ namespace DbFuncionarios
             var mediaSManha = funcionarios.SalarioMedio(TurnoTrabalho.Manha);
             var mediaSTarde = funcionarios.SalarioMedio(TurnoTrabalho.Tarde);
             var mediaSTotal = funcionarios.SalarioMedio();
+            var aniversariantes = funcionarios.AniversariantesDoMes();
+            var funcMaisComplexo = funcionarios.FuncionarioMaisComplexo();
+            
             Console.Read();
         }
 
