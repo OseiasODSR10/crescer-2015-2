@@ -53,8 +53,6 @@ namespace Locadora.UI
                     break;
                 case 4: ExportarRelatorio(locadora);
                     break;
-                case 5:
-                    break;
                 case 0:
                     return false;
             }
