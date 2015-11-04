@@ -14,7 +14,7 @@ namespace Locadora.Dominio
 
         public JogoRepositorio()
         {
-            caminhoArquivo = @"C:\Users\Usuario\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store.xml";
+            caminhoArquivo = @"C:\Users\oseias.rodrigues\Documents\crescer-2015-2\src\modulo-04\Locadora.UI\Locadora.UI\game_store.xml";
 
         }
 
