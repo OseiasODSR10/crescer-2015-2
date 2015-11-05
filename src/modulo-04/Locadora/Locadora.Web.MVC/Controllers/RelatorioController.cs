@@ -11,17 +11,20 @@ namespace Locadora.Web.MVC.Controllers
     public class RelatorioController : Controller
     {
         private IJogoRepositorio repositorioJogos = new Locadora.Repositorio.ADO.JogoRepositorio();
+
         public ActionResult JogosDisponiveis()
         {
             RelatorioModel model = new RelatorioModel();
 
             foreach(var jogo in repositorioJogos.BuscarTodos())
             {
-                var jogoModel = new JogoModel()
+                var jogoModel = new JogoModel(jogo.Id)
                 {
                     Nome = jogo.Nome,
                     Preco = jogo.Preco,
-                    Categoria = jogo.Categoria.ToString()
+                    Categoria = jogo.Categoria.ToString(),
+                    Descricao = jogo.Descricao,
+                    Selo = jogo.Selo.ToString()
                 };
                 model.Jogos.Add(jogoModel);
             }
@@ -30,7 +33,7 @@ namespace Locadora.Web.MVC.Controllers
             var precoMaisBaixo = model.Jogos.Min(jogo => jogo.Preco);
             model.JogoMaisCaro = model.Jogos.First(jogo => jogo.Preco == precoMaisAlto).Nome;
             model.JogoMaisBarato = model.Jogos.First(jogo => jogo.Preco == precoMaisBaixo).Nome;
-
+            model.MediaDePreco = model.Jogos.Average(jogo => jogo.Preco);
             return View(model);
         }
     }

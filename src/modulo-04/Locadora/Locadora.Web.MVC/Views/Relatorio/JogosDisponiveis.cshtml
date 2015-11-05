@@ -6,19 +6,45 @@
 <h2>Jogos</h2>
 
 <table class="table table-striped table-bordered table-hover">
+    <tr> 
+        <td> Jogo mais caro: </td>
+        <td> @Model.JogoMaisCaro</td> 
+    </tr>
+    <tr> 
+        <td> Jogo mais barato: </td> 
+        <td> @Model.JogoMaisBarato</td> 
+    </tr>
+    <tr>
+        <td> Media de preço: </td>
+        <td> R$ @Model.MediaDePreco</td>
+    </tr>
+    <tr>
+        <td> Total de Jogos: </td> 
+        <td> @Model.QuantidadeDeJogos</td> 
+    </tr>
+    
+</table>
+
+<table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <th style="width: 40%">Jogo</th>            
-            <th style="width: 30%">Categoria</th>
-            <th style="width: 30%">Preço</th>
+            <th style="width: 40%">Jogo</th>  
+            <th style="width: 15%">Descricao</th>          
+            <th style="width: 15%">Categoria</th>
+            <th style="width: 15%">Preço</th>
+            <th style="width: 15%">Selo</th>
         </tr>
     </thead>
     @foreach (var jogo in @Model.Jogos)
     {
         <tr>
-            <td>@jogo.Nome</td>            
+            <td>
+                 <a href='@Url.Action("Index","Detalhes", new { id = jogo.Id})'> @jogo.Nome</a>
+            </td> 
+            <td>@jogo.Descricao</td>         
             <td>@jogo.Categoria</td>
             <td>@jogo.Preco.ToString("c")</td>
+            <td>@jogo.Selo</td>
         </tr>
     }
 </table>

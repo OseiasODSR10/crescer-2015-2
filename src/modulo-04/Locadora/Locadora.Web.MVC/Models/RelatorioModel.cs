@@ -11,6 +11,7 @@ namespace Locadora.Web.MVC.Models
         public int QuantidadeDeJogos { get; set; }
         public string JogoMaisCaro { get; set; }
         public string JogoMaisBarato { get; set; }
+        public decimal MediaDePreco { get; set; }
 
         public RelatorioModel()
         {
