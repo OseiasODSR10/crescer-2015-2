@@ -93,8 +93,8 @@ namespace Locadora.Repositorio.ADO
             using (IDbConnection conexao = CriarConexao())
             {
                 var sql = new StringBuilder();
-                sql.Append(" INSERT INTO Jogo (Nome, Preco, Descricao, IdSelo Categoria, IdClienteLocacao) ");
-                sql.Append(" VALUES (@paramNome, @paramPreco, @paramDescricao, @paramIdSelo, @paramCategoria, @paramIdClienteLocacao) ");
+                sql.Append(" INSERT INTO Jogo (Nome, Preco, Descricao, IdSelo, IdCategoria, IdClienteLocacao) ");
+                sql.Append(" VALUES (@paramNome, @paramPreco, @paramDescricao, @paramIdSelo, @paramIdCategoria, @paramIdClienteLocacao) ");
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();

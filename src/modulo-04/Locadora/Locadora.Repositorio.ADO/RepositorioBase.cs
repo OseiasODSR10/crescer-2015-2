@@ -13,7 +13,7 @@ namespace Locadora.Repositorio.ADO
     {
         internal IDbConnection CriarConexao()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["LOCADORA"].ConnectionString);
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["LOCADORA2"].ConnectionString);
         }
     }
 }
