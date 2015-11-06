@@ -28,12 +28,15 @@ namespace Locadora.Web.MVC.Controllers
                 };
                 model.Jogos.Add(jogoModel);
             }
-            model.QuantidadeDeJogos = model.Jogos.Count;
-            var precoMaisAlto = model.Jogos.Max(jogo => jogo.Preco);
-            var precoMaisBaixo = model.Jogos.Min(jogo => jogo.Preco);
-            model.JogoMaisCaro = model.Jogos.First(jogo => jogo.Preco == precoMaisAlto).Nome;
-            model.JogoMaisBarato = model.Jogos.First(jogo => jogo.Preco == precoMaisBaixo).Nome;
-            model.MediaDePreco = model.Jogos.Average(jogo => jogo.Preco);
+            if (model.Jogos.Count != 0)
+            {
+                model.QuantidadeDeJogos = model.Jogos.Count;
+                var precoMaisAlto = model.Jogos.Max(jogo => jogo.Preco);
+                var precoMaisBaixo = model.Jogos.Min(jogo => jogo.Preco);
+                model.JogoMaisCaro = model.Jogos.First(jogo => jogo.Preco == precoMaisAlto).Nome;
+                model.JogoMaisBarato = model.Jogos.First(jogo => jogo.Preco == precoMaisBaixo).Nome;
+                model.MediaDePreco = model.Jogos.Average(jogo => jogo.Preco);
+            }
             return View(model);
         }
 
