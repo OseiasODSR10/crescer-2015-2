@@ -56,7 +56,7 @@ namespace Locadora.Web.MVC.Controllers
                     Categoria = jogo.Categoria,
                     Preco = jogo.Preco,
                     Selo = jogo.Selo,
-                    IdCliente = jogo.IdClienteLocacao.Value,
+                    IdCliente = jogo.Cliente.Id,
                     Imagem = jogo.Imagem,
                     Video = jogo.Video
                 };

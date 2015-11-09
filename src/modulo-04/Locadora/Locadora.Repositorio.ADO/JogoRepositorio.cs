@@ -37,7 +37,7 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramDescricao", entidade.Descricao);
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
-                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdClienteLocacao", entidade.Cliente.Id);
                 comando.AddParam("paramUrl_Imagem", entidade.Imagem);
                 comando.AddParam("paramTag_Video", entidade.Video);
                 comando.AddParam("paramId", entidade.Id);
@@ -107,7 +107,7 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramDescricao", entidade.Descricao);
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
-                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdClienteLocacao", entidade.Cliente.Id);
                 comando.AddParam("paramUrl_Imagem", entidade.Imagem);
                 comando.AddParam("paramTag_Video", entidade.Video);
 
@@ -145,7 +145,7 @@ namespace Locadora.Repositorio.ADO
         {
             var jogo = new Jogo(
                 id: Convert.ToInt32(reader["Id"]),
-                idClienteLocacao: reader["IdClienteLocacao"].ToString().ToNullable<int>()
+                cliente: new ClienteRepositorio().BuscarPorId(Convert.ToInt32(reader["idClienteLocacao"]))
                 );
 
             jogo.Nome = reader["Nome"].ToString();

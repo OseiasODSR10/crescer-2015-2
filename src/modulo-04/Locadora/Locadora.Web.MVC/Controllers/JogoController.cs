@@ -26,7 +26,7 @@ namespace Locadora.Web.MVC.Controllers
                     Selo = jogo.Selo,
                     Video = jogo.Video,
                     Imagem = jogo.Imagem,
-                    IdCliente = jogo.IdClienteLocacao.Value
+                    IdCliente = jogo.Cliente.Id
                 };
                 return View(model);
             }
@@ -45,7 +45,7 @@ namespace Locadora.Web.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                Jogo jogoParaSalvar = new Jogo(model.Id, model.IdCliente)
+                Jogo jogoParaSalvar = new Jogo(model.Id, null)
                 {
                     Nome = model.Nome,
                     Descricao = model.Descricao,
