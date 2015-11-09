@@ -2,16 +2,15 @@
     ViewBag.Title = "Página Inicial";
 }
 
-<h2>Locadora CWI Crescer</h2>
+<h2>Locadora LFGames</h2>
 
-<a href='@Url.Action("JogosDisponiveis", "Relatorio")'> Relatorio de jogos </a>
-
-<form class="pull-right" action='@Url.Action("JogosDisponiveis","Relatorio")'>
-    Presquisar: <input type="text" name="nome" />
-    <input type="submit" />
-</form>
-
-<div class="pull-left">
-    <img src='~/Content/Images/Games-1.jpg' class="img-responsive" style="padding:20px" /> 
+<div class="pull-left" id="slider">
+    <figure>
+        <img src='~/Content/Images/Games-1.jpg' class="img-responsive"/>
+        <img src="~/Content/Images/Games-2013.jpg" class="img-responsive"/> 
+        <img src="~/Content/Images/master_chief_halo_5_guardians-HD.jpg" />
+        <img src="~/Content/Images/call_of_duty_black_ops_iii_2015_video_game-2880x1800.jpg" />
+        <img src="~/Content/Images/last_of_us_screeens-wallpaper-1366x768.jpg" />
+    </figure>
 </div>
 

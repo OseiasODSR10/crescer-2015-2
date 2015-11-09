@@ -12,7 +12,7 @@ namespace Locadora.Repositorio.ADO
 {
     public class JogoRepositorio : RepositorioBase,  IJogoRepositorio
     {
-        private const string BASE_SELECT = "SELECT Id, Nome, Preco, Descricao, IdSelo, IdCategoria, IdClienteLocacao FROM Jogo ";
+        private const string BASE_SELECT = "SELECT Id, Nome, Preco, Descricao, IdSelo, IdCategoria, IdClienteLocacao, Url_Imagem, Tag_Video FROM Jogo ";
 
         public int Atualizar(Jogo entidade)
         {
@@ -26,6 +26,8 @@ namespace Locadora.Repositorio.ADO
                 sql.Append(" IdSelo = @paramIdSelo, ");
                 sql.Append(" IdCategoria = @paramIdCategoria, ");
                 sql.Append(" IdClienteLocacao = @paramIdClienteLocacao ");
+                sql.Append(" Url_Imagem = @paramUrl_Imagem");
+                sql.Append(" Tag_Video = @paramTag_Video");
                 sql.Append(" WHERE Id = @paramId ");
 
                 IDbCommand comando = conexao.CreateCommand();
@@ -36,6 +38,8 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
                 comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramUrl_Imagem", entidade.Imagem);
+                comando.AddParam("paramTag_Video", entidade.Video);
                 comando.AddParam("paramId", entidade.Id);
 
                 conexao.Open();
@@ -93,8 +97,8 @@ namespace Locadora.Repositorio.ADO
             using (IDbConnection conexao = CriarConexao())
             {
                 var sql = new StringBuilder();
-                sql.Append(" INSERT INTO Jogo (Nome, Preco, Descricao, IdSelo, IdCategoria, IdClienteLocacao) ");
-                sql.Append(" VALUES (@paramNome, @paramPreco, @paramDescricao, @paramIdSelo, @paramIdCategoria, @paramIdClienteLocacao) ");
+                sql.Append(" INSERT INTO Jogo (Nome, Preco, Descricao, IdSelo, IdCategoria, IdClienteLocacao, Url_Imagem, Tag_Video) ");
+                sql.Append(" VALUES (@paramNome, @paramPreco, @paramDescricao, @paramIdSelo, @paramIdCategoria, @paramIdClienteLocacao, @paramUrl_Imagem, @paramTag_Video) ");
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
@@ -104,6 +108,8 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
                 comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramUrl_Imagem", entidade.Imagem);
+                comando.AddParam("paramTag_Video", entidade.Video);
 
                 conexao.Open();
                 return comando.ExecuteNonQuery();
@@ -147,6 +153,8 @@ namespace Locadora.Repositorio.ADO
             jogo.Descricao = reader["Descricao"].ToString();
             jogo.Selo = (Selo)Convert.ToInt32(reader["IdSelo"]);
             jogo.Categoria = (Categoria)Convert.ToInt32(reader["IdCategoria"]);
+            jogo.Imagem = reader["Url_Imagem"].ToString();
+            jogo.Video = reader["Tag_Video"].ToString();
 
             return jogo;
         }

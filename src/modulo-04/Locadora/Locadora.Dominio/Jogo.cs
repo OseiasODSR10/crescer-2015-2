@@ -17,6 +17,11 @@ namespace Locadora.Dominio
         public Categoria Categoria { get; set; }
 
         public int? IdClienteLocacao { get; private set; }
+
+        public string Video { get; set; }
+
+        public string Imagem { get; set; }
+
         
         public Jogo()
         {
@@ -64,6 +69,8 @@ namespace Locadora.Dominio
                     && this.Descricao == jogoComp.Descricao
                     && this.Selo == jogoComp.Selo
                     && this.Categoria == jogoComp.Categoria
+                    && this.Video == jogoComp.Video
+                    && this.Imagem == jogoComp.Imagem
                     && this.IdClienteLocacao == jogoComp.IdClienteLocacao;
             }
 

@@ -16,3 +16,106 @@ textarea {
     max-width: 280px;
 }
 
+.dark-button {
+    outline: 0;
+    color: darkgrey;
+    font-weight: bold;
+    text-shadow: 1px 1px #1f272b;
+    border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3D4850), color-stop(4%,#313d45), color-stop(100%,#232B30));
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+    .dark-button:hover {
+        color: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#4C5A64), color-stop(4%,#404F5A), color-stop(100%,#2E3940));
+    }
+
+    .dark-button:active {
+        background-position: 0 top;
+        position: relative;
+        top: 1px;
+        color: #fff;
+    }
+
+.dark-label {
+    margin-top: 0;
+    padding: 5px;
+    color: gray;
+    background-color: #2E3436;
+    font-size: 17px;
+    height: 24px;
+    border: none;
+}
+
+h2 {
+    color: black;
+}
+
+@keyframes slidy {
+    0% {
+        left: 0%;
+    }
+
+    15% {
+        left: 0%;
+    }
+
+    20% {
+        left: -100%;
+    }
+
+    35% {
+        left: -100%;
+    }
+
+    40% {
+        left: -200%;
+    }
+
+    55% {
+        left: -200%;
+    }
+
+    60% {
+        left: -300%;
+    }
+
+    75% {
+        left: -300%;
+    }
+
+    80% {
+        left: -400%;
+    }
+
+    85% {
+        left: -400%;
+    }
+
+    100%{
+        left: 0;
+    }
+
+}
+
+div#slider {
+    overflow: hidden;
+    border: 5px #e4e4e4 solid;
+    box-shadow: 0 0 6px #ccc;
+    margin: 10px;
+}
+
+div#slider figure img {
+    width: 20%;
+    float: left;
+    height: 600px;
+}
+
+div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    animation: 30s slidy infinite;
+}
