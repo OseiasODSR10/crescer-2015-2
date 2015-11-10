@@ -12,7 +12,7 @@ namespace Locadora.Repositorio.EF
     public class BancoDeDadosCF : DbContext
     {
 
-        public BancoDeDadosCF() : base("LOCADORACASA")
+        public BancoDeDadosCF() : base("LOCADORACWI")
         {
         }
 
