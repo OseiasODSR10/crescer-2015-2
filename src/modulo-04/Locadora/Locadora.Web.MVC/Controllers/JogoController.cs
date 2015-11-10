@@ -1,5 +1,5 @@
 ﻿using Locadora.Dominio;
-using Locadora.Repositorio.ADO;
+using Locadora.Repositorio.EF;
 using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
