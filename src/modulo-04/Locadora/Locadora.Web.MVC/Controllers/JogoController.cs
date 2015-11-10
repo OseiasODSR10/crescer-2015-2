@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
+    [Authorize]
     public class JogoController : Controller
     {
         [HttpGet]
