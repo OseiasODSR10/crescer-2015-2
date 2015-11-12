@@ -1,4 +1,5 @@
-﻿using Locadora.Dominio.Repositorio;
+﻿using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using Locadora.Web.MVC.Seguranca;
 using System;
@@ -18,7 +19,9 @@ namespace Locadora.Web.MVC.Controllers
         {
             RelatorioModel model = new RelatorioModel();
 
-            foreach(var jogo in string.IsNullOrEmpty(nome)? repositorioJogos.BuscarTodos() : repositorioJogos.BuscarPorNome(nome))
+            IList<Jogo> jogos = string.IsNullOrEmpty(nome) ? repositorioJogos.BuscarTodos() : repositorioJogos.BuscarPorNome(nome);
+
+            foreach (var jogo in jogos)
             {
                 var jogoModel = new JogoModel()
                 {
@@ -27,6 +30,7 @@ namespace Locadora.Web.MVC.Controllers
                     Categoria = jogo.Categoria.ToString(),
                     Selo = jogo.Selo.ToString()
                 };
+
                 model.Jogos.Add(jogoModel);
             }
             if (model.Jogos.Count != 0)
@@ -35,6 +39,12 @@ namespace Locadora.Web.MVC.Controllers
             }
             return View(model);
         }
-        
+
+        public JsonResult Autocomplete(string term)
+        {
+            var repositorio = new Locadora.Repositorio.EF.JogoRepositorio();
+            return Json(repositorio.BuscarPorNome(term).Select(j => new { label = j.Nome, value = j.Id, icon = j.Imagem }), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

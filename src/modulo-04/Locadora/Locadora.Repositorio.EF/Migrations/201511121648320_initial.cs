@@ -30,13 +30,15 @@ namespace Locadora.Repositorio.EF.Migrations
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Selo", t => t.Id_Selo)
-                .Index(t => t.Id_Selo);
+                .ForeignKey("dbo.Categoria", t => t.Id_Categoria)
+                .Index(t => t.Id_Selo)
+                .Index(t => t.Id_Categoria);
 
             CreateTable(
                 "dbo.Selo",
                 c => new
                 {
-                    Id = c.Int(nullable: false, identity: false),
+                    Id = c.Int(nullable: false, identity: true),
                     Nome = c.String(nullable: false, maxLength: 250),
                     Preco = c.Decimal(nullable: false, precision: 18, scale: 2),
                     Prazo_Devolucao = c.Int(nullable: false),
@@ -141,9 +143,9 @@ namespace Locadora.Repositorio.EF.Migrations
 
         private void CriarSelos()
         {
-            Sql("INSERT INTO Selo (Id, Nome, Preco, Prazo_Devolucao) VALUES (1, 'Ouro', 15, 1)");
-            Sql("INSERT INTO Selo (Id, Nome, Preco, Prazo_Devolucao) VALUES (2, 'Prata', 10, 2)");
-            Sql("INSERT INTO Selo (Id, Nome, Preco, Prazo_Devolucao) VALUES (3, 'Bronze', 5, 3)");
+            Sql("INSERT INTO Selo (Nome, Preco, Prazo_Devolucao) VALUES ('Ouro', 15, 1)");
+            Sql("INSERT INTO Selo (Nome, Preco, Prazo_Devolucao) VALUES ('Prata', 10, 2)");
+            Sql("INSERT INTO Selo (Nome, Preco, Prazo_Devolucao) VALUES ('Bronze', 5, 3)");
         }
     }
 }

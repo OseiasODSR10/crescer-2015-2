@@ -15,18 +15,19 @@ namespace ConsoleApplication2
         {
             BancoDeDadosCF bdAll = new BancoDeDadosCF();
             Selo oselo;
-
+            /*
             using (var db = new BancoDeDadosCF())
             {
                 oselo = db.Selo.Find(1);
             }
+            oselo = new Selo(1) { Nome = "Ouro", Prazo = 1, Preco=15 };
             Jogo jogo = new Jogo()
             {
                 Nome = "oseias",
                 Categoria = Categoria.AVENTURA,
-                Descricao = "Um jogo",
+                Descricao = "Um jogo legal sem duplicar",
                 Imagem = "ssa",
-                Selo = oselo,
+                IdSelo = oselo.Id,
                 Video = "cbdksc"
             };
             using (var db = new BancoDeDadosCF())
@@ -35,8 +36,30 @@ namespace ConsoleApplication2
                 db.SaveChanges();
                 Console.Read();
             }
-            
-            
+            */
+            /*
+            Usuario user = new Usuario()
+            {
+                NomeCompleto = "Oséias Daniel Soares Rodrigues",
+                Email = "oseias.rodrigues@cwi.com.br",
+                Senha = new ServicoCriptografia().CriptografarSenha("oss")
+            };
+
+            Permissao permissao = new Permissao() { Nome = "ADMIN" };
+
+            using (var db = new BancoDeDadosCF())
+            {
+                db.Entry(permissao).State = System.Data.Entity.EntityState.Added;
+                db.Entry(user).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
+                permissao.Usuarios.Add(user);
+                user.Permissoes.Add(permissao);
+                db.Entry(permissao).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                Console.Read();
+            }
+            */
         }
     }
 }

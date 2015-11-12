@@ -48,7 +48,7 @@ namespace Locadora.Web.MVC.Controllers
                     Nome = model.Nome,
                     Descricao = model.Descricao,
                     Categoria = model.Categoria,
-                    Selo = new SeloRepositorio().BuscarPorId((int)model.Selo),
+                    IdSelo = new SeloRepositorio().BuscarPorId((int)model.Selo).Id,
                     Imagem = model.Imagem,
                     Video = model.Video         
                 };
@@ -83,7 +83,7 @@ namespace Locadora.Web.MVC.Controllers
             }
             else
             {
-                JogoDetalhesModel jogoModelo = new JogoDetalhesModel()
+                JogoDetalhesModel jogoModelo = new JogoDetalhesModel(id)
                 {
                     Nome = jogo.Nome,
                     Descricao = jogo.Descricao,
