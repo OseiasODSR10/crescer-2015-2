@@ -24,8 +24,8 @@ namespace Locadora.Repositorio.EF.Mapping
                 .Map(m =>
                 {
                     m.ToTable("Usuario_Permissao");
-                    m.MapLeftKey("idUsuario");
-                    m.MapRightKey("idPermissao");
+                    m.MapLeftKey("Id_Usuario");
+                    m.MapRightKey("Id_Permissao");
                 });
         }
     }

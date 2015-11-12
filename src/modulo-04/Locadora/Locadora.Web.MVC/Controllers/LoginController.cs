@@ -30,7 +30,7 @@ namespace Locadora.Web.MVC.Controllers
 
                 if (usuarioAutenticado != null)
                 {
-                    ControleSessao.CriarSessaoDeUsuario(usuarioAutenticado);
+                    ControleDeSessao.CriarSessaoDeUsuario(usuarioAutenticado);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -41,7 +41,7 @@ namespace Locadora.Web.MVC.Controllers
 
         public void Sair()
         {
-            ControleSessao.Encerrar();
+            ControleDeSessao.Encerrar();
         }
     }
 }

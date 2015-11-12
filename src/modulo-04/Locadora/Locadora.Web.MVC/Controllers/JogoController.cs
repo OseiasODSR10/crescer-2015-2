@@ -23,10 +23,9 @@ namespace Locadora.Web.MVC.Controllers
                 {
                     Id = jogo.Id,
                     Nome = jogo.Nome,
-                    Preco = jogo.Preco,
                     Descricao = jogo.Descricao,
                     Categoria = jogo.Categoria,
-                    Selo = jogo.Selo,
+                    Selo = (SeloModel)Enum.Parse(typeof(SeloModel), jogo.Selo.Nome),
                     Video = jogo.Video,
                     Imagem = jogo.Imagem
                 };
@@ -48,9 +47,8 @@ namespace Locadora.Web.MVC.Controllers
                 {
                     Nome = model.Nome,
                     Descricao = model.Descricao,
-                    Preco = model.Preco,
                     Categoria = model.Categoria,
-                    Selo = model.Selo,
+                    Selo = new SeloRepositorio().BuscarPorId((int)model.Selo),
                     Imagem = model.Imagem,
                     Video = model.Video         
                 };
@@ -90,7 +88,6 @@ namespace Locadora.Web.MVC.Controllers
                     Nome = jogo.Nome,
                     Descricao = jogo.Descricao,
                     Categoria = jogo.Categoria.ToString(),
-                    Preco = jogo.Preco,
                     Selo = jogo.Selo.ToString(),
                     Imagem = jogo.Imagem,
                     Video = jogo.Video

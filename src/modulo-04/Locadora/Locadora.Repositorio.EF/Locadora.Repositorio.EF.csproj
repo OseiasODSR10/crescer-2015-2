@@ -54,11 +54,17 @@
     <Compile Include="JogoRepositorio.cs" />
     <Compile Include="Mapping\ClienteMap.cs" />
     <Compile Include="Mapping\JogoMap.cs" />
+    <Compile Include="Mapping\LocacaoMap.cs" />
     <Compile Include="Mapping\PermissaoMap.cs" />
     <Compile Include="Mapping\SeloMap.cs" />
     <Compile Include="Mapping\UsuarioMap.cs" />
+    <Compile Include="Migrations\201511121648320_initial.cs" />
+    <Compile Include="Migrations\201511121648320_initial.Designer.cs">
+      <DependentUpon>201511121648320_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeloRepositorio.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +77,11 @@
       <Name>Locadora.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511121648320_initial.resx">
+      <DependentUpon>201511121648320_initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

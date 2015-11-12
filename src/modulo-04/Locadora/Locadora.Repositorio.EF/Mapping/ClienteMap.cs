@@ -18,7 +18,6 @@ namespace Locadora.Repositorio.EF.Mapping
 
             Property(p => p.Nome).IsRequired().HasMaxLength(250);
 
-            HasMany(c => c.Jogos).WithOptional(j => j.Cliente);
         }
     }
 }

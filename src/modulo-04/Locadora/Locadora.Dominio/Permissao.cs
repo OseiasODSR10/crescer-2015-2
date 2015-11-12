@@ -10,6 +10,11 @@ namespace Locadora.Dominio
     {
         public string Nome { get; set; }
 
-        public ICollection<Usuario> Usuarios { get; set; }
+        public ICollection<Usuario> Usuarios { get; set; } 
+
+        public Permissao()
+        {
+            Usuarios = new List<Usuario>();
+        }
     }
 }

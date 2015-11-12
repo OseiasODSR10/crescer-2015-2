@@ -16,7 +16,8 @@ namespace Locadora.Dominio
 
         public Usuario()
         {
-            this.Permissoes = new List<Permissao>();
+            Permissoes = new List<Permissao>();
         }
+            
     }
 }

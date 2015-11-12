@@ -24,7 +24,6 @@ namespace Locadora.Web.MVC.Controllers
                 {
                     Id = jogo.Id,
                     Nome = jogo.Nome,
-                    Preco = jogo.Preco,
                     Categoria = jogo.Categoria.ToString(),
                     Selo = jogo.Selo.ToString()
                 };
@@ -33,11 +32,6 @@ namespace Locadora.Web.MVC.Controllers
             if (model.Jogos.Count != 0)
             {
                 model.QuantidadeDeJogos = model.Jogos.Count;
-                var precoMaisAlto = model.Jogos.Max(jogo => jogo.Preco);
-                var precoMaisBaixo = model.Jogos.Min(jogo => jogo.Preco);
-                model.JogoMaisCaro = model.Jogos.First(jogo => jogo.Preco == precoMaisAlto).Nome;
-                model.JogoMaisBarato = model.Jogos.First(jogo => jogo.Preco == precoMaisBaixo).Nome;
-                model.MediaDePreco = string.Format("{0: 0.00}",model.Jogos.Average(jogo => jogo.Preco));
             }
             return View(model);
         }

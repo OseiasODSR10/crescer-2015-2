@@ -9,16 +9,14 @@
     <thead>
         <tr>
             <th style="width: 40%"> Jogo </th>
-            <th style="width: 20%"> Categoria</th>
-            <th style="width: 20%"> Selo</th>
-            <th style="width: 20%"> Preço</th>
+            <th style="width: 30%"> Categoria</th>
+            <th style="width: 30%"> Selo</th>
         </tr>
     </thead>
     <tr style="font-family: 'Bookman Old Style'; font-size: 20px">
         <th style="text-align:center"> @Model.Nome </th>
         <th style="text-align:center"> @Model.Categoria</th>
         <th style="text-align:center"> @Model.Selo</th>
-        <th style="text-align:center"> @Model.Preco.ToString("c")</th>
     </tr>
 </table>
 <table class="table table-striped table-bordered table-hover">
@@ -30,28 +28,10 @@
     </thead>
     <tr>
         <th>
-            @if (!string.IsNullOrEmpty(Model.Imagem))
-            {
-                <img src=@Model.Imagem class="img-responsive" style="width: 500px; height: 350px" />
-            }
-            else
-            {
-                <h2 style="font-family: Georgia; font-size:30px; vertical-align:central; text-align:center">
-                    Este jogo não possui imagem disponível
-                </h2>
-            }
+            <img src=@Model.Imagem class="img-responsive" style="width: 500px; height: 350px" />
         </th>
         <th>
-            @if (!string.IsNullOrEmpty(Model.Video))
-            {
-                <iframe width="650" height="350" src=@Model.Video frameborder="0" allowfullscreen></iframe>
-            }
-            else
-            {
-                <h2 style="font-family: Georgia; font-size:30px; vertical-align:central; text-align:center">
-                    Este jogo não possui vídeo disponível
-                </h2>
-            }
+            <iframe width="650" height="350" src=@Model.Video frameborder="0" allowfullscreen></iframe>
         </th>
     </tr>
 </table>

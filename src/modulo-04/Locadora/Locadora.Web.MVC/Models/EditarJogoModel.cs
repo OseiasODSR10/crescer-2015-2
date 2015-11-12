@@ -23,7 +23,7 @@ namespace Locadora.Web.MVC.Models
         public Categoria Categoria { get; set; }
 
         [Required(ErrorMessage = "*Campo obrigatório")]
-        public Selo Selo { get; set; }
+        public SeloModel Selo { get; set; }
 
         [Required(ErrorMessage = "*Campo obrigatório")]
         [DisplayName("Descrição")]

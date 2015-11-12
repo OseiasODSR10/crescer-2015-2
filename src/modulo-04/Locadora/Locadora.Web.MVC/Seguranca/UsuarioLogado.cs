@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,26 +8,21 @@ namespace Locadora.Web.MVC.Seguranca
 {
     public class UsuarioLogado
     {
-        public string Usuario { get; private set; }
+        public string Email { get; private set; }
 
         public string[] Permissoes { get; private set; }
 
-        public UsuarioLogado(string user, string[] permissoes)
+        public UsuarioLogado(Usuario usuario)
         {
-            this.Usuario = user;
-            this.Permissoes = permissoes;
+            this.Email = usuario.Email;
+            this.Permissoes = usuario.Permissoes.Select(p => p.Nome).ToArray();
         }
 
-        public bool UsuarioTemPermissao(string permissao)
+        public bool TemPermissao(string nomePermissao)
         {
-            if(Permissoes != null && Permissoes.Contains(permissao))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Permissoes != null
+                && this.Permissoes.Contains(nomePermissao);
         }
+
     }
 }

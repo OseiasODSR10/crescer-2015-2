@@ -9,17 +9,14 @@ namespace Locadora.Dominio
     public class Cliente : EntidadeBase
     {
         public string Nome { get; set; }
-        public ICollection<Jogo> Jogos { get; set; }
 
         public Cliente()
         {
-            this.Jogos = new List<Jogo>();
         }
 
         public Cliente(int id)
         {
             this.Id = id;
-            this.Jogos = new List<Jogo>();
         }
     }
 }

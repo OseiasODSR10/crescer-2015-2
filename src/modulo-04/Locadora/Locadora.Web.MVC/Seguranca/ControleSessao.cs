@@ -7,7 +7,7 @@ using System.Web.Security;
 
 namespace Locadora.Web.MVC.Seguranca
 {
-    public class ControleSessao
+    public class ControleDeSessao
     {
         private const string USUARIO_LOGADO = "USUARIO_LOGADO";
 
@@ -15,16 +15,21 @@ namespace Locadora.Web.MVC.Seguranca
         {
             get
             {
-                return HttpContext.Current.Session[USUARIO_LOGADO] as UsuarioLogado;
+                UsuarioLogado usuarioLogado = null;
+
+                if (HttpContext.Current.Session != null)
+                {
+                    usuarioLogado = HttpContext.Current.Session[USUARIO_LOGADO] as UsuarioLogado;
+                }
+
+                return usuarioLogado;
             }
         }
 
         public static void CriarSessaoDeUsuario(Usuario usuarioAutenticado)
         {
-            var usuarioLogado = new UsuarioLogado(usuarioAutenticado.Email,
-                usuarioAutenticado.Permissoes.Select(p => p.texto).ToArray());
-
-            FormsAuthentication.SetAuthCookie(usuarioLogado.Usuario, true);
+            var usuarioLogado = new UsuarioLogado(usuarioAutenticado);
+            FormsAuthentication.SetAuthCookie(usuarioLogado.Email, true);
             HttpContext.Current.Session[USUARIO_LOGADO] = usuarioLogado;
         }
 

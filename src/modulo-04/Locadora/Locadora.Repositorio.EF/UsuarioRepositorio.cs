@@ -23,7 +23,8 @@ namespace Locadora.Repositorio.EF
         {
             using (var db = new BancoDeDadosCF())
             {
-                return db.Usuario.Include("Permissoes").FirstOrDefault(j => j.Email.Equals(email));
+                var user = db.Usuario.Include("Permissoes").FirstOrDefault(j => email.Equals(j.Email));
+                return user;
             }
         }
 
@@ -31,7 +32,7 @@ namespace Locadora.Repositorio.EF
         {
             using (var db = new BancoDeDadosCF())
             {
-                Usuario user = db.Usuario.FirstOrDefault(u => u.Id == id);
+                Usuario user = db.Usuario.Include("Permissoes").FirstOrDefault(u => u.Id == id);
                 return user;
             }
         }
@@ -40,7 +41,8 @@ namespace Locadora.Repositorio.EF
         {
             using (var db = new BancoDeDadosCF())
             {
-                return db.Usuario.ToList();
+                var user = db.Usuario.Include("Permissoes").ToList();
+                return user;
             }
         }
 

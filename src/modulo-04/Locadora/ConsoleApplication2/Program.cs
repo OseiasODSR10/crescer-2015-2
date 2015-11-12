@@ -13,17 +13,30 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            UsuarioRepositorio bd = new UsuarioRepositorio();
+            BancoDeDadosCF bdAll = new BancoDeDadosCF();
+            Selo oselo;
 
-            Usuario user = new Usuario()
+            using (var db = new BancoDeDadosCF())
             {
-                Email = "oseias.rdgs@x.com",
-                NomeCompleto = "Oseias",
-                Senha = new ServicoCriptografia().CriptografarSenha("oss")
-                
+                oselo = db.Selo.Find(1);
+            }
+            Jogo jogo = new Jogo()
+            {
+                Nome = "oseias",
+                Categoria = Categoria.AVENTURA,
+                Descricao = "Um jogo",
+                Imagem = "ssa",
+                Selo = oselo,
+                Video = "cbdksc"
             };
-
-            var x = bd.BuscarPorEmail(user.Email);
+            using (var db = new BancoDeDadosCF())
+            {
+                db.Entry(jogo).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
+                Console.Read();
+            }
+            
+            
         }
     }
 }
