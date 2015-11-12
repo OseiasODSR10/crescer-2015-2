@@ -8,14 +8,19 @@
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form" }))
 {
     <div class="form-group">
-        <label for="usuario">Nome:</label>
-        <input type="text" class="form-control" name="usuario" value="" />
+        <label for="Email">Email:</label>
+        <input type="text" class="form-control" name="Email" value="" />
     </div>
     <div class="form-group">
-        <label for="senha">Senha:</label>
-        <input type="password" class="form-control" name="senha" value="" />
+        <label for="PassWord">Senha:</label>
+        <input type="password" class="form-control" name="PassWord" value="" />
     </div>
 
     <input type="submit" name="enviar" value="Login" />
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 }
 

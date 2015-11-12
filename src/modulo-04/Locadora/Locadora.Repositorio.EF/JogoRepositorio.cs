@@ -25,7 +25,7 @@ namespace Locadora.Repositorio.EF
         {
             using(var db = new BancoDeDadosCF())
             {
-                Jogo jogo = db.Jogo.First(j => j.Id==id);
+                Jogo jogo = db.Jogo.Find(id);
                 return jogo;
             }            
         }

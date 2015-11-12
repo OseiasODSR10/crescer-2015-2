@@ -153,11 +153,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditarJogoModel.cs" />
+    <Compile Include="Models\JogoDetalhesModel.cs" />
     <Compile Include="Models\JogoModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Seguranca\Autorizador.cs" />
+    <Compile Include="Seguranca\ControleSessao.cs" />
+    <Compile Include="Seguranca\ServicoCriptografia.cs" />
     <Compile Include="Seguranca\UsuarioLogado.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +174,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Views\Relatorio\Index.cshtml" />
+    <Content Include="Views\Jogo\DetalhesJogo.cshtml" />
     <Content Include="Views\Jogo\Editar.cshtml" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Views\Login\Index.cshtml" />

@@ -1,6 +1,7 @@
 ﻿using Locadora.Dominio;
 using Locadora.Repositorio.EF;
 using Locadora.Web.MVC.Models;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    [Authorize]
+    [Autorizador]
     public class JogoController : Controller
     {
         [HttpGet]
@@ -18,35 +19,32 @@ namespace Locadora.Web.MVC.Controllers
             if (id.HasValue)
             {
                 var jogo = new JogoRepositorio().BuscarPorId(id.Value);
-                JogoModel model = new JogoModel(jogo.Id)
+                EditarJogoModel model = new EditarJogoModel()
                 {
+                    Id = jogo.Id,
                     Nome = jogo.Nome,
                     Preco = jogo.Preco,
                     Descricao = jogo.Descricao,
                     Categoria = jogo.Categoria,
                     Selo = jogo.Selo,
                     Video = jogo.Video,
-                    Imagem = jogo.Imagem,
-                    IdCliente = jogo.Cliente.Id
+                    Imagem = jogo.Imagem
                 };
                 return View(model);
             }
             else
             {
-                return View();
+                return View(new EditarJogoModel());
             }
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Salvar(JogoModel model)
+        public ActionResult Salvar(EditarJogoModel model)
         {
-            ModelState.AddModelError("Nome", "Nome já existe no banco de dados!");
-            ModelState.AddModelError("", "Tem coisa errada aí...");
-
             if (ModelState.IsValid)
             {
-                Jogo jogoParaSalvar = new Jogo(model.Id, null)
+                Jogo jogoParaSalvar = new Jogo(model.Id)
                 {
                     Nome = model.Nome,
                     Descricao = model.Descricao,
@@ -54,16 +52,50 @@ namespace Locadora.Web.MVC.Controllers
                     Categoria = model.Categoria,
                     Selo = model.Selo,
                     Imagem = model.Imagem,
-                    Video = model.Video
+                    Video = model.Video         
                 };
-                new JogoRepositorio().Criar(jogoParaSalvar);
-                TempData["Mensagem"] = "Jogo salvo com sucesso!";
+
+                if(jogoParaSalvar.Id == 0)
+                {
+                    new JogoRepositorio().Criar(jogoParaSalvar);
+                    TempData["Mensagem"] = "Jogo salvo com sucesso!";
+                }
+                else
+                {
+                    new JogoRepositorio().Atualizar(jogoParaSalvar);
+                    TempData["Mensagem"] = "Jogo alterado com sucesso!";
+                }
 
                 return RedirectToAction("JogosDisponiveis", "Relatorio");
             }
             else
             {
                 return View("Editar", model);
+            }
+        }
+
+        [Autorizador(Roles = "ADMIN")]
+        public ActionResult DetalhesJogo(int id)
+        {
+            var jogo = new JogoRepositorio().BuscarPorId(id);
+
+            if (jogo == null)
+            {
+                return null;
+            }
+            else
+            {
+                JogoDetalhesModel jogoModelo = new JogoDetalhesModel()
+                {
+                    Nome = jogo.Nome,
+                    Descricao = jogo.Descricao,
+                    Categoria = jogo.Categoria.ToString(),
+                    Preco = jogo.Preco,
+                    Selo = jogo.Selo.ToString(),
+                    Imagem = jogo.Imagem,
+                    Video = jogo.Video
+                };
+                return View(jogoModelo);
             }
         }
     }

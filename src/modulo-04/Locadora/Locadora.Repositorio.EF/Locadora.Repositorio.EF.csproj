@@ -50,17 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDeDadosCF.cs" />
+    <Compile Include="ClienteRepositorio.cs" />
     <Compile Include="JogoRepositorio.cs" />
-    <Compile Include="Migrations\201511100054453_initial.cs" />
-    <Compile Include="Migrations\201511100054453_initial.Designer.cs">
-      <DependentUpon>201511100054453_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511101729162_init2.cs" />
-    <Compile Include="Migrations\201511101729162_init2.Designer.cs">
-      <DependentUpon>201511101729162_init2.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Mapping\ClienteMap.cs" />
+    <Compile Include="Mapping\JogoMap.cs" />
+    <Compile Include="Mapping\PermissaoMap.cs" />
+    <Compile Include="Mapping\SeloMap.cs" />
+    <Compile Include="Mapping\UsuarioMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,14 +71,7 @@
       <Name>Locadora.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511100054453_initial.resx">
-      <DependentUpon>201511100054453_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511101729162_init2.resx">
-      <DependentUpon>201511101729162_init2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,6 @@
 ﻿using Locadora.Dominio;
 using Locadora.Repositorio.EF;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +13,17 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-            JogoRepositorio bd = new JogoRepositorio();
+            UsuarioRepositorio bd = new UsuarioRepositorio();
 
-            Jogo jogo = new Jogo(1, null)
+            Usuario user = new Usuario()
             {
-                Nome = "oseias",
-                Descricao = "chato",
-                Preco = 200,
-                Categoria = Categoria.RPG,
-                Selo = Selo.OURO,
+                Email = "oseias.rdgs@x.com",
+                NomeCompleto = "Oseias",
+                Senha = new ServicoCriptografia().CriptografarSenha("oss")
+                
             };
 
-            bd.Excluir(jogo.Id);
+            var x = bd.BuscarPorEmail(user.Email);
         }
     }
 }

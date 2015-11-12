@@ -28,6 +28,11 @@ namespace Locadora.Dominio
 
         }
 
+        public Jogo(int id)
+        {
+            this.Id = id;
+        }
+
         public Jogo(int id, Cliente cliente)
         {
             this.Id = id;
@@ -37,6 +42,7 @@ namespace Locadora.Dominio
         public void LocarPara(Cliente cliente)
         {
             this.Cliente = cliente;
+            cliente.Jogos.Add(this);
         }
 
         public override string ToString()

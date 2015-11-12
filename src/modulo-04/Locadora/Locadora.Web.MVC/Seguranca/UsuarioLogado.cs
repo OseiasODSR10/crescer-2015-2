@@ -16,5 +16,17 @@ namespace Locadora.Web.MVC.Seguranca
             this.Usuario = user;
             this.Permissoes = permissoes;
         }
+
+        public bool UsuarioTemPermissao(string permissao)
+        {
+            if(Permissoes != null && Permissoes.Contains(permissao))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

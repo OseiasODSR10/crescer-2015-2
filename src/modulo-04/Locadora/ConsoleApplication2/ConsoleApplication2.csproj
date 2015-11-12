@@ -64,9 +64,17 @@
       <Project>{93d95d00-78c7-4b77-be44-686ab7a29c7c}</Project>
       <Name>Locadora.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Locadora.Helpers\Locadora.Helpers.csproj">
+      <Project>{98cfbfa0-6792-41aa-9f4c-f69ffd0c3c5c}</Project>
+      <Name>Locadora.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Locadora.Repositorio.EF\Locadora.Repositorio.EF.csproj">
       <Project>{f75e13f4-5165-4d04-a389-d074b793e04f}</Project>
       <Name>Locadora.Repositorio.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locadora.Web.MVC\Locadora.Web.MVC.csproj">
+      <Project>{22a0ef1d-2c02-421d-b368-4c3f49c351f3}</Project>
+      <Name>Locadora.Web.MVC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

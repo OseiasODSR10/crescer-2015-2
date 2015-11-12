@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    [Authorize]
+    [Autorizador]
     public class RelatorioController : Controller
     {
         private IJogoRepositorio repositorioJogos = new Locadora.Repositorio.EF.JogoRepositorio();
@@ -20,13 +20,13 @@ namespace Locadora.Web.MVC.Controllers
 
             foreach(var jogo in string.IsNullOrEmpty(nome)? repositorioJogos.BuscarTodos() : repositorioJogos.BuscarPorNome(nome))
             {
-                var jogoModel = new JogoModel(jogo.Id)
+                var jogoModel = new JogoModel()
                 {
+                    Id = jogo.Id,
                     Nome = jogo.Nome,
                     Preco = jogo.Preco,
-                    Categoria = jogo.Categoria,
-                    Descricao = jogo.Descricao,
-                    Selo = jogo.Selo
+                    Categoria = jogo.Categoria.ToString(),
+                    Selo = jogo.Selo.ToString()
                 };
                 model.Jogos.Add(jogoModel);
             }
@@ -41,30 +41,6 @@ namespace Locadora.Web.MVC.Controllers
             }
             return View(model);
         }
-
-        [Autorizador(Roles = "MASTER")]
-        public ActionResult Index(int id)
-        {
-            var jogo = repositorioJogos.BuscarPorId(id);
-            if (jogo == null)
-            {
-                return null;
-            }
-            else
-            {
-                var jogoModelo = new JogoModel(jogo.Id)
-                {
-                    Nome = jogo.Nome,
-                    Descricao = jogo.Descricao,
-                    Categoria = jogo.Categoria,
-                    Preco = jogo.Preco,
-                    Selo = jogo.Selo,
-                    IdCliente = jogo.Cliente.Id,
-                    Imagem = jogo.Imagem,
-                    Video = jogo.Video
-                };
-                return View(jogoModelo);
-            }
-        }
+        
     }
 }

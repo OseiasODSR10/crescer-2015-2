@@ -14,15 +14,22 @@ namespace Locadora.Web.MVC.Seguranca
         {
             UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
 
-            var identidade = new GenericIdentity(usuarioLogado.Usuario);
-            string[] roles = usuarioLogado.Permissoes;
+            if (usuarioLogado != null && AuthorizeCore(filterContext.HttpContext))
+            {
+                var identidade = new GenericIdentity(usuarioLogado.Usuario);
+                string[] roles = usuarioLogado.Permissoes;
 
-            var principal = new GenericPrincipal(identidade, roles);
+                var principal = new GenericPrincipal(identidade, roles);
 
-            Thread.CurrentPrincipal = principal;
-            HttpContext.Current.User = principal;
+                Thread.CurrentPrincipal = principal;
+                HttpContext.Current.User = principal;
 
-            base.OnAuthorization(filterContext);
+                base.OnAuthorization(filterContext);
+            }
+            else
+            {
+                filterContext.Result = new RedirectResult("~/Login/Index");
+            }
         }
     }
 }
