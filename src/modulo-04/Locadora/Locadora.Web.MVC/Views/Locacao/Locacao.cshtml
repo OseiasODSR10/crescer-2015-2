@@ -5,11 +5,11 @@
 
 <h2>Locacao</h2>
 <div class="container">
-    <div class="row">
+    <div class="row text-center">
         @Html.Partial("_Locacao", Model)
     </div>
     <hr />
-    <div class="pull-right">
+    <div class="col-lg-10 form-inline text-center">
 
         @using (Html.BeginForm("Salvar", "Locacao", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
@@ -24,12 +24,11 @@
                     @Html.ValidationMessageFor(m => m.Cliente.Nome)
                 </div>
             </div>
-            <div class="form-horizontal">
+            <div class="form-group">
                 <div class="col-md-offset-4 col-md-2">
                     <button type="submit" class="btn btn-primary">Finalizar locação</button>
                 </div>
             </div>
         }
-
     </div>
 </div>

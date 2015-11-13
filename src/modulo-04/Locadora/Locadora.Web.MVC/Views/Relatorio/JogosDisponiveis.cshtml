@@ -31,10 +31,11 @@ else
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
-                <th style="width: 40%">Jogo</th>
+                <th style="width: 50%">Jogo</th>
                 <th style="width: 20%">Categoria</th>
-                <th style="width: 20%">Selo</th>
+                <th style="width: 10%">Selo</th>
                 <th style="width: 10%">Editar</th>
+                <th style="width: 10%">Locar</th>
             </tr>
         </thead>
         @foreach (var jogo in @Model.Jogos)
@@ -47,6 +48,9 @@ else
                 <td>@jogo.Selo.Nome.ToUpper()</td>
                 <td>
                     <a href="~/Jogo/Editar/@jogo.Id"> Editar</a>
+                </td>
+                <td>
+                    <a href="~/Locacao/Locacao/@jogo.Id"> Locar</a>
                 </td>
             </tr>
         }

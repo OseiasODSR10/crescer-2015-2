@@ -14,8 +14,27 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             BancoDeDadosCF bdAll = new BancoDeDadosCF();
-            Selo oselo;
+            Cliente cliente = new Cliente()
+            {
+                Nome = "Oséias"
+            };
+            Cliente cliente2 = new Cliente()
+            {
+                Nome = "André"
+            };
+
+            using (var db = new BancoDeDadosCF())
+            {
+                db.Entry(cliente).State = System.Data.Entity.EntityState.Added;
+                db.Entry(cliente2).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
+                Console.Read();
+            }
+
+
             /*
+            Selo oselo;
+            
             using (var db = new BancoDeDadosCF())
             {
                 oselo = db.Selo.Find(1);
