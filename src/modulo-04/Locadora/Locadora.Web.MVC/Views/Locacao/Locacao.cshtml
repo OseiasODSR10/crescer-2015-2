@@ -1,0 +1,35 @@
+﻿@model LocacaoModel
+@{
+    ViewBag.Title = "Locacao";
+}
+
+<h2>Locacao</h2>
+<div class="container">
+    <div class="row">
+        @Html.Partial("_Locacao", Model)
+    </div>
+    <hr />
+    <div class="pull-right">
+
+        @using (Html.BeginForm("Salvar", "Locacao", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.ValidationSummary(false)
+
+            @Html.HiddenFor(m => m.Jogo.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Cliente.Nome, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Cliente.Nome, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Cliente.Nome)
+                </div>
+            </div>
+            <div class="form-horizontal">
+                <div class="col-md-offset-4 col-md-2">
+                    <button type="submit" class="btn btn-primary">Finalizar locação</button>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

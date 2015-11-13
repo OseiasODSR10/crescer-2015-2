@@ -1,0 +1,20 @@
+﻿@model LocacaoModel
+@{
+    ViewBag.Title = "_Locacao";
+}
+
+<h2>_Locacao</h2>
+<div >
+    <img src=@Model.Jogo.Imagem />
+</div>
+<div>
+    <h2>@Model.Jogo.Nome</h2>
+    <h3>
+        Data prevista p/ devolução:
+        @Model.DataPrevistaEntrega.ToString("dd/MM/yyyy")
+    </h3>
+    <h3>
+        Valor:
+        @Model.Jogo.Selo.Preco.ToString("c");
+    </h3>
+</div>

@@ -25,7 +25,7 @@ namespace Locadora.Repositorio.EF
         {
             using(var db = new BancoDeDadosCF())
             {
-                Jogo jogo = db.Jogo.Find(id);
+                Jogo jogo = db.Jogo.Include("Selo").First(j => j.Id == id);
                 return jogo;
             }            
         }
@@ -34,7 +34,7 @@ namespace Locadora.Repositorio.EF
         {
             using(var db = new BancoDeDadosCF())
             {
-                return db.Jogo.Where(j => j.Nome.Equals(nome)).ToList();
+                return db.Jogo.Include("Selo").Where(j => j.Nome.ToUpper().Contains(nome.ToUpper())).ToList();
             }
         }
 
@@ -42,7 +42,7 @@ namespace Locadora.Repositorio.EF
         {
             using (var db = new BancoDeDadosCF())
             {
-                return db.Jogo.ToList();
+                return db.Jogo.Include("Selo").ToList();
             }
         }
 

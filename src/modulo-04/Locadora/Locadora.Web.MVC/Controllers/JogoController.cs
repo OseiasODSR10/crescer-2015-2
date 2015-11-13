@@ -25,7 +25,7 @@ namespace Locadora.Web.MVC.Controllers
                     Nome = jogo.Nome,
                     Descricao = jogo.Descricao,
                     Categoria = jogo.Categoria,
-                    Selo = (SeloModel)Enum.Parse(typeof(SeloModel), jogo.Selo.Nome),
+                    Selo = (SeloModel)Enum.Parse(typeof(SeloModel), jogo.Selo.Nome.ToUpper()),
                     Video = jogo.Video,
                     Imagem = jogo.Imagem
                 };
@@ -83,15 +83,16 @@ namespace Locadora.Web.MVC.Controllers
             }
             else
             {
-                JogoDetalhesModel jogoModelo = new JogoDetalhesModel(id)
+                DetalhesJogoModel jogoModelo = new DetalhesJogoModel()
                 {
                     Nome = jogo.Nome,
-                    Descricao = jogo.Descricao,
                     Categoria = jogo.Categoria.ToString(),
-                    Selo = jogo.Selo.ToString(),
+                    Selo = jogo.Selo,
+                    Descricao = jogo.Descricao,
                     Imagem = jogo.Imagem,
                     Video = jogo.Video
                 };
+
                 return View(jogoModelo);
             }
         }

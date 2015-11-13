@@ -6,7 +6,15 @@
 @if (Model.Jogos.Count == 0)
 {
     <h2 style="font-family:Georgia; font-size: 50px; text-align:right"> Nunhum Jogo foi encontrado</h2>
-    <img src='~/Content/Images/Games-1.jpg' class="img-responsive" style="padding:20px" />
+    <div class="pull-right" id="slider">
+        <figure>
+            <img src='~/Content/Images/Games-1.jpg' class="img-responsive" />
+            <img src="~/Content/Images/Games-2013.jpg" class="img-responsive" />
+            <img src="~/Content/Images/master_chief_halo_5_guardians-HD.jpg" />
+            <img src="~/Content/Images/call_of_duty_black_ops_iii_2015_video_game-2880x1800.jpg" />
+            <img src="~/Content/Images/last_of_us_screeens-wallpaper-1366x768.jpg" />
+        </figure>
+    </div>
 }
 else
 {
@@ -24,8 +32,9 @@ else
         <thead>
             <tr>
                 <th style="width: 40%">Jogo</th>
-                <th style="width: 30%">Categoria</th>
-                <th style="width: 30%">Selo</th>
+                <th style="width: 20%">Categoria</th>
+                <th style="width: 20%">Selo</th>
+                <th style="width: 10%">Editar</th>
             </tr>
         </thead>
         @foreach (var jogo in @Model.Jogos)
@@ -35,7 +44,10 @@ else
                     <a href='~/Jogo/DetalhesJogo/@jogo.Id'> @jogo.Nome</a>
                 </td>
                 <td>@jogo.Categoria</td>
-                <td>@jogo.Selo</td>
+                <td>@jogo.Selo.Nome.ToUpper()</td>
+                <td>
+                    <a href="~/Jogo/Editar/@jogo.Id"> Editar</a>
+                </td>
             </tr>
         }
     </table>

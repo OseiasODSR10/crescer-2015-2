@@ -149,6 +149,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
+    <Compile Include="Controllers\LocacaoController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +157,7 @@
     <Compile Include="Models\EditarJogoModel.cs" />
     <Compile Include="Models\JogoDetalhesModel.cs" />
     <Compile Include="Models\JogoModel.cs" />
+    <Compile Include="Models\LocacaoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
     <Compile Include="Models\SeloModel.cs" />
@@ -179,6 +181,8 @@
     <Content Include="Views\Jogo\Editar.cshtml" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_Locacao.cshtml" />
+    <Content Include="Views\Locacao\Locacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

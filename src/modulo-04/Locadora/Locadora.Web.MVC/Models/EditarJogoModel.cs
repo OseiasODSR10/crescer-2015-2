@@ -12,25 +12,23 @@ namespace Locadora.Web.MVC.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "*Campo obrigatório")]
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "*Campo obrigatório")]
-        [DisplayName("Preço")]
-        public decimal Preco { get; set; }
-
-        [Required(ErrorMessage = "*Campo obrigatório")]
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         public Categoria Categoria { get; set; }
 
-        [Required(ErrorMessage = "*Campo obrigatório")]
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         public SeloModel Selo { get; set; }
 
-        [Required(ErrorMessage = "*Campo obrigatório")]
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
-        
+
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         public string Imagem { get; set; }
-        
+
+        [Required(ErrorMessage = "*Campo Obrigatorio")]
         [DisplayName("Vídeo")]
         public string Video { get; set; }
     }

@@ -51,6 +51,7 @@
     <Compile Include="Relatorio.cs" />
     <Compile Include="Repositorio\IClienteRepositorio.cs" />
     <Compile Include="Repositorio\IJogoRepositorio.cs" />
+    <Compile Include="Repositorio\ILocacaoRepositorio.cs" />
     <Compile Include="Repositorio\IUsuarioRepositorio.cs" />
     <Compile Include="Segurança\Autenticacao.cs" />
     <Compile Include="Segurança\ICriptografia.cs" />
