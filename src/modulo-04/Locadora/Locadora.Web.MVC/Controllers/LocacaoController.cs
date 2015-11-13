@@ -15,13 +15,13 @@ namespace Locadora.Web.MVC.Controllers
     {
         public ActionResult Locacao(int id)
         {
-            var Jogo = new JogoRepositorio().BuscarPorId(id);
+            var jogo = new JogoRepositorio().BuscarPorId(id);
 
             var model = new LocacaoModel();
-            model.Jogo = Jogo;
+            model.Jogo = jogo;
             model.DataLocacao = DateTime.Now;
-            model.DataPrevistaEntrega = model.DataLocacao.AddDays(Jogo.Selo.Prazo);
-            model.ValorInicial = Jogo.Selo.Preco;
+            model.DataPrevistaEntrega = model.DataLocacao.AddDays(jogo.Selo.Prazo);
+            model.ValorInicial = jogo.Selo.Preco;
 
             return View(model);
         }
