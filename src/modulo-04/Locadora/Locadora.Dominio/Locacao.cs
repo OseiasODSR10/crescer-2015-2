@@ -10,6 +10,8 @@ namespace Locadora.Dominio
     {
         public Cliente Cliente { get; private set; }
         public Jogo Jogo { get; private set; }
+        public int IdJogo { get; set; }
+        public int IdCliente { get; set; }
         public decimal ValorInicial { get; }
         public decimal? valoTotal { get; private set; }
         public DateTime DataLocacao { get; private set; }

@@ -56,7 +56,7 @@ namespace ConsoleApplication2
                 Console.Read();
             }
             */
-            /*
+            
             Usuario user = new Usuario()
             {
                 NomeCompleto = "Oséias Daniel Soares Rodrigues",
@@ -78,7 +78,7 @@ namespace ConsoleApplication2
                 db.SaveChanges();
                 Console.Read();
             }
-            */
+            
         }
     }
 }

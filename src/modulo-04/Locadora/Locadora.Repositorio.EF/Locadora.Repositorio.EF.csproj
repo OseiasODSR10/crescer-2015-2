@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201511122109385_initial2.Designer.cs">
       <DependentUpon>201511122109385_initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511131755062_correcao.cs" />
+    <Compile Include="Migrations\201511131755062_correcao.Designer.cs">
+      <DependentUpon>201511131755062_correcao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeloRepositorio.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511122109385_initial2.resx">
       <DependentUpon>201511122109385_initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131755062_correcao.resx">
+      <DependentUpon>201511131755062_correcao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

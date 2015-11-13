@@ -12,8 +12,8 @@ namespace Locadora.Web.MVC.Models
     {
         [Required]
         public Jogo Jogo { get; set; }
-        [Required]
-        public Cliente Cliente { get; set; }
+        public int IdJogo { get; set; }
+        public int IdClient { get; set; }
         [Required]
         public DateTime DataLocacao { get; set; }
         public DateTime DataPrevistaEntrega { get; set; }

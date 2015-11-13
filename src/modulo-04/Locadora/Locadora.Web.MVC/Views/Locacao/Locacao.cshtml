@@ -16,13 +16,13 @@
             @Html.ValidationSummary(false)
             @Html.HiddenFor(m => m.DataLocacao) 
             @Html.HiddenFor(m => m.ValorInicial)
-            @Html.HiddenFor(m => m.Jogo.Nome)
+            @Html.HiddenFor(m => m.IdJogo)
             @Html.HiddenFor(m => m.DataPrevistaEntrega)
             <div class="form-group">
-                @Html.LabelFor(m => m.Cliente.Nome, new { @class = "col-sm-2 control-label" })
+                @Html.LabelFor(m => m.IdClient, new { @class = "col-sm-2 control-label" })
                 <div class="col-sm-10">
-                    @Html.TextBoxFor(m => m.Cliente.Nome, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Cliente.Nome)
+                    @Html.TextBoxFor(m => m.IdClient, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdClient)
                 </div>
                 
             </div>

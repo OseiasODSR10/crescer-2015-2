@@ -19,6 +19,7 @@ namespace Locadora.Web.MVC.Controllers
 
             var model = new LocacaoModel();
             model.Jogo = jogo;
+            model.IdJogo = jogo.Id;
             model.DataLocacao = DateTime.Now;
             model.DataPrevistaEntrega = model.DataLocacao.AddDays(jogo.Selo.Prazo);
             model.ValorInicial = jogo.Selo.Preco;
@@ -29,8 +30,9 @@ namespace Locadora.Web.MVC.Controllers
         public ActionResult Salvar(LocacaoModel model)
         {
             LocacaoRepositorio repLocacao = new LocacaoRepositorio();
-            
-            Locacao Locacao = new Locacao(model.Jogo, model.Cliente, model.DataLocacao);
+            Jogo jogo = new JogoRepositorio().BuscarPorId(model.IdJogo);
+            Cliente cliente = new ClienteRepositorio().BuscarPorId(model.IdClient);
+            Locacao Locacao = new Locacao(jogo, cliente, model.DataLocacao);
 
             repLocacao.Criar(Locacao);
 

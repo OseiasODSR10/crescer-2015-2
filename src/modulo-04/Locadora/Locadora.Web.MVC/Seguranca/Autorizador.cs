@@ -33,7 +33,7 @@ namespace Locadora.Web.MVC.Seguranca
                                                 new RouteValueDictionary
                                                 {
                                                     { "action", "Index" },
-                                                    { "controller", "Home" }
+                                                    { "controller", "Login" }
                                                 });
         }
 

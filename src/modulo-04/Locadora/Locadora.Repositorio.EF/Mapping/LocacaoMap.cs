@@ -18,9 +18,11 @@ namespace Locadora.Repositorio.EF.Mapping
             Property(p => p.valoTotal).IsOptional().HasColumnName("Valor_Total");
             Property(p => p.DataLocacao).IsRequired().HasColumnName("Data_Locacao");
             Property(p => p.DataDevolucao).IsOptional().HasColumnName("Data_Devolucao");
+            Property(p => p.IdCliente).IsOptional();
+            Property(p => p.IdJogo).IsOptional();
 
-            HasRequired(c => c.Cliente).WithMany();
-            HasRequired(j => j.Jogo).WithMany();
+            HasRequired(c => c.Cliente).WithMany().HasForeignKey(k => k.IdCliente);
+            HasRequired(j => j.Jogo).WithMany().HasForeignKey(k => k.IdJogo);
         }
     }
 }

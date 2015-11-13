@@ -39,9 +39,10 @@ namespace Locadora.Web.MVC.Controllers
             return View("Index", loginModel);
         }
 
-        public void Sair()
+        public ActionResult Sair()
         {
             ControleDeSessao.Encerrar();
+            return View("Index");
         }
     }
 }
