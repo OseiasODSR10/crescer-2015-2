@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LinkedListTest" project="projetoCrescer" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.cwi.crescer.test.LinkedListTest" time="0.0">
+    <testcase name="removerUltimoValor" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionarprimeiroNaListaEUltimo" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionarprimeiroNaLista" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="removerSegundoValor" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="removerPrimeiroValor" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,43 @@
+package br.com.cwi.crescer.test;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+import br.com.cwi.crescer.LinkedList;
+
+public class LinkedListTest {
+
+	@Test
+	public void adicionarprimeiroNaLista() {
+		LinkedList linkedList = new LinkedList();
+		linkedList.addFirst("primeiro");
+		assertEquals(linkedList.getFirst(), "terceiro");
+	}
+	
+	@Test
+	public void adicionarprimeiroNaListaEUltimo() {
+		LinkedList linkedList = new LinkedList();
+		linkedList.addFirst("primeiro");
+		linkedList.addFirst("segundo");
+		linkedList.addFirst("terceiro");
+		assertEquals(linkedList.getFirst(), "terceiro");
+		assertEquals(linkedList.getLast(), "primeiro");
+	}
+	
+	@Test
+	public void adicionaTresStringsNaLista() {
+		LinkedList linkedList = new LinkedList();
+		linkedList.addFirst("primeiro");
+		linkedList.addLast("segundo");
+		linkedList.addLast("terceiro");
+		ArrayList<String> listaEsperada = new ArrayList<String>();
+		listaEsperada.add("primeiro");
+		listaEsperada.add("segundo");	
+		listaEsperada.add("terceiro");
+		assertEquals(linkedList.list(), listaEsperada);
+	}
+}
