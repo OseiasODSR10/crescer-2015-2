@@ -5,7 +5,7 @@ import java.util.List;
 public class Aplicacao {
 	
 	public static void main(String[] args) {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("segundo");
 		linkedList.addLast("terceiro");

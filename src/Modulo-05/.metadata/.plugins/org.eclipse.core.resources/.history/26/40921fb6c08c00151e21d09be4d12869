@@ -1,0 +1,42 @@
+package br.com.cwi.crescer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class LinkedList<T> {
+	
+	protected Node first, last;
+	
+	abstract void add(int index, T value);
+	
+	abstract void addFirst(T value);
+	
+	abstract void addLast(T value);
+	
+	abstract void removeFirst();
+	
+	abstract void remove(int index);
+	
+	public List<T> list(){
+		ArrayList<T> lista = new ArrayList<T>(); 
+		Node node = first;
+		lista.add(node.getValue());
+		while(node != last){
+			node = node.getNext();
+			lista.add(node.getValue());
+		}
+		return lista;
+	}
+	
+	public boolean isEmpty(){
+		return first == null;
+	}
+	
+	abstract class Node{
+		protected T value;
+		abstract Node getNext();
+		abstract void setNext(Node node);
+		abstract T getValue();
+		abstract void setValue(T value);
+	}
+}

@@ -1,0 +1,34 @@
+package br.com.cwi.crescer.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import br.com.cwi.crescer.DublyLinkedList;
+import br.com.cwi.crescer.SimpleLinkedList;
+
+public class DublyLinkedListTest {
+
+	@Test
+	public void adicionarprimeiro() {
+		DublyLinkedList<String> linkedList = new DublyLinkedList<String>();
+		linkedList.addFirst("primeiro");
+		assertEquals(linkedList.getFirst(), "primeiro");
+	}
+	
+	@Test
+	public void adicionarprimeiroComUmPrimeiroExistente() {
+		DublyLinkedList<String> linkedList = new DublyLinkedList<String>();
+		linkedList.addFirst("primeiro");
+		linkedList.addFirst("zero");
+		assertEquals(linkedList.getFirst(), "zero");
+	}
+	
+	@Test
+	public void adicionarprimeiroComUmPrimeiroExistenteEPreviousApontaParaEsteNovoPrimeiro() {
+		DublyLinkedList<String> linkedList = new DublyLinkedList<String>();
+		linkedList.addFirst("primeiro");
+		linkedList.addFirst("zero");
+		assertEquals(linkedList.getIndex(1), "zero");
+	}
+}

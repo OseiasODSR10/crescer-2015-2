@@ -1,0 +1,18 @@
+package br.com.cwi.crescer;
+
+import java.util.List;
+
+public interface LinkedList<T> {
+	
+	void addFirst(T value);
+	
+	void addLast(T value);
+	
+	void removeFirst();
+	
+	void remove(int index);
+	
+	List<T> list();
+	
+	boolean isEmpty();	
+}

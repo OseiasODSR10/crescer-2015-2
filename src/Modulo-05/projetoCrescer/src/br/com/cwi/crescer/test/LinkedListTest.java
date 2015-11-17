@@ -7,20 +7,20 @@ import java.util.List;
 
 import org.junit.Test;
 
-import br.com.cwi.crescer.LinkedList;
+import br.com.cwi.crescer.SimpleLinkedList;
 
 public class LinkedListTest {
 
 	@Test
 	public void adicionarprimeiroNaLista() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		assertEquals(linkedList.getFirst(), "primeiro");
 	}
 	
 	@Test
 	public void adicionarprimeiroNaListaEUltimo() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addFirst("segundo");
 		linkedList.addFirst("terceiro");
@@ -30,7 +30,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void listarTodosOsValores() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("segundo");
 		linkedList.addLast("terceiro");
@@ -41,7 +41,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void removerSegundoValor() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("segundo");
 		linkedList.addLast("terceiro");
@@ -54,7 +54,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void removerPrimeiroValor() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("segundo");
 		linkedList.addLast("terceiro");
@@ -67,7 +67,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void removerUltimoValor() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("segundo");
 		linkedList.addLast("terceiro");
@@ -80,7 +80,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void addValorNaSegundaPosicao() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("terceiro");
 		linkedList.addLast("quarto");
@@ -92,7 +92,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void addValorNaUltimaPosicao() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("terceiro");
 		linkedList.addLast("quarto");
@@ -106,7 +106,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void addValorNaPrimeiraPosicao() {
-		LinkedList<String> linkedList = new LinkedList<String>();
+		SimpleLinkedList<String> linkedList = new SimpleLinkedList<String>();
 		linkedList.addFirst("primeiro");
 		linkedList.addLast("terceiro");
 		linkedList.addLast("quarto");
