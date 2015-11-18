@@ -1,5 +1,0 @@
-package br.com.cwi.crescer.execoes;
-
-public class EmptyListException {
-
-}
