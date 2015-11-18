@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.cw.crescer.jdbc.ConnectionFactory;
+import br.com.cwi.crescer.model.Cliente;
 import br.com.cwi.crescer.model.Servico;
 
 public class ServicoDao {
@@ -18,6 +19,20 @@ public class ServicoDao {
 			PreparedStatement statement = conexao.prepareStatement(sql);
 			statement.setLong(1, servico.getIdServico());
 			statement.setString(2, servico.getDsServico());
+			statement.execute();
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void update(Servico servico) throws Exception{
+		try {
+			Connection conexao = new ConnectionFactory().getConnection();
+			String sql = "UPDATE servico SET dsServico=? WHERE idServico = ?";
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			statement.setString(1, servico.getDsServico());
+			statement.setLong(2, servico.getIdServico());
 			statement.execute();
 			statement.close();
 		} catch (SQLException e) {

@@ -10,6 +10,29 @@ public class TestarConexao {
 	public static void main(String [] args){
 		
 //		try{
+//			for(Pedido ped : new PedidoDao().listAllByClient(2)){
+//				System.out.println("Id do pedido: "+ped.getIdPedido());
+//				System.out.println("Descricao do pedido: "+ped.getDsPedido());
+//				System.out.println("Cliente do pedido: "+ped.getCliente().getNmCliente());		
+//			}
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+		
+//		try{
+//			Cliente cliente = new Cliente();
+//			cliente.setIdCliente(2);
+//			cliente.setNmCliente("oseias");
+//			cliente.setNrCpf("dsvsv");
+//			Pedido pedido = new Pedido(cliente);
+//			pedido.setDsPedido("um pedido");
+//			new PedidoDao().insert(pedido);
+//			System.out.println("Inseriu !!");
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//		
+//		try{
 //			Servico servico = new Servico();
 //			servico.setIdServico(2);
 //			servico.setDsServico("um servico");

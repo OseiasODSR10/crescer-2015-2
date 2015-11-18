@@ -115,7 +115,7 @@ public class ClienteDao {
 		return lista;
 	}
 	
-	public Cliente load(int idCliente) throws Exception{
+	public Cliente load(long idCliente) throws Exception{
 		Cliente cliente = new Cliente();
 		try {
 			Connection conexao = new ConnectionFactory().getConnection();
