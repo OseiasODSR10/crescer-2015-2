@@ -11,8 +11,8 @@ public class Aplicacao {
 		int escolha = 0;
 		Aplicacao app = new Aplicacao();
 		Scanner teclado = new Scanner(System.in);
-		while(escolha != -1){
-			System.out.println("\n\n\r\r\r===MENU==="
+		while(true){
+			System.out.println("\n\n==============MENU=============="
 					+ "\n1 - Cadastrar Pedido"
 					+ "\n2 - Buscar Pedidos de cliente");
 			escolha = teclado.nextInt();
@@ -27,7 +27,7 @@ public class Aplicacao {
 					e.printStackTrace();
 				}
 				break;
-			default: break; 
+			default: System.exit(0);
 			}
 		}
 	}
