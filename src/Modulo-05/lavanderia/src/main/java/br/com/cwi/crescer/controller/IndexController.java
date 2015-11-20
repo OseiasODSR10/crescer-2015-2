@@ -1,0 +1,19 @@
+package br.com.cwi.crescer.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class IndexController {
+	
+	@RequestMapping("/")
+	public String Index(Model model){
+		
+		String mensagem = "Bem Vindo!";
+		
+		model.addAttribute("mensagem", mensagem);
+		
+		return "Index";
+	}
+}
