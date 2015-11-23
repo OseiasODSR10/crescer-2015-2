@@ -19,6 +19,13 @@ public class PedidoDaoTest extends BaseTest{
         Pedido pedido = pedidoDAO.findById(1L);
         Assert.assertNotNull(pedido);
     }
+    
+    @Test
+    public void deveBuscarPedidoPorIdComCliente(){
+    	Pedido pedido = pedidoDAO.findById(1L);
+    	Assert.assertNotNull(pedido.getCliente());
+    	Assert.assertNotNull(pedido.getCliente().getNome());
+    }
 
     @Test
     public void deveBuscarPedidosPendentes() throws Exception {

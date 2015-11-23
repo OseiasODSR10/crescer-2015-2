@@ -12,7 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Servico")
 @SequenceGenerator(name = Servico.SEQUENC_NAME,
-					sequenceName = Servico.SEQUENC_NAME)
+					sequenceName = Servico.SEQUENC_NAME,
+					allocationSize = 1)
 public class Servico {
 	
 	public static final String SEQUENC_NAME = "SEQ_Servico";
