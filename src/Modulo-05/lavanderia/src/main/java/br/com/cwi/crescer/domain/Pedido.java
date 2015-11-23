@@ -1,15 +1,20 @@
 package br.com.cwi.crescer.domain;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Pedido")
@@ -28,19 +33,26 @@ public class Pedido {
 	@Basic(optional = false)
 	private Long idCliente;
 	
-	@Column(name = "DataInclusao")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "DATAInclusao")
 	@Basic(optional = false)
 	private Date dataInclusao;
 	
-	@Column(name = "DataEntrega")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATAEntrega")
 	private Date dataEntrega;
 	
-	@Column(name = "Valor", precision = 12, scale = 2)
+	@Column(name = "Valor")
 	@Basic(optional = false)
-	private Double valor;
+	private BigDecimal valor;
 
-	@Column(name = "Situacao")
-	private Character situacao;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "Situacao", length = 1)
+	private SituacaoPedido situacao;
+	
+	public static enum SituacaoPedido {
+        PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
+    }
 	
 	public Long getIdPedido() {
 		return idPedido;
@@ -74,19 +86,19 @@ public class Pedido {
 		this.dataEntrega = dataEntrega;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
-	public Character getSituacao() {
+	public SituacaoPedido getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(Character situacao) {
+	public void setSituacao(SituacaoPedido situacao) {
 		this.situacao = situacao;
 	}
 }
