@@ -12,12 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.web.bind.annotation.Mapping;
 
 
 @Entity
@@ -52,8 +50,8 @@ public class Cliente {
 	private String bairro;
 	
 	@ManyToOne
-	@JoinColumn(name = "IDCidade")
-	private Cidade cidade;
+    @JoinColumn(name = "IDCidade")
+    private Cidade cidade;
 	
 	@Column(name = "CEP")
 	private Long cep;
@@ -63,7 +61,7 @@ public class Cliente {
 	private SituacaoCliente situacao;
 	
 	@OneToMany(mappedBy = "cliente")
-	private List<Pedido> pedidos;
+    private List<Pedido> pedidos;
 
 	public Long getIdCliente() {
 		return idCliente;

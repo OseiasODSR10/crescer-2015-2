@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.cwi.crescer.domain.Cidade;
 
-public class CidadeDAOTest extends BaseTest{
+public class CidadeDaoTest extends BaseTest{
 
 	@Autowired
-    private CidadeDAO cidadeDAO;
+    private CidadeDao cidadeDAO;
 
     @Test
     public void deveBuscarCidadePorId() throws Exception {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Visualizar</title>
+</head>
+<body>
+	
+<h2>Visualizar</h2>
+		
+		<form th:object="${cliente}">
+	
+			<p>
+				<label>ID: </label>
+				<input th:field="*{id}" type="text" />
+			</p>
+			
+			<p>
+				<label>Nome: </label>
+				<input th:field="*{nome}" type="text"  />
+			</p>
+			
+	
+             
+		</form>
+</body>
+</html>

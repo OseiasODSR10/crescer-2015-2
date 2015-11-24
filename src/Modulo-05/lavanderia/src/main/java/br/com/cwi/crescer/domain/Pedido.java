@@ -2,6 +2,7 @@ package br.com.cwi.crescer.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -53,6 +55,9 @@ public class Pedido {
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "Situacao", length = 1)
 	private SituacaoPedido situacao;
+	
+	@OneToMany(mappedBy = "pedido")
+    private List<Item> itens;
 	
 	public static enum SituacaoPedido {
         PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
@@ -104,5 +109,13 @@ public class Pedido {
 
 	public void setSituacao(SituacaoPedido situacao) {
 		this.situacao = situacao;
+	}
+
+	public List<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
 	}
 }
