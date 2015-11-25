@@ -36,8 +36,8 @@ public class ClienteService {
 		return dtos;
 	}
 	
-	public Cliente buscarProId(Long id){
-		return clienteDao.findById(id);
+	public ClienteDto buscarProId(Long id){
+		return ClienteMapper.toDTO(clienteDao.findById(id));
 	}
 	
 	public void atualizar(ClienteDto dto) {
@@ -50,4 +50,10 @@ public class ClienteService {
 
         clienteDao.save(entity);
     }
+	
+	public void criar(ClienteDto cliente){
+		Cliente entity = ClienteMapper.getNewEntity(cliente);
+		entity.setCidade(cidadeDao.findById(cliente.getIdCidade()));
+		clienteDao.save(entity);
+	}
 }

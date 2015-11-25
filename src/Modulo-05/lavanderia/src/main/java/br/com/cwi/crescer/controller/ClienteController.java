@@ -30,7 +30,7 @@ public class ClienteController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar(){
-		return new ModelAndView("clientes/lista", "clientes", clienteService.listarClientesAtivos());
+		return new ModelAndView("cliente/lista", "clientes", clienteService.listarClientesAtivos());
 	}
 	
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -46,10 +46,19 @@ public class ClienteController {
 	@RequestMapping(path = "/editar", method = RequestMethod.POST)
 	public ModelAndView editar(ClienteDto clienteDto){
 		clienteService.atualizar(clienteDto);
-		return new ModelAndView("redirect:/clientes");
+		return new ModelAndView("redirect:/cliente");
+	}	
+	
+	@RequestMapping(path = "/cadastro", method = RequestMethod.GET)
+	public ModelAndView viewCriar(){
+		return new ModelAndView("cliente/criar", "cliente", new ClienteDto());
 	}
 	
-	
+	@RequestMapping(path = "/criar", method = RequestMethod.POST)
+	public ModelAndView criar(ClienteDto cliente){
+		clienteService.criar(cliente);
+		return new ModelAndView("redirect:/cliente");
+	}
 
 	@ModelAttribute("cidades")
 	public List<Cidade> comboCidades(){

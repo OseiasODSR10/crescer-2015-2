@@ -27,6 +27,7 @@ public class ClienteDao extends BaseDAO{
     public Cliente save(Cliente cliente) {
 
         if (cliente.getIdCliente() == null) {
+        	cliente.setSituacao(SituacaoCliente.ATIVO);
             em.persist(cliente);
             return cliente;
         }
