@@ -4,8 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import Entidades.Turma;
-import Entidades.Usuario;
+import entidades.Turma;
+import entidades.Usuario;
 
 public class UsuarioTurmaDao {
 

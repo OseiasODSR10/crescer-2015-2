@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Entidades.Turma;
+import com.mysql.jdbc.Statement;
+
+import entidades.Turma;
 
 public class TurmaDao extends BaseDao<Turma>{
 	
@@ -14,16 +16,21 @@ public class TurmaDao extends BaseDao<Turma>{
 	}
 
 	@Override
-	public void criar(Turma turma) {
+	public Turma criar(Turma turma) {
 		String sqlInsert = "INSERT INTO Messeias.Turma(nome) VALUES (?)";
 		try{
 			this.conexao.abrirBanco();
-			PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlInsert);
+			PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, turma.getNome());
 			statement.execute();
+			ResultSet resultado = statement.getGeneratedKeys();
+			if(resultado.next()){
+				turma.setIdTurma(resultado.getInt(1));
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return turma;
 	}
 
 	@Override

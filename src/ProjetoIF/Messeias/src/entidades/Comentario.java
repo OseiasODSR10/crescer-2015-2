@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 public class Comentario {
 	
@@ -41,5 +41,9 @@ public class Comentario {
 
 	public void setAvaliacao(Avaliacao avaliacao) {
 		this.avaliacao = avaliacao;
+	}
+
+	public void setIdComentario(int idComentario) {
+		this.idComentario = idComentario;
 	}
 }

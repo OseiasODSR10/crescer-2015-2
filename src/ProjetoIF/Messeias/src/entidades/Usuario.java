@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 import java.util.ArrayList;
 
@@ -49,12 +49,12 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 	
-//	public void adicionarTurma(Turma turma){
-//		this.turmas.add(turma);
-//	}
-//	
-//	public void removerTurma(Turma turma){
-//		this.turmas.remove(turma);
-//	}
+	public void adicionarTurma(Turma turma){
+		this.turmas.add(turma);
+	}
 }

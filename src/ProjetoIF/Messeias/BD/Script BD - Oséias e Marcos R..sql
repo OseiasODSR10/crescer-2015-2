@@ -1,3 +1,4 @@
+-- DROP DATABASE Messeias;
 CREATE DATABASE Messeias;
 USE Messeias;
 
@@ -53,13 +54,6 @@ CREATE TABLE Comentario(
     INDEX (Id_Usuario),
     INDEX (Id_Avaliacao)
 );
-
--- DROP DATABASE Messeias;
--- DROP TABLE Messeias.Usuario;
--- DROP TABLE messeias.Avaliacao;
--- DROP TABLE Messeias.Comentario;
--- DROP TABLE Messeias.Turma;
--- DROP TABLE Messeias.Usuario_Turma;
 
 
 

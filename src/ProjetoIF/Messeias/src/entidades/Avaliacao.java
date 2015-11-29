@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +31,10 @@ public class Avaliacao {
 		this.conteudo = conteudo;
 	}
 	
+	public void setIdAvaliacao(int idAvaliacao) {
+		this.idAvaliacao = idAvaliacao;
+	}
+
 	public int getIdAvaliacao() {
 		return idAvaliacao;
 	}
@@ -81,5 +85,10 @@ public class Avaliacao {
 	
 	public void adicionarComentario(Comentario comentario){
 		this.comentarios.add(comentario);
+	}
+	
+	public boolean equals(Object obj){
+		Avaliacao other = (Avaliacao) obj;		
+		return this.idAvaliacao == other.idAvaliacao;
 	}
 }

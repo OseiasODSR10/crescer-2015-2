@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 import java.util.ArrayList;
 
@@ -31,6 +31,10 @@ public class Turma {
 
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
+	}
+
+	public void setIdTurma(int idTurma) {
+		this.idTurma = idTurma;
 	}
 
 //	public void adicionarUsuario(Usuario Usuario){

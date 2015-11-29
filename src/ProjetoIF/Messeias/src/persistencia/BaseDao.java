@@ -14,7 +14,7 @@ public abstract class BaseDao<T> {
 		}
 	}
 	
-	public abstract void criar(T objeto);
+	public abstract T criar(T objeto);
 	
 	public abstract void atualizar(T objeto);
 	
