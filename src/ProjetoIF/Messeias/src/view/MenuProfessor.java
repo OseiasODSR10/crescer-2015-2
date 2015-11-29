@@ -1,6 +1,5 @@
 package view;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,24 +16,25 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import services.TurmaService;
 import services.UsuarioService;
 import util.LookAndFeel;
 import entidades.Avaliacao;
 import entidades.Usuario;
 
-public class MenuAluno{
+public class MenuProfessor{
 	
-	 JFrame frame;
-	 JMenu usuarioMenu;
-	 JMenuBar menuBar;
-	 Usuario usuario;
-	 ArrayList<Avaliacao> avaliacoes;
-	 JLabel usuarioNome, titulo, pesquisa, info;
-	 JTextField campoId;
-	 JScrollPane body;
-	 JButton buscar;
+	private JFrame frame;
+	private JMenu usuarioMenu, avaliacaoMenu, cronogramaMenu;
+	private JMenuBar menuBar;
+	private Usuario usuario;
+	private ArrayList<Avaliacao> avaliacoes;
+	private JLabel usuarioNome, titulo, pesquisa, info;
+	private JTextField campoId;
+	private JScrollPane body;
+	private JButton buscar;
 	
-	public MenuAluno(Usuario usuario){
+	public MenuProfessor(Usuario usuario){
 		this.usuario = usuario;				
 		this.avaliacoes = UsuarioService.buscarAvaliacoes(usuario);
 		configurarFrame();
@@ -45,7 +45,7 @@ public class MenuAluno{
 		frame.repaint();
 	}
 
-	 void configurarFrame(){
+	private void configurarFrame(){
 		frame = new JFrame("Menu");
 		frame.setVisible(true);
 		frame.setBounds(300, 100, 720, 500);
@@ -54,7 +54,7 @@ public class MenuAluno{
 		frame.setLayout(null);
 	}
 	
-	 void configurarMenu(){
+	private void configurarMenu(){
 		menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		usuarioMenu = new JMenu(usuario.getNome());
@@ -62,9 +62,25 @@ public class MenuAluno{
 		JMenuItem cadastrarNovaTurma = new JMenuItem("Cadastrar nova turma");
 		cadastrarNovaTurma.addActionListener(new AcaoCadastrarTurma());
 		usuarioMenu.add(cadastrarNovaTurma);
+		
+		avaliacaoMenu = new JMenu("Avaliação");
+		menuBar.add(avaliacaoMenu);
+		JMenuItem criarAvaliacao = new JMenuItem("Criar avaliação");
+		avaliacaoMenu.add(criarAvaliacao);
+		
+		
+		cronogramaMenu = new JMenu("Cronograma");
+		menuBar.add(cronogramaMenu);
+		JMenuItem meuCronograma = new JMenuItem("Meu cronograma");
+		meuCronograma.addActionListener(new AcaoBuscarMinhasAvaliacoes());
+		cronogramaMenu.add(meuCronograma);
+		JMenuItem turmaCronograma = new JMenuItem("Cronograma da turma");
+		turmaCronograma.addActionListener(new AcaoBuscarAvaliacoesDaTurma());
+		cronogramaMenu.add(turmaCronograma);
+		
 	}
 	
-	 void configurarHeader(){
+	private void configurarHeader(){
 		usuarioNome = new JLabel("Usuário: "+usuario.getNome());
 		usuarioNome.setFont(LookAndFeel.TEXT_FONT);
 		usuarioNome.setBounds(25, 25, 250, 30);
@@ -96,7 +112,7 @@ public class MenuAluno{
 		frame.add(buscar);
 	}
 	
-	 void configurarCorpo(){
+	private void configurarCorpo(){
 		String[] columnNames = {"ID", "Data", "Tipo", "Disciplina", "Turma", "Professor", "Conteudo"};
 		
 		Object[][] dados = new Object[avaliacoes.size()][columnNames.length];
@@ -119,7 +135,7 @@ public class MenuAluno{
 		frame.add(body);
 	}
 	
-	 void configurarTable(JTable table, Object[][] dados, String[] columnNames){
+	private void configurarTable(JTable table, Object[][] dados, String[] columnNames){
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(dados, columnNames)
 		{
@@ -140,7 +156,7 @@ public class MenuAluno{
 		table.getColumnModel().getColumn(6).setPreferredWidth(250);
 	}
 	
-	 class AcaoBuscar implements ActionListener{
+	private class AcaoBuscar implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String textoid = campoId.getText();
@@ -156,11 +172,42 @@ public class MenuAluno{
 		}		
 	}
 	
-	 class AcaoCadastrarTurma implements ActionListener{
+	private class AcaoCadastrarTurma implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			new CadastroTurma(usuario);
 			frame.dispose();
 		}		
+	}
+	
+	private class AcaoBuscarAvaliacoesDaTurma implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String turma = JOptionPane.showInputDialog("Digite o nome da turma que deseja buscar:");
+			ArrayList<Avaliacao> novasAvaliacoes = TurmaService.buscarAvaliacoes(turma);
+			if(novasAvaliacoes != null && novasAvaliacoes.size() > 0){
+				avaliacoes = novasAvaliacoes;
+				frame.remove(body);
+				configurarCorpo();
+				
+			}else{
+				JOptionPane.showMessageDialog(null, "Nenhma avaliação encontrada");
+			}
+		}		
+	}
+	
+	private class AcaoBuscarMinhasAvaliacoes implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ArrayList<Avaliacao> novasAvaliacoes = UsuarioService.buscarAvaliacoes(usuario);
+			if(novasAvaliacoes != null && novasAvaliacoes.size() > 0){
+				avaliacoes = novasAvaliacoes;
+				frame.remove(body);
+				configurarCorpo();
+				
+			}else{
+				JOptionPane.showMessageDialog(null, "Nenhma avaliação encontrada");
+			}
+		}	
 	}
 }

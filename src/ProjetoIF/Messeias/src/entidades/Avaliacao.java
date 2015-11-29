@@ -87,6 +87,10 @@ public class Avaliacao {
 		this.comentarios.add(comentario);
 	}
 	
+	public void setComentarios(ArrayList<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
+
 	public boolean equals(Object obj){
 		Avaliacao other = (Avaliacao) obj;		
 		return this.idAvaliacao == other.idAvaliacao;

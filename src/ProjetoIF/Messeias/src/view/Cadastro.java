@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -10,8 +9,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -22,7 +19,6 @@ import util.LookAndFeel;
 public class Cadastro {
 	
 	private JFrame frame;
-	private JPanel panel;
 	private JLabel nome, senha, tipo;
 	private JTextField textoNome, textoSenha;
 	private JButton voltar, finalizar;
@@ -32,10 +28,10 @@ public class Cadastro {
 	
 	public Cadastro(){
 		configurarFrame();
-		configurarPanel();
 		configurarCampos();
 		configurarBotoes();
-		panel.repaint();
+		frame.revalidate();
+		frame.repaint();
 	}
 	
 	private void configurarFrame(){
@@ -44,39 +40,34 @@ public class Cadastro {
 		frame.setBounds(300, 100, 500, 500);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	private void configurarPanel(){
-		panel = new JPanel();
-		panel.setLayout(null);
-		frame.getContentPane().add(panel);
+		frame.setLayout(null);
 	}
 	
 	private void configurarCampos(){
 		nome = new JLabel("Nome: ");
 		nome.setBounds(100, 50, 100, 50);
 		nome.setFont(LookAndFeel.TEXT_FONT);
-		panel.add(nome);
+		frame.add(nome);
 		
 		senha = new JLabel("Senha: ");
 		senha.setBounds(95, 150, 100, 50);
 		senha.setFont(LookAndFeel.TEXT_FONT);
-		panel.add(senha);
+		frame.add(senha);
 		
 		tipo = new JLabel("Tipo: ");
 		tipo.setBounds(110, 230, 100, 50);
 		tipo.setFont(LookAndFeel.TEXT_FONT);
-		panel.add(tipo);
+		frame.add(tipo);
 		
 		textoNome = new JTextField();
 		textoNome.setFont(LookAndFeel.TEXT_FONT);
 		textoNome.setBounds(200, 60, 200, 30);
-		panel.add(textoNome);
+		frame.add(textoNome);
 		
 		textoSenha = new JTextField();
 		textoSenha.setFont(LookAndFeel.TEXT_FONT);
 		textoSenha.setBounds(200, 160, 200, 30);
-		panel.add(textoSenha);
+		frame.add(textoSenha);
 	}
 	
 	private void configurarBotoes(){
@@ -84,20 +75,20 @@ public class Cadastro {
 		voltar.addActionListener(new AcaoVoltar());
 		voltar.setFont(LookAndFeel.BTN_FONT);
 		voltar.setBounds(150, 315, 100, 30);
-		panel.add(voltar);
+		frame.add(voltar);
 		
 		finalizar = new JButton("Finalizar");
 		finalizar.addActionListener(new AcaoFinalizar());
 		finalizar.setFont(LookAndFeel.BTN_FONT);
 		finalizar.setBounds(260, 315, 115, 30);
-		panel.add(finalizar);
+		frame.add(finalizar);
 		
 		professor = new JRadioButton("Professor");
 		professor.setFont(LookAndFeel.BTN_FONT);
 		professor.setBounds(185, 230, 125, 50);
 		professor.addItemListener(handler);
 		group.add(professor);
-		panel.add(professor);
+		frame.add(professor);
 		
 		aluno = new JRadioButton("Aluno");
 		aluno.setFont(LookAndFeel.BTN_FONT);
@@ -105,7 +96,7 @@ public class Cadastro {
 		aluno.addItemListener(handler);
 		group.add(aluno);
 		aluno.setSelected(true);
-		panel.add(aluno);
+		frame.add(aluno);
 	}
 	
 	private class AcaoVoltar implements ActionListener{
@@ -123,8 +114,15 @@ public class Cadastro {
 			String senhaUsuario = textoSenha.getText();	
 			String tipoUsuario = handler.getTipoUsuario();
 			Usuario usuario = UsuarioService.criar(nomeUsuario, senhaUsuario, tipoUsuario);
-			if(tipoUsuario.equals("Aluno"))
-				new MenuAluno(usuario);
+			if(usuario != null){
+				if(tipoUsuario.equals("Aluno")){
+					new MenuAluno(usuario);
+					frame.dispose();
+				}else{
+					new MenuProfessor(usuario);
+					frame.dispose();
+				}
+			}
 		}
 	}
 	

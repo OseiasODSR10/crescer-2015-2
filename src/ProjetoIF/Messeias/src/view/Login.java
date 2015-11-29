@@ -26,6 +26,7 @@ public class Login {
 		configurarFrame();
 		configurarCampos();
 		configurarButtons();
+		frame.revalidate();
 		frame.repaint();
 	}
 	
@@ -90,8 +91,13 @@ public class Login {
 				textoNome.setText(null);
 				textoSenha.setText(null);
 			}else{
-				new MenuAluno(usuario);
-				frame.dispose();
+				if(usuario.getTipo().equals("Aluno")){
+					new MenuAluno(usuario);
+					frame.dispose();
+				}else{
+					new MenuProfessor(usuario);
+					frame.dispose();
+				}
 			}
 		}		
 	}

@@ -28,6 +28,10 @@ VALUES (null, 'Teste', '2015/11/30', 'Um conteudo gigantesco do caralho pra ver 
 INSERT INTO Messeias.Comentario(texto, id_usuario, id_avaliacao) VALUES ('Prova legal até...', 1, 1);
 INSERT INTO Messeias.Comentario(texto, id_usuario, id_avaliacao) VALUES ('Prova lixosa by marcos!', 2, 1);
 INSERT INTO Messeias.Comentario(texto, id_usuario, id_avaliacao) VALUES ('Prova muito legal!', 5, 1);
+INSERT INTO Messeias.Comentario(texto, id_usuario, id_avaliacao) VALUES ('Lorem Ipsum é simplesmente uma simulação de texto da indústria 
+tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos 
+e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, 
+como também ao salto para a editor', 5, 1);
 
 SELECT * FROM Messeias.Usuario;
 SELECT * FROM Messeias.Usuario_Turma;
