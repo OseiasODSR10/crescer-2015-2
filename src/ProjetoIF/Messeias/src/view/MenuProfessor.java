@@ -66,6 +66,7 @@ public class MenuProfessor{
 		avaliacaoMenu = new JMenu("Avaliação");
 		menuBar.add(avaliacaoMenu);
 		JMenuItem criarAvaliacao = new JMenuItem("Criar avaliação");
+		criarAvaliacao.addActionListener(new AcaoCadastrarAvaliacao());
 		avaliacaoMenu.add(criarAvaliacao);
 		
 		
@@ -176,6 +177,14 @@ public class MenuProfessor{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			new CadastroTurma(usuario);
+			frame.dispose();
+		}		
+	}
+	
+	private class AcaoCadastrarAvaliacao implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new CriacaoAvaliacao(usuario);
 			frame.dispose();
 		}		
 	}

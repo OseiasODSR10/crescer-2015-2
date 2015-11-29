@@ -60,22 +60,22 @@ public class InformacoesAvaliacao {
 				
 		tipo = new JLabel(avaliacao.getTipo());
 		tipo.setFont(LookAndFeel.BTN_FONT);
-		tipo.setBounds(25, 65, 200, 20);
+		tipo.setBounds(25, 65, 185, 20);
 		frame.add(tipo);
 		
 		disciplina = new JLabel(avaliacao.getDisciplina());
 		disciplina.setFont(LookAndFeel.BTN_FONT);
-		disciplina.setBounds(25, 85, 200, 20);
+		disciplina.setBounds(25, 85, 185, 20);
 		frame.add(disciplina);
 		
 		turma = new JLabel("Turma " +avaliacao.getTurma().getNome());
 		turma.setFont(LookAndFeel.BTN_FONT);
-		turma.setBounds(25, 105, 200, 20);
+		turma.setBounds(25, 105, 185, 20);
 		frame.add(turma);
 		
 		professor = new JLabel(avaliacao.getUsuario().getNome());
 		professor.setFont(LookAndFeel.BTN_FONT);
-		professor.setBounds(25, 125, 200, 20);
+		professor.setBounds(25, 125, 185, 20);
 		frame.add(professor);
 		
 		conteudo = new JTextArea();

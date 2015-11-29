@@ -45,5 +45,19 @@ public class TurmaDao extends BaseDao<Turma>{
 		statement.setInt(1, turma.getIdTurma());
 		statement.setString(2, turma.getNome());
 		statement.execute();		
-	}	
+	}
+	
+	public Turma buscarPorNome(String nome) throws Exception{
+		Turma turma = null;
+		String sqlDelete = "SELECT id_turma, nome FROM Messeias.Turma WHERE nome = ?";
+		this.conexao.abrirBanco();
+		PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlDelete);
+		statement.setString(1, nome);
+		ResultSet resultado = statement.executeQuery();	
+		if(resultado.next()){
+			turma = new Turma(resultado.getInt(1));
+			turma.setNome(resultado.getString(2));
+		}
+		return turma;
+	}
 }

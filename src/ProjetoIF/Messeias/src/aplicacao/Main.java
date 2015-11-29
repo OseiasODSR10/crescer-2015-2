@@ -1,7 +1,7 @@
 package aplicacao;
 
 import util.LookAndFeel;
-import view.Cadastro;
+import view.Login;
 
 public class Main {
 
@@ -11,8 +11,8 @@ public class Main {
 		}catch(Exception e){
 			System.out.println("Apenas alguns probleminhas com o layout...");
 		}
-//		Login menu = new Login();
-		new Cadastro();
+		Login menu = new Login();
+//		new Cadastro();
 //		Usuario usuario = new UsuarioDao().buscarPorId(5);
 //		new MenuAluno(usuario);
 //		new MenuProfessor(usuario);
@@ -20,5 +20,6 @@ public class Main {
 //		Avaliacao avaliacao = new AvaliacaoDao().buscarPorTurmas(ids).get(0);
 //		new InformacoesAvaliacao(avaliacao, usuario);
 //		new CadastroTurma(usuario);
+//		new CriacaoAvaliacao(usuario);
 	}
 }

@@ -37,7 +37,7 @@ public class Cadastro {
 	private void configurarFrame(){
 		frame = new JFrame("Cadastro de Usuario");
 		frame.setVisible(true);
-		frame.setBounds(300, 100, 500, 500);
+		frame.setBounds(300, 100, 400, 450);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
@@ -45,28 +45,28 @@ public class Cadastro {
 	
 	private void configurarCampos(){
 		nome = new JLabel("Nome: ");
-		nome.setBounds(100, 50, 100, 50);
+		nome.setBounds(50, 50, 100, 50);
 		nome.setFont(LookAndFeel.TEXT_FONT);
 		frame.add(nome);
 		
 		senha = new JLabel("Senha: ");
-		senha.setBounds(95, 150, 100, 50);
+		senha.setBounds(45, 150, 100, 50);
 		senha.setFont(LookAndFeel.TEXT_FONT);
 		frame.add(senha);
 		
 		tipo = new JLabel("Tipo: ");
-		tipo.setBounds(110, 230, 100, 50);
+		tipo.setBounds(60, 230, 100, 50);
 		tipo.setFont(LookAndFeel.TEXT_FONT);
 		frame.add(tipo);
 		
 		textoNome = new JTextField();
 		textoNome.setFont(LookAndFeel.TEXT_FONT);
-		textoNome.setBounds(200, 60, 200, 30);
+		textoNome.setBounds(150, 60, 200, 30);
 		frame.add(textoNome);
 		
 		textoSenha = new JTextField();
 		textoSenha.setFont(LookAndFeel.TEXT_FONT);
-		textoSenha.setBounds(200, 160, 200, 30);
+		textoSenha.setBounds(150, 160, 200, 30);
 		frame.add(textoSenha);
 	}
 	
@@ -74,25 +74,25 @@ public class Cadastro {
 		voltar = new JButton("Voltar");
 		voltar.addActionListener(new AcaoVoltar());
 		voltar.setFont(LookAndFeel.BTN_FONT);
-		voltar.setBounds(150, 315, 100, 30);
+		voltar.setBounds(90, 315, 100, 30);
 		frame.add(voltar);
 		
 		finalizar = new JButton("Finalizar");
 		finalizar.addActionListener(new AcaoFinalizar());
 		finalizar.setFont(LookAndFeel.BTN_FONT);
-		finalizar.setBounds(260, 315, 115, 30);
+		finalizar.setBounds(200, 315, 115, 30);
 		frame.add(finalizar);
 		
 		professor = new JRadioButton("Professor");
 		professor.setFont(LookAndFeel.BTN_FONT);
-		professor.setBounds(185, 230, 125, 50);
+		professor.setBounds(135, 230, 125, 50);
 		professor.addItemListener(handler);
 		group.add(professor);
 		frame.add(professor);
 		
 		aluno = new JRadioButton("Aluno");
 		aluno.setFont(LookAndFeel.BTN_FONT);
-		aluno.setBounds(310, 230, 125, 50);
+		aluno.setBounds(260, 230, 125, 50);
 		aluno.addItemListener(handler);
 		group.add(aluno);
 		aluno.setSelected(true);
