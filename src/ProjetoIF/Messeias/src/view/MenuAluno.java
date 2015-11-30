@@ -3,6 +3,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -65,6 +66,10 @@ public class MenuAluno{
 		JMenuItem entrarNumaTurma = new JMenuItem("Entrar numa turma");
 		entrarNumaTurma.addActionListener(new AcaoEntrarTurma());
 		usuarioMenu.add(entrarNumaTurma);
+		
+		JMenuItem sair = new JMenuItem("Sair");
+		sair.addActionListener(new AcaoSair());
+		usuarioMenu.add(sair);
 	}
 	
 	private void configurarHeader(){
@@ -108,7 +113,7 @@ public class MenuAluno{
 			Avaliacao avaliacao = avaliacoes.get(i);
 			Object[] dadosAvaliacao = new String[columnNames.length];
 			dadosAvaliacao[0] = ""+avaliacao.getIdAvaliacao();
-			dadosAvaliacao[1] = avaliacao.getData().toString();
+			dadosAvaliacao[1] = new SimpleDateFormat("dd/MM/yyyy").format(avaliacao.getData()).toString();
 			dadosAvaliacao[2] = avaliacao.getTipo();
 			dadosAvaliacao[3] = avaliacao.getDisciplina();
 			dadosAvaliacao[4] = avaliacao.getTurma().getNome();
@@ -167,6 +172,14 @@ public class MenuAluno{
 			frame.dispose();
 		}		
 	}
+	
+	private class AcaoSair implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new Login();
+			frame.dispose();
+		}		
+	}
 	 
 	 private class AcaoEntrarTurma implements ActionListener{
 		@Override
@@ -174,6 +187,8 @@ public class MenuAluno{
 			String nomeTurama = JOptionPane.showInputDialog("Digite o nome da turma:");
 			if(nomeTurama != null){
 				UsuarioService.entrarNumaTurma(nomeTurama, usuario);
+				frame.remove(body);
+				configurarCorpo();
 			}
 		}		
 	}

@@ -4,6 +4,8 @@ package persistencia;
 import java.math.*;
 import java.security.*;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -92,9 +94,10 @@ public class Teste {
 //					avaliacao.getUsuario().getNome());
 //		}
 		
+		Date data = (Date) new AvaliacaoDao().buscarPorTurma("2I").get(0).getData();
+		System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(data));
 		
-		
-		//System.out.println(ServicoCriptografia.criptografar("mito"));
+//		System.out.println(ServicoCriptografia.criptografar("mito"));
 		//TODO fazer o MD5
 //		String s="Texto de Exemplo";
 //		MessageDigest m=MessageDigest.getInstance("MD5");

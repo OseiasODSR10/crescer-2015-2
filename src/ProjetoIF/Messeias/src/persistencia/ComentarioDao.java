@@ -14,15 +14,21 @@ public class ComentarioDao extends BaseDao<Comentario>{
 	@Override
 	public Comentario criar(Comentario comentario) throws Exception {	
 		String sqlInsert = "INSERT INTO Messeias.Comentario(texto, id_usuario, id_avaliacao) VALUES (?, ?, ?)";
-		conexao.abrirBanco();
-		PreparedStatement statement = conexao.getConexao().prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
-		statement.setString(1, comentario.getTexto());
-		statement.setInt(2, comentario.getUsuario().getIdUsuario());
-		statement.setInt(3, comentario.getAvaliacao().getIdAvaliacao());
-		statement.execute();
-		ResultSet resultado = statement.getGeneratedKeys();
-		if(resultado.next()){
-			comentario.setIdComentario(resultado.getInt(1));
+		try{
+			conexao.abrirBanco();
+			PreparedStatement statement = conexao.getConexao().prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, comentario.getTexto());
+			statement.setInt(2, comentario.getUsuario().getIdUsuario());
+			statement.setInt(3, comentario.getAvaliacao().getIdAvaliacao());
+			statement.execute();
+			ResultSet resultado = statement.getGeneratedKeys();
+			if(resultado.next()){
+				comentario.setIdComentario(resultado.getInt(1));
+			}
+		}catch(Exception e){
+			throw e;
+		}finally{
+			conexao.fecharBanco();
 		}
 		return comentario;
 	}
@@ -43,17 +49,23 @@ public class ComentarioDao extends BaseDao<Comentario>{
 				+ "INNER JOIN Messeias.Usuario u ON c.Id_Usuario = u.Id_Usuario "
 				+ "WHERE c.id_avaliacao = ? "
 				+ "ORDER BY c.id_comentario";
-		conexao.abrirBanco();
-		PreparedStatement statement = conexao.getConexao().prepareStatement(sqlSelect);
-		statement.setInt(1, idAvaliacao);
-		ResultSet resultado = statement.executeQuery();
-		while(resultado.next()){
-			Comentario comentario = new Comentario(resultado.getInt(1));
-			comentario.setTexto(resultado.getString(2));
-			Usuario usuario = new Usuario();
-			usuario.setNome(resultado.getString(3));
-			comentario.setUsuario(usuario);
-			comentarios.add(comentario);
+		try{
+			conexao.abrirBanco();
+			PreparedStatement statement = conexao.getConexao().prepareStatement(sqlSelect);
+			statement.setInt(1, idAvaliacao);
+			ResultSet resultado = statement.executeQuery();
+			while(resultado.next()){
+				Comentario comentario = new Comentario(resultado.getInt(1));
+				comentario.setTexto(resultado.getString(2));
+				Usuario usuario = new Usuario();
+				usuario.setNome(resultado.getString(3));
+				comentario.setUsuario(usuario);
+				comentarios.add(comentario);
+			}
+		}catch(Exception e){
+			throw e;
+		}finally{
+			conexao.fecharBanco();
 		}
 		return comentarios;
 	}

@@ -5,12 +5,6 @@ SELECT * FROM Messeias.Turma;
 SELECT * FROM Messeias.Comentario;
 SELECT * FROM Messeias.Avaliacao;
 
-INSERT INTO Usuario(nome, senha, tipo) VALUES ('Oseias', 'oss', 'Aluno');
-INSERT INTO Usuario(nome, senha, tipo) VALUES ('Marcos', 'mgr', 'Aluno');
-INSERT INTO Usuario(nome, senha, tipo) VALUES ('Bertolla', 'lb', 'Aluno');
-INSERT INTO Usuario(nome, senha, tipo) VALUES ('Jesus', 'lb', 'Aluno');
-INSERT INTO Usuario(nome, senha, tipo) VALUES ('Rodrigo Remor', 'mito', 'Professor');
-
 INSERT INTO Turma(nome) VALUES ('2I');
 INSERT INTO Turma(nome) VALUES ('4K');
 

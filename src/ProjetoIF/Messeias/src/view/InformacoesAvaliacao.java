@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -48,7 +49,7 @@ public class InformacoesAvaliacao {
 	}
 	
 	private void configurarHeader(){
-		data = new JLabel(avaliacao.getData().toString());
+		data = new JLabel(new SimpleDateFormat("dd/MM/yyyy").format(avaliacao.getData()));
 		data.setFont(LookAndFeel.BTN_FONT);
 		data.setBounds(25, 45, 300, 25);
 		frame.add(data);

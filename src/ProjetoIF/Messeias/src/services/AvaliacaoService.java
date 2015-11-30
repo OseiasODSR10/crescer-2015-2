@@ -38,7 +38,7 @@ public class AvaliacaoService {
 			Turma turma = new TurmaDao().buscarPorNome(turmaNome);
 			avaliacao.setTurma(turma);
 			Calendar calendario = Calendar.getInstance();
-			calendario.set(Integer.parseInt(ano), Integer.parseInt(mes), Integer.parseInt(dia));
+			calendario.set(Integer.parseInt(ano), Integer.parseInt(mes) - 1, Integer.parseInt(dia));
 			Date data = new Date(calendario.getTimeInMillis());
 			avaliacao.setData(data);
 			new AvaliacaoDao().criar(avaliacao);

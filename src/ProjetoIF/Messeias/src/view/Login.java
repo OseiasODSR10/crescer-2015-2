@@ -2,7 +2,6 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,7 +38,12 @@ public class Login {
 		frame.setLayout(null);
 	}
 	
-	public void configurarCampos(){
+	private void configurarCampos(){
+		titulo = new JLabel("MESSEIAS");
+		titulo.setFont(LookAndFeel.APP_TITLE_FONT);
+		titulo.setBounds(150,25,300,100);
+		frame.add(titulo);
+		
 		nome = new JLabel("Nome: ");
 		nome.setFont(LookAndFeel.TEXT_FONT);
 		nome.setBounds(90, 150, 150, 30);
@@ -60,7 +64,7 @@ public class Login {
 		frame.add(textoSenha);
 	}
 	
-	public void configurarButtons(){
+	private void configurarButtons(){
 		entrar = new JButton("Entrar");
 		entrar.setFont(LookAndFeel.BTN_FONT);
 		entrar.setBounds(145, 275, 100, 30);
@@ -96,7 +100,7 @@ public class Login {
 					frame.dispose();
 				}else{
 					new MenuProfessor(usuario);
-					frame.dispose();
+					frame.dispose();				
 				}
 			}
 		}		

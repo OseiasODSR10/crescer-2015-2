@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -63,6 +64,10 @@ public class MenuProfessor{
 		cadastrarNovaTurma.addActionListener(new AcaoCadastrarTurma());
 		usuarioMenu.add(cadastrarNovaTurma);
 		
+		JMenuItem sair = new JMenuItem("Sair");
+		sair.addActionListener(new AcaoSair());
+		usuarioMenu.add(sair);
+		
 		avaliacaoMenu = new JMenu("Avaliação");
 		menuBar.add(avaliacaoMenu);
 		JMenuItem criarAvaliacao = new JMenuItem("Criar avaliação");
@@ -121,7 +126,7 @@ public class MenuProfessor{
 			Avaliacao avaliacao = avaliacoes.get(i);
 			Object[] dadosAvaliacao = new String[columnNames.length];
 			dadosAvaliacao[0] = ""+avaliacao.getIdAvaliacao();
-			dadosAvaliacao[1] = avaliacao.getData().toString();
+			dadosAvaliacao[1] = new SimpleDateFormat("dd/MM/yyyy").format(avaliacao.getData()).toString();
 			dadosAvaliacao[2] = avaliacao.getTipo();
 			dadosAvaliacao[3] = avaliacao.getDisciplina();
 			dadosAvaliacao[4] = avaliacao.getTurma().getNome();
@@ -189,18 +194,28 @@ public class MenuProfessor{
 		}		
 	}
 	
+	private class AcaoSair implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new Login();
+			frame.dispose();
+		}		
+	}
+	
 	private class AcaoBuscarAvaliacoesDaTurma implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String turma = JOptionPane.showInputDialog("Digite o nome da turma que deseja buscar:");
-			ArrayList<Avaliacao> novasAvaliacoes = TurmaService.buscarAvaliacoes(turma);
-			if(novasAvaliacoes != null && novasAvaliacoes.size() > 0){
-				avaliacoes = novasAvaliacoes;
-				frame.remove(body);
-				configurarCorpo();
-				
-			}else{
-				JOptionPane.showMessageDialog(null, "Nenhma avaliação encontrada");
+			if(turma != null){				
+				ArrayList<Avaliacao> novasAvaliacoes = TurmaService.buscarAvaliacoes(turma);
+				if(novasAvaliacoes != null && novasAvaliacoes.size() > 0){
+					avaliacoes = novasAvaliacoes;
+					frame.remove(body);
+					configurarCorpo();
+					
+				}else{
+					JOptionPane.showMessageDialog(null, "Nenhma avaliação encontrada");
+				}
 			}
 		}		
 	}

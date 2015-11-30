@@ -21,11 +21,17 @@ public class UsuarioTurmaDao {
 	
 	public void criar(Usuario usuario, Turma turma) throws Exception{
 		String sqlInsert = "INSERT INTO Messeias.Usuario_Turma (Id_Usuario, Id_Turma) VALUES (?, ?)";
-		this.conexao.abrirBanco();
-		PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlInsert);
-		statement.setInt(1, usuario.getIdUsuario());
-		statement.setInt(2, turma.getIdTurma());
-		statement.execute();
+		try{
+			this.conexao.abrirBanco();
+			PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlInsert);
+			statement.setInt(1, usuario.getIdUsuario());
+			statement.setInt(2, turma.getIdTurma());
+			statement.execute();
+		}catch(Exception e){
+			throw e;
+		}finally{
+			conexao.fecharBanco();
+		}
 	}
 	
 	public ArrayList<Usuario> buscarUsuarios(Turma turma) throws Exception{
@@ -34,17 +40,23 @@ public class UsuarioTurmaDao {
 				+ "FROM Messeias.Usuario_Turma u_t "
 				+ "RIGHT JOIN Messeias.Usuario usuario ON usuario.id_usuario = u_t.id_usuario "
 				+ "WHERE u_t.id_turma = ?";
-		conexao.abrirBanco();
-		PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlSelect);
-		statement.setInt(1, turma.getIdTurma());
-		ResultSet resultado = statement.executeQuery();
-		while(resultado.next()){
-			int idUsuario = resultado.getInt(1);
-			Usuario usuario = new Usuario(idUsuario);
-			usuario.setNome(resultado.getString(2));
-			usuario.setTipo(resultado.getString(3));
-			usuarios.add(usuario);
-		}	
+		try{
+			conexao.abrirBanco();
+			PreparedStatement statement = this.conexao.getConexao().prepareStatement(sqlSelect);
+			statement.setInt(1, turma.getIdTurma());
+			ResultSet resultado = statement.executeQuery();
+			while(resultado.next()){
+				int idUsuario = resultado.getInt(1);
+				Usuario usuario = new Usuario(idUsuario);
+				usuario.setNome(resultado.getString(2));
+				usuario.setTipo(resultado.getString(3));
+				usuarios.add(usuario);
+			}	
+		}catch(Exception e){
+			throw e;
+		}finally{
+			conexao.fecharBanco();
+		}
 		return usuarios;
 	}
 }
