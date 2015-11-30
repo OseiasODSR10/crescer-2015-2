@@ -2,6 +2,8 @@ package entidades;
 
 import java.util.ArrayList;
 
+import util.ServicoCriptografia;
+
 public class Usuario {
 	
 	private int idUsuario;
@@ -35,7 +37,11 @@ public class Usuario {
 	}
 	
 	public void setSenha(String senha) {
-		this.senha = senha;
+		try {
+			this.senha = ServicoCriptografia.criptografar(senha);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Turma> getTurmas(){

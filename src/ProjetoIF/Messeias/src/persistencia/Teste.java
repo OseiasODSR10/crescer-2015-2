@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import util.ServicoCriptografia;
 import entidades.*;
 
 public class Teste {
@@ -92,29 +93,31 @@ public class Teste {
 //		}
 		
 		
+		
+		//System.out.println(ServicoCriptografia.criptografar("mito"));
 		//TODO fazer o MD5
 //		String s="Texto de Exemplo";
 //		MessageDigest m=MessageDigest.getInstance("MD5");
 //		m.update(s.getBytes(),0,s.length());
 //		System.out.println(new BigInteger(1,m.digest()).toString(16));
-		AvaliacaoDao avdao = new AvaliacaoDao();
-		Integer[] ids = {1, 2};
-		for(Avaliacao avaliacao : avdao.buscarPorTurmas(ids)){
-			System.out.printf("\n%d - %s - %s - %.10s - %s - %d - %s - %d - %s",
-					avaliacao.getIdAvaliacao(),
-					avaliacao.getTipo(),
-					avaliacao.getData().toString(),
-					avaliacao.getConteudo(),
-					avaliacao.getDisciplina(),
-					avaliacao.getTurma().getIdTurma(),
-					avaliacao.getTurma().getNome(),
-					avaliacao.getUsuario().getIdUsuario(),
-					avaliacao.getUsuario().getNome());			
-		}
-		
-		for(Turma turma : userDown.buscarPorId(1).getTurmas()){
-			System.out.printf("\n%d - %s", turma.getIdTurma(), turma.getNome());
-		}
+//		AvaliacaoDao avdao = new AvaliacaoDao();
+//		Integer[] ids = {1, 2};
+//		for(Avaliacao avaliacao : avdao.buscarPorTurmas(ids)){
+//			System.out.printf("\n%d - %s - %s - %.10s - %s - %d - %s - %d - %s",
+//					avaliacao.getIdAvaliacao(),
+//					avaliacao.getTipo(),
+//					avaliacao.getData().toString(),
+//					avaliacao.getConteudo(),
+//					avaliacao.getDisciplina(),
+//					avaliacao.getTurma().getIdTurma(),
+//					avaliacao.getTurma().getNome(),
+//					avaliacao.getUsuario().getIdUsuario(),
+//					avaliacao.getUsuario().getNome());			
+//		}
+//		
+//		for(Turma turma : userDown.buscarPorId(1).getTurmas()){
+//			System.out.printf("\n%d - %s", turma.getIdTurma(), turma.getNome());
+//		}
 	}
 
 }

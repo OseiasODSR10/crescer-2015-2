@@ -5,11 +5,13 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import persistencia.AvaliacaoDao;
+import persistencia.TurmaDao;
+import persistencia.UsuarioDao;
+import persistencia.UsuarioTurmaDao;
 import entidades.Avaliacao;
 import entidades.Turma;
 import entidades.Usuario;
-import persistencia.AvaliacaoDao;
-import persistencia.UsuarioDao;
 
 public class UsuarioService {
 	
@@ -62,5 +64,16 @@ public class UsuarioService {
 			JOptionPane.showMessageDialog(null, "Ocorreu um erro ao buscar o usuário");
 		}
 		return usuario;
+	}
+	
+	public static void entrarNumaTurma(String nome, Usuario usuario){
+		Turma turma = null;
+		try {
+			turma = new TurmaDao().buscarPorNome(nome);
+			new UsuarioTurmaDao().criar(usuario, turma);
+			usuario.getTurmas().add(turma);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Não foi possível entrar nesta turma");
+		}
 	}
 }

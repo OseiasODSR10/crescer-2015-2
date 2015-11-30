@@ -13,6 +13,7 @@ public class TurmaService {
 	
 	private static TurmaDao turmaDao = new TurmaDao();
 	private static AvaliacaoDao avaliacaoDao = new AvaliacaoDao();
+	
 	public static void cadastrarTurma(String nome){
 		Turma turma = new Turma();
 		turma.setNome(nome);

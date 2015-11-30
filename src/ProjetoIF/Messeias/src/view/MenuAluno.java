@@ -36,7 +36,6 @@ public class MenuAluno{
 	
 	public MenuAluno(Usuario usuario){
 		this.usuario = usuario;				
-		this.avaliacoes = UsuarioService.buscarAvaliacoes(usuario);
 		configurarFrame();
 		configurarMenu();
 		configurarCorpo();
@@ -45,7 +44,7 @@ public class MenuAluno{
 		frame.repaint();
 	}
 
-	 void configurarFrame(){
+	private void configurarFrame(){
 		frame = new JFrame("Menu");
 		frame.setVisible(true);
 		frame.setBounds(300, 100, 720, 500);
@@ -54,7 +53,7 @@ public class MenuAluno{
 		frame.setLayout(null);
 	}
 	
-	 void configurarMenu(){
+	private void configurarMenu(){
 		menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		usuarioMenu = new JMenu(usuario.getNome());
@@ -62,9 +61,13 @@ public class MenuAluno{
 		JMenuItem cadastrarNovaTurma = new JMenuItem("Cadastrar nova turma");
 		cadastrarNovaTurma.addActionListener(new AcaoCadastrarTurma());
 		usuarioMenu.add(cadastrarNovaTurma);
+		
+		JMenuItem entrarNumaTurma = new JMenuItem("Entrar numa turma");
+		entrarNumaTurma.addActionListener(new AcaoEntrarTurma());
+		usuarioMenu.add(entrarNumaTurma);
 	}
 	
-	 void configurarHeader(){
+	private void configurarHeader(){
 		usuarioNome = new JLabel("Usuário: "+usuario.getNome());
 		usuarioNome.setFont(LookAndFeel.TEXT_FONT);
 		usuarioNome.setBounds(25, 25, 250, 30);
@@ -96,7 +99,8 @@ public class MenuAluno{
 		frame.add(buscar);
 	}
 	
-	 void configurarCorpo(){
+	private void configurarCorpo(){
+		this.avaliacoes = UsuarioService.buscarAvaliacoes(usuario);
 		String[] columnNames = {"ID", "Data", "Tipo", "Disciplina", "Turma", "Professor", "Conteudo"};
 		
 		Object[][] dados = new Object[avaliacoes.size()][columnNames.length];
@@ -119,7 +123,7 @@ public class MenuAluno{
 		frame.add(body);
 	}
 	
-	 void configurarTable(JTable table, Object[][] dados, String[] columnNames){
+	private void configurarTable(JTable table, Object[][] dados, String[] columnNames){
 		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel(dados, columnNames)
 		{
@@ -140,7 +144,7 @@ public class MenuAluno{
 		table.getColumnModel().getColumn(6).setPreferredWidth(250);
 	}
 	
-	 class AcaoBuscar implements ActionListener{
+	private class AcaoBuscar implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String textoid = campoId.getText();
@@ -156,11 +160,21 @@ public class MenuAluno{
 		}		
 	}
 	
-	 class AcaoCadastrarTurma implements ActionListener{
+	private class AcaoCadastrarTurma implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			new CadastroTurma(usuario);
 			frame.dispose();
+		}		
+	}
+	 
+	 private class AcaoEntrarTurma implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String nomeTurama = JOptionPane.showInputDialog("Digite o nome da turma:");
+			if(nomeTurama != null){
+				UsuarioService.entrarNumaTurma(nomeTurama, usuario);
+			}
 		}		
 	}
 }
